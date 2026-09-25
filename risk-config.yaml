@@ -3,9 +3,11 @@
 # Risk percentage thresholds for severity levels
 
 risk:
-  # Calculation mode: "formula" or "cvss"
+  # Calculation mode: "formula", "cvss" or "policy" (case-insensitive; required when enabled)
   # - "formula": Use Risk = EPSS * (CVSS/10) with custom thresholds
   # - "cvss": Use original Grype CVSS-based severity mapping
+  # - "policy": five rules (KEV, malicious packages, grype risk ladder, no EPSS, public exploits)
+  #   with thresholds from SCANNER_POLICY_*; see RISK_CALCULATION.md
   mode: "formula"
 
   # Risk percentage thresholds (0-100%) - only used when mode = "formula"

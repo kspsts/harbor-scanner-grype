@@ -1,0 +1,7 @@
+.git
+docs
+test
+*.tar
+*.tar.gz
+!grype-db.tar.zst
+scanner-grype-linux

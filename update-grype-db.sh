@@ -1,18 +1,21 @@
 #!/bin/sh
+# Updates the Grype vulnerability database. Run by cron on GRYPE_DB_UPDATE_SCHEDULE;
+# scans do not update the database themselves. Output goes to /var/log/grype-update.log,
+# which start.sh also forwards to the container log, in the adapter's key=value format.
 
-# Script to update Grype vulnerability database
-# This script should be run daily at 00:00 via cron
+log() {
+    level=$1
+    shift
+    echo "time=$(date '+%Y-%m-%dT%H:%M:%S%z') level=$level msg=\"$*\""
+}
 
-echo "$(date): Starting Grype database update..."
+log INFO "Vulnerability DB update started"
+started=$(date +%s)
 
-# Update the vulnerability database
-/usr/local/bin/grype db update
-
-if [ $? -eq 0 ]; then
-    echo "$(date): Grype database updated successfully"
+if output=$(/usr/local/bin/grype db update 2>&1); then
+    status=$(/usr/local/bin/grype db status 2>&1 | tr -s ' \n' ' ')
+    log INFO "Vulnerability DB update finished in $(( $(date +%s) - started ))s: $(echo "$output" | tail -n 1 | tr -d '"'). $status"
 else
-    echo "$(date): ERROR: Failed to update Grype database"
+    log ERROR "Vulnerability DB update failed after $(( $(date +%s) - started ))s: $(echo "$output" | tail -n 3 | tr '\n' ' ' | tr -d '"')"
     exit 1
 fi
-
-echo "$(date): Grype database update completed"

@@ -4,11 +4,13 @@ import (
 	"context"
 	"encoding/base64"
 	"log/slog"
+	"net/url"
 	"strings"
 
 	"github.com/samber/lo"
 	"golang.org/x/xerrors"
 
+	"github.com/aquasecurity/harbor-scanner-grype/pkg/etc"
 	"github.com/aquasecurity/harbor-scanner-grype/pkg/grype"
 	"github.com/aquasecurity/harbor-scanner-grype/pkg/harbor"
 	"github.com/aquasecurity/harbor-scanner-grype/pkg/http/api"
@@ -24,22 +26,26 @@ type controller struct {
 	store       persistence.Store
 	wrapper     grype.Wrapper
 	transformer Transformer
+	registry    etc.Registry
 }
 
-func NewController(store persistence.Store, wrapper grype.Wrapper, transformer Transformer) Controller {
+func NewController(store persistence.Store, wrapper grype.Wrapper, transformer Transformer, registry etc.Registry) Controller {
 	return &controller{
 		store:       store,
 		wrapper:     wrapper,
 		transformer: transformer,
+		registry:    registry,
 	}
 }
 
+// Scan runs one scan job and stores its report. A failed scan is stored as Failed and its error
+// returned, so the worker can log it.
 func (c *controller) Scan(ctx context.Context, scanJobKey job.ScanJobKey, request *harbor.ScanRequest) error {
 	if err := c.scan(ctx, scanJobKey, request); err != nil {
-		slog.Error("Scan failed", slog.String("err", err.Error()))
-		if err = c.store.UpdateStatus(ctx, scanJobKey, job.Failed, err.Error()); err != nil {
-			return xerrors.Errorf("updating scan job as failed: %v", err)
+		if updateErr := c.store.UpdateStatus(ctx, scanJobKey, job.Failed, err.Error()); updateErr != nil {
+			return xerrors.Errorf("%v; updating scan job as failed: %w", err, updateErr)
 		}
+		return err
 	}
 	return nil
 }
@@ -47,31 +53,23 @@ func (c *controller) Scan(ctx context.Context, scanJobKey job.ScanJobKey, reques
 func (c *controller) scan(ctx context.Context, scanJobKey job.ScanJobKey, req *harbor.ScanRequest) (err error) {
 	defer func() {
 		if r := recover(); r != nil {
-			err = r.(error)
+			err = xerrors.Errorf("scan panicked: %v", r)
 		}
 	}()
 
-	// Log the incoming request from Harbor
-	slog.Info("Received scan request from Harbor",
-		slog.String("registry_url", req.Registry.URL),
-		slog.String("registry_auth", req.Registry.Authorization),
-		slog.String("artifact_repository", req.Artifact.Repository),
-		slog.String("artifact_digest", req.Artifact.Digest),
-		slog.String("artifact_mime_type", req.Artifact.MimeType),
-		slog.Int("capabilities_count", len(req.Capabilities)),
-	)
+	logScanRequest(req)
 
 	err = c.store.UpdateStatus(ctx, scanJobKey, job.Pending, "")
 	if err != nil {
 		return xerrors.Errorf("updating scan job status: %v", err)
 	}
 
-	imageRef, nonSSL, err := req.GetImageRef()
+	imageRef, nonSSL, err := req.GetImageRef(c.registry.HostMap)
 	if err != nil {
 		return err
 	}
 
-	auth, err := c.ToRegistryAuth(req.Registry.Authorization)
+	auth, err := c.registryAuth(*req)
 	if err != nil {
 		return err
 	}
@@ -118,65 +116,62 @@ func (c *controller) scan(ctx context.Context, scanJobKey job.ScanJobKey, req *h
 	return
 }
 
-func (c *controller) ToRegistryAuth(authorization string) (auth grype.RegistryAuth, err error) {
-	slog.Info("Processing authorization from Harbor",
-		slog.String("authorization", authorization),
+// logScanRequest logs the incoming scan request from Harbor. It never logs the Authorization header
+// or any credential derived from it: see registryAuth.
+func logScanRequest(req *harbor.ScanRequest) {
+	slog.Info("Received scan request from Harbor",
+		slog.String("registry_url", req.Registry.URL),
+		slog.String("artifact_repository", req.Artifact.Repository),
+		slog.String("artifact_digest", req.Artifact.Digest),
+		slog.String("artifact_mime_type", req.Artifact.MimeType),
+		slog.Int("capabilities_count", len(req.Capabilities)),
 	)
-
-	if authorization == "" {
-		slog.Info("No authorization provided, using default credentials")
-		// Use default Harbor credentials for testing
-		return grype.BasicAuth{
-			Username: "admin",
-			Password: "Harbor12345",
-		}, nil
-	}
-
-	tokens := strings.Split(authorization, " ")
-	if len(tokens) != 2 {
-		return auth, xerrors.Errorf("parsing authorization: expected <type> <credentials> got %s", authorization)
-	}
-
-	slog.Info("Authorization type detected",
-		slog.String("type", tokens[0]),
-		slog.String("credentials", tokens[1]),
-	)
-
-	switch tokens[0] {
-	case "Basic":
-		auth, err = c.decodeBasicAuth(tokens[1])
-		if err != nil {
-			return auth, err
-		}
-		slog.Info("Decoded Basic Auth",
-			slog.String("username", auth.(grype.BasicAuth).Username),
-			slog.String("password", "***"),
-		)
-		return auth, nil
-	case "Bearer":
-		slog.Info("Bearer token received, using default Basic Auth for Harbor registry")
-		// For Harbor, we'll use Basic Auth with admin credentials
-		// since Harbor registry typically uses Basic Auth
-		return grype.BasicAuth{
-			Username: "admin",
-			Password: "Harbor12345",
-		}, nil
-	}
-
-	return auth, xerrors.Errorf("unrecognized authorization type: %s", tokens[0])
 }
 
-func (c *controller) decodeBasicAuth(value string) (auth grype.RegistryAuth, err error) {
-	creds, err := base64.StdEncoding.DecodeString(value)
+// registryAuth picks the credentials for the registry in Harbor's scan request. Harbor's Basic
+// credentials are used as they are. When Harbor sends a Bearer token or nothing, the configured
+// account is used, but only for SCANNER_REGISTRY_TRUSTED_HOSTS; any other host gets the token as it
+// is, or no credentials. Secrets never reach the log.
+func (c *controller) registryAuth(req harbor.ScanRequest) (grype.RegistryAuth, error) {
+	host := ""
+	if u, err := url.Parse(req.Registry.URL); err == nil {
+		host = u.Hostname()
+	}
+	kind, value, _ := strings.Cut(strings.TrimSpace(req.Registry.Authorization), " ")
+	useAccount := c.registry.Username != "" && c.registry.Trusted(host)
+
+	var auth grype.RegistryAuth
+	var source string
+	switch {
+	case strings.EqualFold(kind, "Basic"):
+		decoded, err := decodeBasicAuth(value)
+		if err != nil {
+			return nil, err
+		}
+		auth, source = decoded, "Harbor (Basic)"
+	case (kind == "" || strings.EqualFold(kind, "Bearer")) && useAccount:
+		auth, source = grype.BasicAuth{Username: c.registry.Username, Password: c.registry.Password}, "SCANNER_REGISTRY_USERNAME"
+	case strings.EqualFold(kind, "Bearer"):
+		auth, source = grype.BearerAuth{Token: strings.TrimSpace(value)}, "Harbor (Bearer)"
+	case kind == "":
+		auth, source = grype.NoAuth{}, "none"
+	default:
+		return nil, xerrors.Errorf("unrecognized authorization type %q", kind)
+	}
+	slog.Debug("Registry credentials", slog.String("registry", host), slog.String("source", source))
+	return auth, nil
+}
+
+func decodeBasicAuth(value string) (grype.RegistryAuth, error) {
+	creds, err := base64.StdEncoding.DecodeString(strings.TrimSpace(value))
 	if err != nil {
-		return auth, err
+		return nil, xerrors.Errorf("decoding Basic credentials: %w", err)
 	}
-	tokens := strings.Split(string(creds), ":")
-	auth = grype.BasicAuth{
-		Username: tokens[0],
-		Password: tokens[1],
+	user, pass, ok := strings.Cut(string(creds), ":")
+	if !ok {
+		return nil, xerrors.New("Basic credentials are not user:password")
 	}
-	return
+	return grype.BasicAuth{Username: user, Password: pass}, nil
 }
 
 func determineFormat(m api.MediaType) grype.Format {

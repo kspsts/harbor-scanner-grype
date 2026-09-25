@@ -1,6 +1,7 @@
 package v1
 
 import (
+	"crypto/subtle"
 	"encoding/json"
 	"fmt"
 	"github.com/samber/lo"
@@ -9,6 +10,7 @@ import (
 	"net/url"
 	"slices"
 	"strconv"
+	"strings"
 	"time"
 
 	"github.com/aquasecurity/harbor-scanner-grype/pkg/etc"
@@ -31,28 +33,39 @@ const (
 
 var decoder = schema.NewDecoder()
 
+// exploitDBInfo reports the update time and CVE count of the currently loaded Exploit-DB list, as
+// *exploitdb.Watcher does. A nil value is fine: GetMetadata then omits the Exploit-DB properties.
+type exploitDBInfo interface {
+	Info() (updated time.Time, cves int, ok bool)
+}
+
 type requestHandler struct {
 	info     etc.BuildInfo
 	config   etc.Config
 	enqueuer queue.Enqueuer
 	store    persistence.Store
 	wrapper  grype.Wrapper
+	exploits exploitDBInfo
 	api.BaseHandler
 }
 
-func NewAPIHandler(info etc.BuildInfo, config etc.Config, enqueuer queue.Enqueuer, store persistence.Store, wrapper grype.Wrapper) http.Handler {
+// NewAPIHandler builds the scanner's HTTP router. exploits is the Exploit-DB list watcher used to
+// report its freshness from GetMetadata; it is nil when not running in policy mode.
+func NewAPIHandler(info etc.BuildInfo, config etc.Config, enqueuer queue.Enqueuer, store persistence.Store, wrapper grype.Wrapper, exploits exploitDBInfo) http.Handler {
 	handler := &requestHandler{
 		info:     info,
 		config:   config,
 		enqueuer: enqueuer,
 		store:    store,
 		wrapper:  wrapper,
+		exploits: exploits,
 	}
 
 	router := mux.NewRouter()
 	router.Use(handler.logRequest)
 
 	apiV1Router := router.PathPrefix("/api/v1").Subrouter()
+	apiV1Router.Use(handler.requireAPIKey(config.API.Key))
 	apiV1Router.Methods(http.MethodPost).Path("/scan").HandlerFunc(handler.AcceptScanRequest)
 	apiV1Router.Methods(http.MethodGet).Path("/scan/{scan_request_id}/report").HandlerFunc(handler.GetScanReport)
 	apiV1Router.Methods(http.MethodGet).Path("/metadata").HandlerFunc(handler.GetMetadata)
@@ -78,6 +91,27 @@ func (h *requestHandler) logRequest(next http.Handler) http.Handler {
 		)
 		next.ServeHTTP(w, r)
 	})
+}
+
+// requireAPIKey rejects requests to the scanner API without the key Harbor was registered with,
+// sent as "Authorization: Bearer <key>" or "X-ScannerAdapter-API-Key: <key>". Keys are compared in
+// constant time, and neither the given nor the configured key is ever logged.
+func (h *requestHandler) requireAPIKey(key string) mux.MiddlewareFunc {
+	return func(next http.Handler) http.Handler {
+		return http.HandlerFunc(func(res http.ResponseWriter, req *http.Request) {
+			given := strings.TrimSpace(req.Header.Get("X-ScannerAdapter-API-Key"))
+			if kind, value, ok := strings.Cut(req.Header.Get("Authorization"), " "); ok && strings.EqualFold(kind, "Bearer") {
+				given = strings.TrimSpace(value)
+			}
+			if key == "" || subtle.ConstantTimeCompare([]byte(given), []byte(key)) != 1 {
+				slog.Warn("Rejected a request without a valid API key",
+					slog.String("addr", req.RemoteAddr), slog.String("uri", req.URL.RequestURI()))
+				h.WriteJSONError(res, api.Error{HTTPCode: http.StatusUnauthorized, Message: "missing or invalid API key"})
+				return
+			}
+			next.ServeHTTP(res, req)
+		})
+	}
 }
 
 func (h *requestHandler) AcceptScanRequest(res http.ResponseWriter, req *http.Request) {
@@ -266,6 +300,10 @@ func (h *requestHandler) GetScanReport(res http.ResponseWriter, req *http.Reques
 	scanJobLog := reqLog.With(slog.String("scan_job_status", scanJob.Status.String()))
 
 	if scanJob.Status == job.Queued || scanJob.Status == job.Pending {
+		// Harbor still waits for this report: keep the job from being skipped.
+		if err := h.store.MarkAwaited(req.Context(), scanJob.Key, h.config.Harbor.PollTimeout); err != nil {
+			scanJobLog.Warn("Failed to mark the scan job as awaited", slog.String("err", err.Error()))
+		}
 		scanJobLog.Debug("Scan job has not finished yet")
 		res.Header().Add("Location", req.URL.String())
 		res.WriteHeader(http.StatusFound)
@@ -302,13 +340,28 @@ func (h *requestHandler) GetMetadata(res http.ResponseWriter, _ *http.Request) {
 		"org.label-schema.vcs-ref":    h.info.Commit,
 		"org.label-schema.vcs":        "https://github.com/aquasecurity/harbor-scanner-grype",
 
-		"env.SCANNER_GRYPE_SKIP_UPDATE":       strconv.FormatBool(h.config.Grype.SkipUpdate),
-		"env.SCANNER_GRYPE_OFFLINE_SCAN":      strconv.FormatBool(h.config.Grype.OfflineScan),
-		"env.SCANNER_GRYPE_IGNORE_UNFIXED":    strconv.FormatBool(h.config.Grype.IgnoreUnfixed),
-		"env.SCANNER_GRYPE_DEBUG_MODE":        strconv.FormatBool(h.config.Grype.DebugMode),
-		"env.SCANNER_GRYPE_INSECURE":          strconv.FormatBool(h.config.Grype.Insecure),
-		"env.SCANNER_GRYPE_SEVERITY":          h.config.Grype.Severity,
-		"env.SCANNER_GRYPE_TIMEOUT":           h.config.Grype.Timeout.String(),
+		"env.SCANNER_GRYPE_SKIP_UPDATE":    strconv.FormatBool(h.config.Grype.SkipUpdate),
+		"env.SCANNER_GRYPE_OFFLINE_SCAN":   strconv.FormatBool(h.config.Grype.OfflineScan),
+		"env.SCANNER_GRYPE_IGNORE_UNFIXED": strconv.FormatBool(h.config.Grype.IgnoreUnfixed),
+		"env.SCANNER_GRYPE_DEBUG_MODE":     strconv.FormatBool(h.config.Grype.DebugMode),
+		"env.SCANNER_GRYPE_SEVERITY":       h.config.Grype.Severity,
+		"env.SCANNER_GRYPE_TIMEOUT":        h.config.Grype.Timeout.String(),
+
+		// The registry flags actually used by grype and syft (see pkg/grype.wrapper.registryEnv);
+		// SCANNER_GRYPE_INSECURE no longer affects anything and is not reported.
+		"env.SCANNER_REGISTRY_INSECURE_USE_HTTP":        strconv.FormatBool(h.config.Registry.InsecureUseHTTP),
+		"env.SCANNER_REGISTRY_INSECURE_SKIP_TLS_VERIFY": strconv.FormatBool(h.config.Registry.InsecureSkipTLSVerify),
+
+		"env.SCANNER_RISK_ENABLED": strconv.FormatBool(h.config.Risk.Risk.Enabled),
+		"env.SCANNER_RISK_MODE":    h.config.Risk.Risk.Mode,
+	}
+
+	// The policy thresholds only mean something in policy mode: showing them otherwise would
+	// suggest they are in effect when they are not.
+	if h.config.Risk.Risk.PolicyMode() {
+		properties["env.SCANNER_POLICY_CRITICAL"] = formatThreshold(h.config.Policy.Critical)
+		properties["env.SCANNER_POLICY_HIGH"] = formatThreshold(h.config.Policy.High)
+		properties["env.SCANNER_POLICY_MEDIUM"] = formatThreshold(h.config.Policy.Medium)
 	}
 
 	vi, err := h.wrapper.GetVersion()
@@ -325,6 +378,21 @@ func (h *requestHandler) GetMetadata(res http.ResponseWriter, _ *http.Request) {
 		properties["grype.compiler"] = vi.Compiler
 		properties["grype.goVersion"] = vi.GoVersion
 		properties["grype.libVersion"] = vi.LibVersion
+	}
+
+	if status, err := h.wrapper.DBStatus(); err != nil {
+		slog.Warn("Failed to read the vulnerability DB status", slog.String("err", err.Error()))
+	} else if !status.Built.IsZero() {
+		properties["harbor.scanner-adapter/vulnerability-database-updated-at"] = status.Built.UTC().Format(time.RFC3339)
+	}
+
+	// The Exploit-DB list's own freshness, separate from grype's vulnerability database above.
+	// h.exploits is nil outside policy mode, and Info reports ok=false until a list has loaded.
+	if h.exploits != nil {
+		if updated, cves, ok := h.exploits.Info(); ok {
+			properties["harbor.scanner-adapter/exploitdb-updated-at"] = updated.UTC().Format(time.RFC3339)
+			properties["harbor.scanner-adapter/exploitdb-cve-count"] = strconv.Itoa(cves)
+		}
 	}
 
 	metadata := &harbor.ScannerAdapterMetadata{
@@ -360,6 +428,12 @@ func (h *requestHandler) GetMetadata(res http.ResponseWriter, _ *http.Request) {
 		Properties: properties,
 	}
 	h.WriteJSON(res, metadata, api.MimeTypeMetadata, http.StatusOK)
+}
+
+// formatThreshold formats a SCANNER_POLICY_* threshold the way it was configured (at most one
+// decimal; see Policy.validate), without a forced trailing ".0".
+func formatThreshold(v float64) string {
+	return strconv.FormatFloat(v, 'f', -1, 64)
 }
 
 func (h *requestHandler) GetHealthy(res http.ResponseWriter, req *http.Request) {

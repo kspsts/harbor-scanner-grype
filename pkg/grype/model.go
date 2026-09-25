@@ -13,21 +13,29 @@ type ScanReport struct {
 
 type Match struct {
 	Vulnerability Vulnerability `json:"vulnerability"`
-	Artifact      Artifact      `json:"artifact"`
+	// RelatedVulnerabilities are the records grype links to the match (for a distro advisory, the NVD record of its CVE); grype puts them next to vulnerability.
+	RelatedVulnerabilities []RelatedVulnerability `json:"relatedVulnerabilities,omitempty"`
+	Artifact               Artifact               `json:"artifact"`
 }
 
 type Vulnerability struct {
-	ID                     string                 `json:"id"`
-	DataSource             string                 `json:"dataSource"`
-	Namespace              string                 `json:"namespace"`
-	Severity               string                 `json:"severity"`
-	URLs                   []string               `json:"urls"`
-	Description            string                 `json:"description"`
-	Cvss                   []Cvss                 `json:"cvss"`
-	Fix                    Fix                    `json:"fix"`
-	Advisories             []interface{}          `json:"advisories"`
-	EPSS                   []EPSS                 `json:"epss,omitempty"` // Array in Grype 0.100.0
+	ID          string        `json:"id"`
+	DataSource  string        `json:"dataSource"`
+	Namespace   string        `json:"namespace"`
+	Severity    string        `json:"severity"`
+	URLs        []string      `json:"urls"`
+	Description string        `json:"description"`
+	Cvss        []Cvss        `json:"cvss"`
+	Fix         Fix           `json:"fix"`
+	Advisories  []interface{} `json:"advisories"`
+	EPSS        []EPSS        `json:"epss,omitempty"` // Array in Grype 0.100.0
+	// RelatedVulnerabilities is always empty in grype's JSON, which puts related records on the
+	// match (see Match.RelatedVulnerabilities). The legacy formula and cvss code still reads it
+	// (getEPSSScore and getCVSSScore in pkg/scan), so their fallbacks to related records never fire.
 	RelatedVulnerabilities []RelatedVulnerability `json:"relatedVulnerabilities,omitempty"`
+	KnownExploited         []KnownExploited       `json:"knownExploited,omitempty"`
+	CWEs                   []CWE                  `json:"cwes,omitempty"`
+	Risk                   float64                `json:"risk"`
 }
 
 type Cvss struct {
@@ -107,13 +115,13 @@ type VersionInfo struct {
 }
 
 type Report struct {
-	SBOM            any
-	Vulnerabilities []Vulnerability
-	Matches         []Match
+	SBOM    any
+	Matches []Match
 }
 
 // EPSS represents Exploit Prediction Scoring System data
 type EPSS struct {
+	CVE        string  `json:"cve"`
 	Score      float64 `json:"epss"`       // EPSS score (0.0-1.0)
 	Percentile float64 `json:"percentile"` // EPSS percentile
 	Date       string  `json:"date"`       // Date of EPSS data
@@ -129,4 +137,17 @@ type RelatedVulnerability struct {
 	Description string   `json:"description"`
 	Cvss        []Cvss   `json:"cvss"`
 	EPSS        []EPSS   `json:"epss,omitempty"`
+}
+
+// KnownExploited is an entry of the CISA KEV catalogue that grype attaches to a vulnerability.
+type KnownExploited struct {
+	CVE                        string `json:"cve"`
+	DateAdded                  string `json:"dateAdded,omitempty"` // YYYY-MM-DD
+	KnownRansomwareCampaignUse string `json:"knownRansomwareCampaignUse"`
+}
+
+// CWE is a weakness class assigned to one of the vulnerability's CVEs.
+type CWE struct {
+	CVE string `json:"cve"`
+	CWE string `json:"cwe"`
 }

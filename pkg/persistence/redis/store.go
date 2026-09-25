@@ -17,29 +17,40 @@ import (
 )
 
 type store struct {
-	namespace string
-	ttl       time.Duration
-	rdb       *redis.Client
+	namespace  string
+	pendingTTL time.Duration
+	doneTTL    time.Duration
+	rdb        *redis.Client
 }
 
 func NewStore(config etc.RedisStore, rdb *redis.Client) persistence.Store {
 	return &store{
-		namespace: config.Namespace,
-		ttl:       config.ScanJobTTL,
-		rdb:       rdb,
+		namespace:  config.Namespace,
+		pendingTTL: config.PendingJobTTL,
+		doneTTL:    config.ScanJobTTL,
+		rdb:        rdb,
 	}
+}
+
+// ttl keeps queued and running jobs for PendingJobTTL, so a long "Scan all" queue does not expire
+// before it is processed, and finished jobs for ScanJobTTL.
+func (s *store) ttl(status job.Status) time.Duration {
+	if status == job.Finished || status == job.Failed {
+		return s.doneTTL
+	}
+	return s.pendingTTL
 }
 
 func (s *store) Create(ctx context.Context, scanJob *job.ScanJob) error {
 	key := s.redisKey(scanJob.Key)
-	
+
 	scanJob.Status = job.Queued
 	scanJobData, err := json.Marshal(scanJob)
 	if err != nil {
 		return xerrors.Errorf("marshalling scan job: %w", err)
 	}
 
-	if err := s.rdb.Set(ctx, key, scanJobData, s.ttl).Err(); err != nil {
+	if err := s.rdb.Set(ctx, key, scanJobData, s.ttl(job.Queued)).Err(); err != nil {
 		return xerrors.Errorf("storing scan job: %w", err)
 	}
 
@@ -49,7 +60,7 @@ func (s *store) Create(ctx context.Context, scanJob *job.ScanJob) error {
 
 func (s *store) Get(ctx context.Context, key job.ScanJobKey) (*job.ScanJob, error) {
 	redisKey := s.redisKey(key)
-	
+
 	scanJobData, err := s.rdb.Get(ctx, redisKey).Result()
 	if err != nil {
 		if err == redis.Nil {
@@ -68,7 +79,7 @@ func (s *store) Get(ctx context.Context, key job.ScanJobKey) (*job.ScanJob, erro
 
 func (s *store) UpdateStatus(ctx context.Context, key job.ScanJobKey, status job.Status, errorMsg string) error {
 	redisKey := s.redisKey(key)
-	
+
 	scanJob, err := s.Get(ctx, key)
 	if err != nil {
 		return xerrors.Errorf("getting scan job for status update: %w", err)
@@ -85,11 +96,11 @@ func (s *store) UpdateStatus(ctx context.Context, key job.ScanJobKey, status job
 		return xerrors.Errorf("marshalling scan job for status update: %w", err)
 	}
 
-	if err := s.rdb.Set(ctx, redisKey, scanJobData, s.ttl).Err(); err != nil {
+	if err := s.rdb.Set(ctx, redisKey, scanJobData, s.ttl(status)).Err(); err != nil {
 		return xerrors.Errorf("updating scan job status: %w", err)
 	}
 
-	slog.Debug("Updated scan job status", 
+	slog.Debug("Updated scan job status",
 		slog.String("key", redisKey),
 		slog.String("status", status.String()),
 		slog.String("error", errorMsg))
@@ -98,7 +109,7 @@ func (s *store) UpdateStatus(ctx context.Context, key job.ScanJobKey, status job
 
 func (s *store) UpdateReport(ctx context.Context, key job.ScanJobKey, report *harbor.ScanReport) error {
 	redisKey := s.redisKey(key)
-	
+
 	scanJob, err := s.Get(ctx, key)
 	if err != nil {
 		return xerrors.Errorf("getting scan job for report update: %w", err)
@@ -114,7 +125,7 @@ func (s *store) UpdateReport(ctx context.Context, key job.ScanJobKey, report *ha
 		return xerrors.Errorf("marshalling scan job for report update: %w", err)
 	}
 
-	if err := s.rdb.Set(ctx, redisKey, scanJobData, s.ttl).Err(); err != nil {
+	if err := s.rdb.Set(ctx, redisKey, scanJobData, s.ttl(scanJob.Status)).Err(); err != nil {
 		return xerrors.Errorf("updating scan job report: %w", err)
 	}
 
@@ -124,4 +135,23 @@ func (s *store) UpdateReport(ctx context.Context, key job.ScanJobKey, report *ha
 
 func (s *store) redisKey(key job.ScanJobKey) string {
 	return fmt.Sprintf("%s:scan-job:%s", s.namespace, key.ID)
+}
+
+func (s *store) MarkAwaited(ctx context.Context, key job.ScanJobKey, ttl time.Duration) error {
+	if err := s.rdb.Set(ctx, s.awaitedKey(key), "", ttl).Err(); err != nil {
+		return xerrors.Errorf("marking scan job as awaited: %w", err)
+	}
+	return nil
+}
+
+func (s *store) IsAwaited(ctx context.Context, key job.ScanJobKey) (bool, error) {
+	n, err := s.rdb.Exists(ctx, s.awaitedKey(key)).Result()
+	if err != nil {
+		return false, xerrors.Errorf("checking whether scan job is awaited: %w", err)
+	}
+	return n > 0, nil
+}
+
+func (s *store) awaitedKey(key job.ScanJobKey) string {
+	return fmt.Sprintf("%s:awaited:%s", s.namespace, key.ID)
 }

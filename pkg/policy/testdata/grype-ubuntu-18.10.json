@@ -1,0 +1,630 @@
+{
+ "matches": [
+  {
+   "vulnerability": {
+    "id": "CVE-2019-5418",
+    "namespace": "ubuntu:distro:ubuntu:18.10",
+    "severity": "High",
+    "urls": [],
+    "epss": [
+     {
+      "cve": "CVE-2019-5418",
+      "epss": 0.98507,
+      "percentile": 0.99918,
+      "date": "2026-09-14"
+     }
+    ],
+    "knownExploited": [
+     {
+      "cve": "CVE-2019-5418",
+      "vendorProject": "Rails",
+      "product": "Ruby on Rails",
+      "dateAdded": "2025-07-07",
+      "requiredAction": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+      "dueDate": "2025-07-28",
+      "knownRansomwareCampaignUse": "unknown",
+      "urls": [
+       "https://web.archive.org/web/20190313201629/https://weblog.rubyonrails.org/2019/3/13/Rails-4-2-5-1-5-1-6-2-have-been-released/",
+       "https://nvd.nist.gov/vuln/detail/CVE-2019-5418"
+      ],
+      "cwes": [
+       "CWE-22"
+      ]
+     }
+    ],
+    "cwes": [
+     {
+      "cve": "CVE-2019-5418",
+      "cwe": "CWE-22",
+      "source": "support@hackerone.com",
+      "type": "Secondary"
+     }
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 78.75000000000001,
+    "description": "",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [
+    {
+     "id": "CVE-2019-5418",
+     "urls": [
+      "http://lists.opensuse.org/opensuse-security-announce/2019-05/msg00011.html",
+      "http://packetstormsecurity.com/files/152178/Rails-5.2.1-Arbitrary-File-Content-Disclosure.html",
+      "http://www.openwall.com/lists/oss-security/2019/03/22/1",
+      "https://access.redhat.com/errata/RHSA-2019:0796",
+      "https://access.redhat.com/errata/RHSA-2019:1147",
+      "https://access.redhat.com/errata/RHSA-2019:1149",
+      "https://access.redhat.com/errata/RHSA-2019:1289",
+      "https://groups.google.com/forum/#%21topic/rubyonrails-security/pFRKI96Sm8Q",
+      "https://lists.debian.org/debian-lts-announce/2019/03/msg00042.html",
+      "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/Y43636TH4D6T46IC6N2RQVJTRFJAAYGA/",
+      "https://weblog.rubyonrails.org/2019/3/13/Rails-4-2-5-1-5-1-6-2-have-been-released/",
+      "https://www.exploit-db.com/exploits/46585/",
+      "https://web.archive.org/web/20190313201629/https://weblog.rubyonrails.org/2019/3/13/Rails-4-2-5-1-5-1-6-2-have-been-released/",
+      "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2019-5418"
+     ],
+     "cvss": [
+      {
+       "version": "3.1",
+       "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+       "metrics": {
+        "baseScore": 7.5
+       }
+      },
+      {
+       "version": "2.0",
+       "vector": "AV:N/AC:L/Au:N/C:P/I:N/A:N",
+       "metrics": {
+        "baseScore": 5
+       }
+      },
+      {
+       "version": "3.1",
+       "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+       "metrics": {
+        "baseScore": 7.5
+       }
+      }
+     ]
+    }
+   ],
+   "artifact": {
+    "name": "ruby-activesupport",
+    "version": "2:5.2.0+dfsg-2",
+    "type": "deb"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "CVE-2019-5420",
+    "namespace": "ubuntu:distro:ubuntu:18.10",
+    "severity": "Medium",
+    "urls": [],
+    "epss": [
+     {
+      "cve": "CVE-2019-5420",
+      "epss": 0.92144,
+      "percentile": 0.99816,
+      "date": "2026-09-14"
+     }
+    ],
+    "cwes": [
+     {
+      "cve": "CVE-2019-5420",
+      "cwe": "CWE-77",
+      "source": "support@hackerone.com",
+      "type": "Secondary"
+     },
+     {
+      "cve": "CVE-2019-5420",
+      "cwe": "CWE-330",
+      "source": "nvd@nist.gov",
+      "type": "Primary"
+     }
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 46.072,
+    "description": "",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [
+    {
+     "id": "CVE-2019-5420",
+     "urls": [
+      "http://packetstormsecurity.com/files/152704/Ruby-On-Rails-DoubleTap-Development-Mode-secret_key_base-Remote-Code-Execution.html",
+      "https://groups.google.com/forum/#%21topic/rubyonrails-security/IsQKvDqZdKw",
+      "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/Y43636TH4D6T46IC6N2RQVJTRFJAAYGA/",
+      "https://weblog.rubyonrails.org/2019/3/13/Rails-4-2-5-1-5-1-6-2-have-been-released/",
+      "https://www.exploit-db.com/exploits/46785/"
+     ],
+     "cvss": [
+      {
+       "version": "3.1",
+       "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+       "metrics": {
+        "baseScore": 9.8
+       }
+      },
+      {
+       "version": "2.0",
+       "vector": "AV:N/AC:L/Au:N/C:P/I:P/A:P",
+       "metrics": {
+        "baseScore": 7.5
+       }
+      }
+     ]
+    }
+   ],
+   "artifact": {
+    "name": "ruby-activesupport",
+    "version": "2:5.2.0+dfsg-2",
+    "type": "deb"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "CVE-2018-3779",
+    "namespace": "ubuntu:distro:ubuntu:18.10",
+    "severity": "High",
+    "urls": [],
+    "epss": [
+     {
+      "cve": "CVE-2018-3779",
+      "epss": 0.06129,
+      "percentile": 0.93038,
+      "date": "2026-09-14"
+     }
+    ],
+    "cwes": [
+     {
+      "cve": "CVE-2018-3779",
+      "cwe": "CWE-77",
+      "source": "support@hackerone.com",
+      "type": "Secondary"
+     }
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 4.596749999999999,
+    "description": "",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [
+    {
+     "id": "CVE-2018-3779",
+     "urls": [
+      "https://hackerone.com/reports/392311"
+     ],
+     "cvss": [
+      {
+       "version": "3.0",
+       "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+       "metrics": {
+        "baseScore": 9.8
+       }
+      },
+      {
+       "version": "2.0",
+       "vector": "AV:N/AC:L/Au:N/C:C/I:C/A:C",
+       "metrics": {
+        "baseScore": 10
+       }
+      }
+     ]
+    }
+   ],
+   "artifact": {
+    "name": "ruby-activesupport",
+    "version": "2:5.2.0+dfsg-2",
+    "type": "deb"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "CVE-2019-5419",
+    "namespace": "ubuntu:distro:ubuntu:18.10",
+    "severity": "Medium",
+    "urls": [],
+    "epss": [
+     {
+      "cve": "CVE-2019-5419",
+      "epss": 0.08671,
+      "percentile": 0.94814,
+      "date": "2026-09-14"
+     }
+    ],
+    "cwes": [
+     {
+      "cve": "CVE-2019-5419",
+      "cwe": "CWE-400",
+      "source": "support@hackerone.com",
+      "type": "Secondary"
+     },
+     {
+      "cve": "CVE-2019-5419",
+      "cwe": "CWE-770",
+      "source": "nvd@nist.gov",
+      "type": "Primary"
+     }
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 4.3355,
+    "description": "",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [
+    {
+     "id": "CVE-2019-5419",
+     "urls": [
+      "http://lists.opensuse.org/opensuse-security-announce/2019-05/msg00011.html",
+      "http://lists.opensuse.org/opensuse-security-announce/2019-06/msg00025.html",
+      "http://lists.opensuse.org/opensuse-security-announce/2019-08/msg00001.html",
+      "http://www.openwall.com/lists/oss-security/2019/03/22/1",
+      "https://access.redhat.com/errata/RHSA-2019:0796",
+      "https://access.redhat.com/errata/RHSA-2019:1147",
+      "https://access.redhat.com/errata/RHSA-2019:1149",
+      "https://access.redhat.com/errata/RHSA-2019:1289",
+      "https://groups.google.com/forum/#%21topic/rubyonrails-security/GN7w9fFAQeI",
+      "https://lists.debian.org/debian-lts-announce/2019/03/msg00042.html",
+      "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/Y43636TH4D6T46IC6N2RQVJTRFJAAYGA/",
+      "https://weblog.rubyonrails.org/2019/3/13/Rails-4-2-5-1-5-1-6-2-have-been-released/"
+     ],
+     "cvss": [
+      {
+       "version": "3.1",
+       "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+       "metrics": {
+        "baseScore": 7.5
+       }
+      },
+      {
+       "version": "2.0",
+       "vector": "AV:N/AC:L/Au:N/C:N/I:N/A:C",
+       "metrics": {
+        "baseScore": 7.8
+       }
+      }
+     ]
+    }
+   ],
+   "artifact": {
+    "name": "ruby-activesupport",
+    "version": "2:5.2.0+dfsg-2",
+    "type": "deb"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "CVE-2018-16476",
+    "namespace": "ubuntu:distro:ubuntu:18.10",
+    "severity": "Medium",
+    "urls": [],
+    "epss": [
+     {
+      "cve": "CVE-2018-16476",
+      "epss": 0.02559,
+      "percentile": 0.84203,
+      "date": "2026-09-14"
+     }
+    ],
+    "cwes": [
+     {
+      "cve": "CVE-2018-16476",
+      "cwe": "CWE-284",
+      "source": "support@hackerone.com",
+      "type": "Secondary"
+     },
+     {
+      "cve": "CVE-2018-16476",
+      "cwe": "CWE-502",
+      "source": "nvd@nist.gov",
+      "type": "Primary"
+     }
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 1.2795,
+    "description": "",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [
+    {
+     "id": "CVE-2018-16476",
+     "urls": [
+      "https://access.redhat.com/errata/RHSA-2019:0600",
+      "https://groups.google.com/d/msg/rubyonrails-security/FL4dSdzr2zw/zjKVhF4qBAAJ",
+      "https://weblog.rubyonrails.org/2018/11/27/Rails-4-2-5-0-5-1-5-2-have-been-released/"
+     ],
+     "cvss": [
+      {
+       "version": "3.0",
+       "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+       "metrics": {
+        "baseScore": 7.5
+       }
+      },
+      {
+       "version": "2.0",
+       "vector": "AV:N/AC:L/Au:N/C:P/I:N/A:N",
+       "metrics": {
+        "baseScore": 5
+       }
+      }
+     ]
+    }
+   ],
+   "artifact": {
+    "name": "ruby-activesupport",
+    "version": "2:5.2.0+dfsg-2",
+    "type": "deb"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "CVE-2017-17917",
+    "namespace": "ubuntu:distro:ubuntu:18.10",
+    "severity": "Low",
+    "urls": [],
+    "epss": [
+     {
+      "cve": "CVE-2017-17917",
+      "epss": 0.02272,
+      "percentile": 0.82104,
+      "date": "2026-09-14"
+     }
+    ],
+    "cwes": [
+     {
+      "cve": "CVE-2017-17917",
+      "cwe": "CWE-89",
+      "source": "nvd@nist.gov",
+      "type": "Primary"
+     }
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 0.6816,
+    "description": "",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [
+    {
+     "id": "CVE-2017-17917",
+     "urls": [
+      "https://kay-malwarebenchmark.github.io/blog/ruby-on-rails-arbitrary-sql-injection/"
+     ],
+     "cvss": [
+      {
+       "version": "3.1",
+       "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+       "metrics": {
+        "baseScore": 8.1
+       }
+      },
+      {
+       "version": "2.0",
+       "vector": "AV:N/AC:M/Au:N/C:P/I:P/A:P",
+       "metrics": {
+        "baseScore": 6.8
+       }
+      }
+     ]
+    }
+   ],
+   "artifact": {
+    "name": "ruby-activesupport",
+    "version": "2:5.2.0+dfsg-2",
+    "type": "deb"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "CVE-2017-17916",
+    "namespace": "ubuntu:distro:ubuntu:18.10",
+    "severity": "Low",
+    "urls": [],
+    "epss": [
+     {
+      "cve": "CVE-2017-17916",
+      "epss": 0.01532,
+      "percentile": 0.73343,
+      "date": "2026-09-14"
+     }
+    ],
+    "cwes": [
+     {
+      "cve": "CVE-2017-17916",
+      "cwe": "CWE-89",
+      "source": "nvd@nist.gov",
+      "type": "Primary"
+     }
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 0.4596,
+    "description": "",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [
+    {
+     "id": "CVE-2017-17916",
+     "urls": [
+      "https://kay-malwarebenchmark.github.io/blog/ruby-on-rails-arbitrary-sql-injection/"
+     ],
+     "cvss": [
+      {
+       "version": "3.1",
+       "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+       "metrics": {
+        "baseScore": 8.1
+       }
+      },
+      {
+       "version": "2.0",
+       "vector": "AV:N/AC:M/Au:N/C:P/I:P/A:P",
+       "metrics": {
+        "baseScore": 6.8
+       }
+      }
+     ]
+    }
+   ],
+   "artifact": {
+    "name": "ruby-activesupport",
+    "version": "2:5.2.0+dfsg-2",
+    "type": "deb"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "CVE-2017-17919",
+    "namespace": "ubuntu:distro:ubuntu:18.10",
+    "severity": "Low",
+    "urls": [],
+    "epss": [
+     {
+      "cve": "CVE-2017-17919",
+      "epss": 0.01518,
+      "percentile": 0.73132,
+      "date": "2026-09-14"
+     }
+    ],
+    "cwes": [
+     {
+      "cve": "CVE-2017-17919",
+      "cwe": "CWE-89",
+      "source": "nvd@nist.gov",
+      "type": "Primary"
+     },
+     {
+      "cve": "CVE-2017-17919",
+      "cwe": "CWE-89",
+      "source": "134c704f-9b21-4f2e-91b3-4a467353bcc0",
+      "type": "Secondary"
+     }
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 0.45539999999999997,
+    "description": "",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [
+    {
+     "id": "CVE-2017-17919",
+     "urls": [
+      "https://kay-malwarebenchmark.github.io/blog/ruby-on-rails-arbitrary-sql-injection/"
+     ],
+     "cvss": [
+      {
+       "version": "3.0",
+       "vector": "CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+       "metrics": {
+        "baseScore": 8.1
+       }
+      },
+      {
+       "version": "2.0",
+       "vector": "AV:N/AC:M/Au:N/C:P/I:P/A:P",
+       "metrics": {
+        "baseScore": 6.8
+       }
+      },
+      {
+       "version": "3.1",
+       "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+       "metrics": {
+        "baseScore": 8.1
+       }
+      }
+     ]
+    }
+   ],
+   "artifact": {
+    "name": "ruby-activesupport",
+    "version": "2:5.2.0+dfsg-2",
+    "type": "deb"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "CVE-2017-17920",
+    "namespace": "ubuntu:distro:ubuntu:18.10",
+    "severity": "Low",
+    "urls": [],
+    "epss": [
+     {
+      "cve": "CVE-2017-17920",
+      "epss": 0.01518,
+      "percentile": 0.73132,
+      "date": "2026-09-14"
+     }
+    ],
+    "cwes": [
+     {
+      "cve": "CVE-2017-17920",
+      "cwe": "CWE-89",
+      "source": "nvd@nist.gov",
+      "type": "Primary"
+     }
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 0.45539999999999997,
+    "description": "",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [
+    {
+     "id": "CVE-2017-17920",
+     "urls": [
+      "https://kay-malwarebenchmark.github.io/blog/ruby-on-rails-arbitrary-sql-injection/"
+     ],
+     "cvss": [
+      {
+       "version": "3.0",
+       "vector": "CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+       "metrics": {
+        "baseScore": 8.1
+       }
+      },
+      {
+       "version": "2.0",
+       "vector": "AV:N/AC:M/Au:N/C:P/I:P/A:P",
+       "metrics": {
+        "baseScore": 6.8
+       }
+      }
+     ]
+    }
+   ],
+   "artifact": {
+    "name": "ruby-activesupport",
+    "version": "2:5.2.0+dfsg-2",
+    "type": "deb"
+   }
+  }
+ ]
+}

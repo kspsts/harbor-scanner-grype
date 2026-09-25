@@ -1,69 +1,70 @@
-# Simple Dockerfile with real Grype
-FROM alpine:3.19
+# syntax=docker/dockerfile:1
+# Harbor Scanner Grype, built from source.
+#   docker build -t ant1freeze/harbor-scanner-grype:latest .
+#   docker buildx build --platform linux/amd64 -t ant1freeze/harbor-scanner-grype:latest --load .
+# A grype-db.tar.zst next to this file is imported instead of downloading the vulnerability DB.
 
-# Install basic dependencies including cron
-RUN apk add --no-cache curl ca-certificates dcron
+FROM --platform=$BUILDPLATFORM golang:1.22-alpine AS build
+ARG TARGETOS=linux
+ARG TARGETARCH=amd64
+WORKDIR /src
+COPY go.mod go.sum ./
+RUN go mod download
+COPY . .
+RUN CGO_ENABLED=0 GOOS=$TARGETOS GOARCH=$TARGETARCH go build -trimpath -ldflags "-s -w" -o /out/scanner-grype .
 
-# Create scanner user
-RUN adduser -u 10000 -D -g '' scanner scanner
+FROM alpine:3.24.1
+ARG TARGETARCH=amd64
+ARG GRYPE_VERSION=0.117.0
+ARG SYFT_VERSION=1.51.1
 
-# Create directories
-RUN mkdir -p /home/scanner/.cache/grype /home/scanner/.cache/reports /home/scanner/bin /app
+RUN apk upgrade --no-cache && \
+    apk add --no-cache ca-certificates curl su-exec tzdata
 
-# Copy the compiled binary, config files, and scripts
-COPY scanner-grype-linux /home/scanner/bin/scanner-grype
+RUN set -eu; \
+    arch="${TARGETARCH:-amd64}"; \
+    for tool in "grype:${GRYPE_VERSION}" "syft:${SYFT_VERSION}"; do \
+      name="${tool%%:*}"; version="${tool##*:}"; \
+      base="https://github.com/anchore/${name}/releases/download/v${version}"; \
+      file="${name}_${version}_linux_${arch}.tar.gz"; \
+      curl -fsSL --retry 5 --retry-delay 3 -o "/tmp/${file}" "${base}/${file}"; \
+      curl -fsSL --retry 5 --retry-delay 3 "${base}/${name}_${version}_checksums.txt" \
+        | grep " ${file}\$" | (cd /tmp && sha256sum -c -); \
+      tar -xzf "/tmp/${file}" -C /usr/local/bin "${name}"; \
+      rm -f "/tmp/${file}"; \
+    done
+
+RUN adduser -u 10000 -D -g '' scanner
+
+COPY --from=build /out/scanner-grype /home/scanner/bin/scanner-grype
 COPY grype-config.yaml /home/scanner/.grype.yaml
 COPY risk-config.yaml /app/risk-config.yaml
-COPY update-grype-db.sh /usr/local/bin/update-grype-db.sh
-COPY start.sh /usr/local/bin/start.sh
+COPY --chmod=755 start.sh update-grype-db.sh update-exploitdb.sh /usr/local/bin/
 
-
-# Install Grype manually by downloading the binary directly
-RUN GRYPE_VERSION="0.100.0" && \
-    GRYPE_ARCH="amd64" && \
-    GRYPE_OS="linux" && \
-    curl -L "https://github.com/anchore/grype/releases/download/v${GRYPE_VERSION}/grype_${GRYPE_VERSION}_${GRYPE_OS}_${GRYPE_ARCH}.tar.gz" -o /tmp/grype.tar.gz && \
-    tar -xzf /tmp/grype.tar.gz -C /tmp && \
-    mv /tmp/grype /usr/local/bin/grype && \
-    chmod +x /usr/local/bin/grype && \
-    rm -f /tmp/grype.tar.gz
-
-# Install Syft for SBOM generation
-RUN SYFT_VERSION="1.5.0" && \
-    SYFT_ARCH="amd64" && \
-    SYFT_OS="linux" && \
-    curl -L "https://github.com/anchore/syft/releases/download/v${SYFT_VERSION}/syft_${SYFT_VERSION}_${SYFT_OS}_${SYFT_ARCH}.tar.gz" -o /tmp/syft.tar.gz && \
-    tar -xzf /tmp/syft.tar.gz -C /tmp && \
-    mv /tmp/syft /usr/local/bin/syft && \
-    chmod +x /usr/local/bin/syft && \
-    rm -f /tmp/syft.tar.gz
-
-# Download Grype vulnerability database during build
-RUN /usr/local/bin/grype db update
-
-# Set permissions and setup cron
-RUN chmod +x /home/scanner/bin/scanner-grype && \
-    chmod +x /usr/local/bin/update-grype-db.sh && \
-    chmod +x /usr/local/bin/start.sh && \
+RUN mkdir -p /home/scanner/.cache/grype /home/scanner/.cache/reports /home/scanner/.cache/exploitdb \
+      /usr/local/share/exploitdb && \
     chown -R scanner:scanner /home/scanner && \
-    mkdir -p /var/log && \
-    touch /var/log/grype-update.log && \
-    chown scanner:scanner /var/log/grype-update.log && \
-    echo "0 0 * * * /usr/local/bin/update-grype-db.sh >> /var/log/grype-update.log 2>&1" | crontab -
+    install -o scanner -g scanner -m 644 /dev/null /var/log/grype-update.log
 
-# Set environment variables
-ENV GRYPE_VERSION=latest
-ENV PATH="/home/scanner/bin:${PATH}"
-ENV SCANNER_LOG_LEVEL=info
+# Exploit-DB list baked into the image; start.sh copies it to the volume on the first start.
+RUN curl -fsSL --retry 5 --retry-delay 3 -o /usr/local/share/exploitdb/files_exploits.csv \
+      https://gitlab.com/exploit-database/exploitdb/-/raw/main/files_exploits.csv && \
+    head -n 1 /usr/local/share/exploitdb/files_exploits.csv | grep -q '^id,.*codes'
 
-# Keep root user for cron to work properly
-# USER scanner
-
-# Set working directory
 WORKDIR /home/scanner
+ENV PATH=/home/scanner/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin \
+    GRYPE_VERSION=0.117.0 \
+    GRYPE_DB_CACHE_DIR=/home/scanner/.cache/grype \
+    SCANNER_LOG_LEVEL=info
 
-# Expose port
+USER scanner
+RUN --mount=type=bind,target=/ctx \
+    if [ -f /ctx/grype-db.tar.zst ]; then grype db import /ctx/grype-db.tar.zst; else grype db update; fi
+USER root
+
+ENV GRYPE_DB_AUTO_UPDATE=false \
+    GRYPE_CHECK_FOR_APP_UPDATE=false \
+    SYFT_CHECK_FOR_APP_UPDATE=false
+
 EXPOSE 8090
-
-# Run the application with cron
 ENTRYPOINT ["/usr/local/bin/start.sh"]

@@ -1,40 +1,76 @@
-version: '3.8'
-
 services:
   grype-adapter:
+    build: .
     image: ant1freeze/harbor-scanner-grype:latest
+    # Use the local image: loaded with `docker load` or built with `docker compose build`.
+    # Never pull the (older) image of the same name from Docker Hub.
+    pull_policy: never
     container_name: grype-adapter
-    ports:
-      - "8090:8090"
-    environment:
-      - SCANNER_REDIS_URL=redis://redis:6379
-      - SCANNER_LOG_LEVEL=info
-    networks:
-      - harbor_harbor
+    init: true
     restart: unless-stopped
+    # Lets running scans stop cleanly; interrupted jobs are requeued on the next start.
+    stop_grace_period: 30s
+    # All settings live in .env (see .env.example); edit it and run `docker compose up -d`.
+    env_file: .env
+    environment:
+      SCANNER_REDIS_URL: redis://grype-redis:6379
+      # `./deploy.sh --log-level=...` overrides the value from .env
+      SCANNER_LOG_LEVEL: ${SCANNER_LOG_LEVEL:-info}
+    ports:
+      - "${SCANNER_HOST_PORT:-8090}:8090"
+    volumes:
+      # Vulnerability DB, updated nightly by cron; survives container re-creation.
+      - grype_db:/home/scanner/.cache/grype
+      # Exploit-DB list for SCANNER_RISK_MODE=policy, refreshed by the same nightly job.
+      - exploitdb:/home/scanner/.cache/exploitdb
+    networks:
+      - harbor_harbor # to reach Harbor and be reached by it
+      - scanner       # private link to grype-redis
     depends_on:
-      - redis
+      grype-redis:
+        condition: service_healthy
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8090/api/v1/metadata"]
+      test: ["CMD", "curl", "-fsS", "http://localhost:8090/probe/healthy"]
       interval: 30s
       timeout: 10s
       retries: 3
-      start_period: 40s
+      start_period: 20s
 
-  # Redis service (if not already provided by Harbor)
-  redis:
+  # Queue and results store. Deliberately not attached to harbor_harbor: Harbor already has
+  # a service named "redis" there, and two containers behind one DNS name split connections
+  # between them at random.
+  grype-redis:
     image: redis:7-alpine
     container_name: grype-redis
-    networks:
-      - harbor_harbor
     restart: unless-stopped
-    command: redis-server --appendonly yes
-    volumes:
-      - redis_data:/data
+    # In memory only. Writing the queue and the reports to disk made Redis stall for seconds
+    # under scan load (AOF fsync on a busy disk), and Harbor failed the scans whose reports it
+    # could not fetch in time. A Redis restart loses nothing of value: Harbor has already given
+    # up on those scans. The memory limit evicts finished reports (they have a TTL) first and
+    # never the queue, which has none.
+    command:
+      - redis-server
+      - --appendonly
+      - "no"
+      - --save
+      - ""
+      - --maxmemory
+      - ${SCANNER_REDIS_MAXMEMORY:-1gb}
+      - --maxmemory-policy
+      - volatile-ttl
+    networks:
+      - scanner
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
 networks:
   harbor_harbor:
     external: true
+  scanner: {}
 
 volumes:
-  redis_data:
+  grype_db:
+  exploitdb:

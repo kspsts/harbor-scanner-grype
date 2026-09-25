@@ -1,0 +1,5868 @@
+{
+ "matches": [
+  {
+   "vulnerability": {
+    "id": "GHSA-r75f-5x8p-qvmc",
+    "namespace": "github:language:python",
+    "severity": "Critical",
+    "urls": [
+     "https://github.com/BerriAI/litellm/security/advisories/GHSA-r75f-5x8p-qvmc",
+     "https://github.com/BerriAI/litellm/releases/tag/v1.83.7-stable",
+     "https://nvd.nist.gov/vuln/detail/CVE-2026-42208",
+     "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-42208"
+    ],
+    "epss": [
+     {
+      "cve": "CVE-2026-42208",
+      "epss": 0.8942,
+      "percentile": 0.99775,
+      "date": "2026-09-14"
+     }
+    ],
+    "knownExploited": [
+     {
+      "cve": "CVE-2026-42208",
+      "vendorProject": "BerriAI",
+      "product": "LiteLLM",
+      "dateAdded": "2026-05-08",
+      "requiredAction": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+      "dueDate": "2026-05-11",
+      "knownRansomwareCampaignUse": "unknown",
+      "urls": [
+       "https://github.com/BerriAI/litellm/security/advisories/GHSA-r75f-5x8p-qvmc",
+       "https://nvd.nist.gov/vuln/detail/CVE-2026-42208"
+      ],
+      "cwes": [
+       "CWE-89"
+      ]
+     }
+    ],
+    "cwes": [
+     {
+      "cve": "CVE-2026-42208",
+      "cwe": "CWE-89",
+      "source": "security-advisories@github.com",
+      "type": "Secondary"
+     },
+     {
+      "cve": "CVE-2026-42208",
+      "cwe": "CWE-89",
+      "source": "0b0ca135-0b70-47e7-9f44-1890c2a1c46c",
+      "type": "Secondary"
+     }
+    ],
+    "fix": {
+     "versions": [
+      "1.83.7"
+     ],
+     "state": "fixed",
+     "available": [
+      {
+       "version": "1.83.7",
+       "date": "2026-04-24",
+       "kind": "first-observed"
+      }
+     ]
+    },
+    "risk": 97.3875,
+    "description": "LiteLLM has SQL Injection in Proxy API key verification",
+    "cvss": [
+     {
+      "version": "3.1",
+      "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+      "metrics": {
+       "baseScore": 9.8
+      }
+     },
+     {
+      "version": "4.0",
+      "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N",
+      "metrics": {
+       "baseScore": 9.3
+      }
+     }
+    ]
+   },
+   "relatedVulnerabilities": [
+    {
+     "id": "CVE-2026-42208",
+     "urls": [
+      "https://github.com/BerriAI/litellm/releases/tag/v1.83.7-stable",
+      "https://github.com/BerriAI/litellm/security/advisories/GHSA-r75f-5x8p-qvmc",
+      "https://access.redhat.com/security/cve/CVE-2026-42208",
+      "https://bugzilla.redhat.com/show_bug.cgi?id=2463965",
+      "https://security.access.redhat.com/data/csaf/v2/vex/2026/cve-2026-42208.json",
+      "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-42208"
+     ],
+     "cvss": [
+      {
+       "version": "3.1",
+       "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+       "metrics": {
+        "baseScore": 9.8
+       }
+      },
+      {
+       "version": "3.1",
+       "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+       "metrics": {
+        "baseScore": 9.8
+       }
+      },
+      {
+       "version": "4.0",
+       "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
+       "metrics": {
+        "baseScore": 9.3
+       }
+      }
+     ]
+    }
+   ],
+   "artifact": {
+    "name": "litellm",
+    "version": "1.82.7",
+    "type": "python"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-7488-6r32-c95q",
+    "namespace": "github:language:python",
+    "severity": "High",
+    "urls": [
+     "https://github.com/BerriAI/litellm/security/advisories/GHSA-7488-6r32-c95q",
+     "https://nvd.nist.gov/vuln/detail/CVE-2026-59822",
+     "https://github.com/BerriAI/litellm/pull/26463",
+     "https://github.com/BerriAI/litellm/commit/73869f0faf7d11ee21adcb5f91b8c33a340b6c2c",
+     "https://github.com/BerriAI/litellm/releases/tag/v1.84.0"
+    ],
+    "epss": [
+     {
+      "cve": "CVE-2026-59822",
+      "epss": 0.0087,
+      "percentile": 0.56804,
+      "date": "2026-09-14"
+     }
+    ],
+    "knownExploited": [
+     {
+      "cve": "CVE-2026-59822",
+      "vendorProject": "BerriAI",
+      "product": "LiteLLM",
+      "dateAdded": "2026-09-02",
+      "requiredAction": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.",
+      "dueDate": "2026-09-16",
+      "knownRansomwareCampaignUse": "unknown",
+      "notes": "BOD 26-04: https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk; Forensics Triage Requirements: https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk",
+      "urls": [
+       "https://github.com/BerriAI/litellm/security/advisories/GHSA-7488-6r32-c95q",
+       "https://nvd.nist.gov/vuln/detail/CVE-2026-59822"
+      ],
+      "cwes": [
+       "CWE-287",
+       "CWE-306"
+      ]
+     }
+    ],
+    "cwes": [
+     {
+      "cve": "CVE-2026-59822",
+      "cwe": "CWE-287",
+      "source": "security-advisories@github.com",
+      "type": "Secondary"
+     },
+     {
+      "cve": "CVE-2026-59822",
+      "cwe": "CWE-306",
+      "source": "security-advisories@github.com",
+      "type": "Secondary"
+     }
+    ],
+    "fix": {
+     "versions": [
+      "1.84.0"
+     ],
+     "state": "fixed",
+     "available": [
+      {
+       "version": "1.84.0",
+       "date": "2026-07-23",
+       "kind": "first-observed"
+      }
+     ]
+    },
+    "risk": 85.57500000000002,
+    "description": "LiteLLM: MCP Authentication Bypass via OAuth2 Passthrough Fallback",
+    "cvss": [
+     {
+      "version": "4.0",
+      "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:L/VA:N/SC:N/SI:N/SA:N",
+      "metrics": {
+       "baseScore": 8.8
+      }
+     }
+    ]
+   },
+   "relatedVulnerabilities": [
+    {
+     "id": "CVE-2026-59822",
+     "urls": [
+      "https://github.com/BerriAI/litellm/commit/73869f0faf7d11ee21adcb5f91b8c33a340b6c2c",
+      "https://github.com/BerriAI/litellm/pull/26463",
+      "https://github.com/BerriAI/litellm/releases/tag/v1.84.0",
+      "https://github.com/BerriAI/litellm/security/advisories/GHSA-7488-6r32-c95q",
+      "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-59822",
+      "https://www.wiz.io/blog/ai-infrastructure-honeypot"
+     ],
+     "cvss": [
+      {
+       "version": "3.1",
+       "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:L/A:N",
+       "metrics": {
+        "baseScore": 8.2
+       }
+      },
+      {
+       "version": "4.0",
+       "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:L/VA:N/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
+       "metrics": {
+        "baseScore": 8.8
+       }
+      }
+     ]
+    }
+   ],
+   "artifact": {
+    "name": "litellm",
+    "version": "1.82.7",
+    "type": "python"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-v4p8-mg3p-g94g",
+    "namespace": "github:language:python",
+    "severity": "High",
+    "urls": [
+     "https://github.com/BerriAI/litellm/security/advisories/GHSA-v4p8-mg3p-g94g",
+     "https://github.com/BerriAI/litellm/releases/tag/v1.83.7-stable",
+     "https://nvd.nist.gov/vuln/detail/CVE-2026-42271",
+     "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-42271"
+    ],
+    "epss": [
+     {
+      "cve": "CVE-2026-42271",
+      "epss": 0.83594,
+      "percentile": 0.99668,
+      "date": "2026-09-14"
+     }
+    ],
+    "knownExploited": [
+     {
+      "cve": "CVE-2026-42271",
+      "vendorProject": "BerriAI",
+      "product": "LiteLLM",
+      "dateAdded": "2026-06-08",
+      "requiredAction": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+      "dueDate": "2026-06-22",
+      "knownRansomwareCampaignUse": "unknown",
+      "notes": "This vulnerability affects a common open-source component, third-party library, or a protocol used by different products. Please check with specific vendors for information on patching status. For more information, please see: https://github.com/BerriAI/litellm/security/advisories/GHSA-v4p8-mg3p-g94g",
+      "urls": [
+       "https://github.com/BerriAI/litellm/releases/tag/v1.83.7-stable",
+       "https://nvd.nist.gov/vuln/detail/CVE-2026-42271"
+      ],
+      "cwes": [
+       "CWE-78",
+       "CWE-77"
+      ]
+     }
+    ],
+    "cwes": [
+     {
+      "cve": "CVE-2026-42271",
+      "cwe": "CWE-77",
+      "source": "security-advisories@github.com",
+      "type": "Secondary"
+     },
+     {
+      "cve": "CVE-2026-42271",
+      "cwe": "CWE-78",
+      "source": "security-advisories@github.com",
+      "type": "Secondary"
+     },
+     {
+      "cve": "CVE-2026-42271",
+      "cwe": "CWE-78",
+      "source": "0b0ca135-0b70-47e7-9f44-1890c2a1c46c",
+      "type": "Secondary"
+     }
+    ],
+    "fix": {
+     "versions": [
+      "1.83.7"
+     ],
+     "state": "fixed",
+     "available": [
+      {
+       "version": "1.83.7",
+       "date": "2026-04-26",
+       "kind": "first-observed"
+      }
+     ]
+    },
+    "risk": 85.3125,
+    "description": "LiteLLM: Authenticated command execution via MCP stdio test endpoints",
+    "cvss": [
+     {
+      "version": "3.1",
+      "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+      "metrics": {
+       "baseScore": 8.8
+      }
+     },
+     {
+      "version": "4.0",
+      "vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:L/UI:N/VC:H/VI:H/VA:H/SC:H/SI:N/SA:N",
+      "metrics": {
+       "baseScore": 8.7
+      }
+     }
+    ]
+   },
+   "relatedVulnerabilities": [
+    {
+     "id": "CVE-2026-42271",
+     "urls": [
+      "https://github.com/BerriAI/litellm/releases/tag/v1.83.7-stable",
+      "https://github.com/BerriAI/litellm/security/advisories/GHSA-v4p8-mg3p-g94g",
+      "https://access.redhat.com/errata/RHSA-2026:27784",
+      "https://access.redhat.com/errata/RHSA-2026:28960",
+      "https://access.redhat.com/errata/RHSA-2026:30056",
+      "https://access.redhat.com/security/cve/CVE-2026-42271",
+      "https://bugzilla.redhat.com/show_bug.cgi?id=2467924",
+      "https://security.access.redhat.com/data/csaf/v2/vex/2026/cve-2026-42271.json",
+      "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-42271"
+     ],
+     "cvss": [
+      {
+       "version": "3.1",
+       "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+       "metrics": {
+        "baseScore": 8.8
+       }
+      },
+      {
+       "version": "3.1",
+       "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+       "metrics": {
+        "baseScore": 8.8
+       }
+      },
+      {
+       "version": "4.0",
+       "vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:L/UI:N/VC:H/VI:H/VA:H/SC:H/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
+       "metrics": {
+        "baseScore": 8.7
+       }
+      }
+     ]
+    }
+   ],
+   "artifact": {
+    "name": "litellm",
+    "version": "1.82.7",
+    "type": "python"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-53mr-6c8q-9789",
+    "namespace": "github:language:python",
+    "severity": "High",
+    "urls": [
+     "https://github.com/BerriAI/litellm/security/advisories/GHSA-53mr-6c8q-9789",
+     "https://nvd.nist.gov/vuln/detail/CVE-2026-35029",
+     "http://seclists.org/fulldisclosure/2026/Apr/17"
+    ],
+    "epss": [
+     {
+      "cve": "CVE-2026-35029",
+      "epss": 0.25068,
+      "percentile": 0.97797,
+      "date": "2026-09-14"
+     }
+    ],
+    "cwes": [
+     {
+      "cve": "CVE-2026-35029",
+      "cwe": "CWE-863",
+      "source": "security-advisories@github.com",
+      "type": "Secondary"
+     },
+     {
+      "cve": "CVE-2026-35029",
+      "cwe": "CWE-425",
+      "source": "0b0ca135-0b70-47e7-9f44-1890c2a1c46c",
+      "type": "Secondary"
+     }
+    ],
+    "fix": {
+     "versions": [
+      "1.83.0"
+     ],
+     "state": "fixed",
+     "available": [
+      {
+       "version": "1.83.0",
+       "date": "2026-04-04",
+       "kind": "first-observed"
+      }
+     ]
+    },
+    "risk": 20.30508,
+    "description": "LiteLLM: Privilege escalation via unrestricted proxy configuration endpoint",
+    "cvss": [
+     {
+      "version": "4.0",
+      "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:L/UI:N/VC:H/VI:H/VA:H/SC:L/SI:L/SA:N",
+      "metrics": {
+       "baseScore": 8.7
+      }
+     }
+    ]
+   },
+   "relatedVulnerabilities": [
+    {
+     "id": "CVE-2026-35029",
+     "urls": [
+      "https://github.com/BerriAI/litellm/security/advisories/GHSA-53mr-6c8q-9789",
+      "http://seclists.org/fulldisclosure/2026/Apr/17",
+      "https://access.redhat.com/errata/RHSA-2026:13545",
+      "https://access.redhat.com/errata/RHSA-2026:28960",
+      "https://access.redhat.com/errata/RHSA-2026:30056",
+      "https://access.redhat.com/security/cve/CVE-2026-35029",
+      "https://bugzilla.redhat.com/show_bug.cgi?id=2455474",
+      "https://security.access.redhat.com/data/csaf/v2/vex/2026/cve-2026-35029.json"
+     ],
+     "cvss": [
+      {
+       "version": "3.1",
+       "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+       "metrics": {
+        "baseScore": 8.8
+       }
+      },
+      {
+       "version": "3.1",
+       "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+       "metrics": {
+        "baseScore": 8.8
+       }
+      },
+      {
+       "version": "4.0",
+       "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:L/UI:N/VC:H/VI:H/VA:H/SC:L/SI:L/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
+       "metrics": {
+        "baseScore": 8.7
+       }
+      }
+     ]
+    }
+   ],
+   "artifact": {
+    "name": "litellm",
+    "version": "1.82.7",
+    "type": "python"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-wxxx-gvqv-xp7p",
+    "namespace": "github:language:python",
+    "severity": "High",
+    "urls": [
+     "https://github.com/BerriAI/litellm/security/advisories/GHSA-wxxx-gvqv-xp7p",
+     "https://nvd.nist.gov/vuln/detail/CVE-2026-40217",
+     "https://github.com/BerriAI/litellm/releases/tag/v1.83.10-stable",
+     "https://www.x41-dsec.de/lab/advisories/x41-2026-001-litellm"
+    ],
+    "epss": [
+     {
+      "cve": "CVE-2026-40217",
+      "epss": 0.15056,
+      "percentile": 0.96527,
+      "date": "2026-09-14"
+     }
+    ],
+    "cwes": [
+     {
+      "cve": "CVE-2026-40217",
+      "cwe": "CWE-420",
+      "source": "cve@mitre.org",
+      "type": "Secondary"
+     },
+     {
+      "cve": "CVE-2026-40217",
+      "cwe": "CWE-94",
+      "source": "0b0ca135-0b70-47e7-9f44-1890c2a1c46c",
+      "type": "Secondary"
+     }
+    ],
+    "fix": {
+     "versions": [
+      "1.83.10"
+     ],
+     "state": "fixed",
+     "available": [
+      {
+       "version": "1.83.10",
+       "date": "2026-05-11",
+       "kind": "first-observed"
+      }
+     ]
+    },
+    "risk": 11.78132,
+    "description": "LiteLLM has a sandbox escape in custom-code guardrail",
+    "cvss": [
+     {
+      "version": "3.1",
+      "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+      "metrics": {
+       "baseScore": 8.8
+      }
+     },
+     {
+      "version": "4.0",
+      "vector": "CVSS:4.0/AV:N/AC:H/AT:N/PR:H/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N",
+      "metrics": {
+       "baseScore": 7.5
+      }
+     }
+    ]
+   },
+   "relatedVulnerabilities": [
+    {
+     "id": "CVE-2026-40217",
+     "urls": [
+      "https://www.x41-dsec.de/lab/advisories/x41-2026-001-litellm/",
+      "https://access.redhat.com/errata/RHSA-2026:24866",
+      "https://access.redhat.com/errata/RHSA-2026:30056",
+      "https://access.redhat.com/security/cve/CVE-2026-40217",
+      "https://bugzilla.redhat.com/show_bug.cgi?id=2457301",
+      "https://security.access.redhat.com/data/csaf/v2/vex/2026/cve-2026-40217.json"
+     ],
+     "cvss": [
+      {
+       "version": "3.1",
+       "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+       "metrics": {
+        "baseScore": 8.8
+       }
+      },
+      {
+       "version": "3.1",
+       "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+       "metrics": {
+        "baseScore": 8.8
+       }
+      }
+     ]
+    }
+   ],
+   "artifact": {
+    "name": "litellm",
+    "version": "1.82.7",
+    "type": "python"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-9v3m-8fp8-mj99",
+    "namespace": "github:language:ruby",
+    "severity": "Medium",
+    "urls": [
+     "https://nvd.nist.gov/vuln/detail/CVE-2019-8331",
+     "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-8331",
+     "https://github.com/twbs/bootstrap/pull/28236",
+     "https://access.redhat.com/errata/RHSA-2019:1456",
+     "https://access.redhat.com/errata/RHSA-2019:3023",
+     "https://access.redhat.com/errata/RHSA-2019:3024",
+     "https://github.com/twbs/bootstrap/releases/tag/v3.4.1",
+     "https://github.com/twbs/bootstrap/releases/tag/v4.3.1",
+     "https://lists.apache.org/thread.html/10f0f3aefd51444d1198c65f44ffdf2d78ca3359423dbc1c168c9731@%3Cdev.flink.apache.org%3E",
+     "https://lists.apache.org/thread.html/17ff53f7999e74fbe3cc0ceb4e1c3b00b180b7c5afec8e978837bc49@%3Cuser.flink.apache.org%3E",
+     "https://lists.apache.org/thread.html/519eb0fd45642dcecd9ff74cb3e71c20a4753f7d82e2f07864b5108f@%3Cdev.drill.apache.org%3E",
+     "https://lists.apache.org/thread.html/52bafac05ad174000ea465fe275fd3cc7bd5c25535a7631c0bc9bfb2@%3Cuser.flink.apache.org%3E",
+     "https://lists.apache.org/thread.html/52e0e6b5df827ee7f1e68f7cc3babe61af3b2160f5d74a85469b7b0e@%3Cdev.superset.apache.org%3E",
+     "https://lists.apache.org/thread.html/54df3aeb4239b64b50b356f0ca6f986e3c4ca5b84c515dce077c7854@%3Cuser.flink.apache.org%3E",
+     "https://lists.apache.org/thread.html/b0656d359c7d40ec9f39c8cc61bca66802ef9a2a12ee199f5b0c1442@%3Cdev.drill.apache.org%3E",
+     "https://lists.apache.org/thread.html/f9bc3e55f4e28d1dcd1a69aae6d53e609a758e34d2869b4d798e13cc@%3Cissues.drill.apache.org%3E",
+     "https://lists.apache.org/thread.html/r3dc0cac8d856bca02bd6997355d7ff83027dcfc82f8646a29b89b714@%3Cissues.hbase.apache.org%3E",
+     "https://lists.apache.org/thread.html/rd0e44e8ef71eeaaa3cf3d1b8b41eb25894372e2995ec908ce7624d26@%3Ccommits.pulsar.apache.org%3E",
+     "https://seclists.org/bugtraq/2019/May/18",
+     "https://support.f5.com/csp/article/K24383845",
+     "https://support.f5.com/csp/article/K24383845?utm_source=f5support&amp;utm_medium=RSS",
+     "https://www.oracle.com/security-alerts/cpuApr2021.html",
+     "http://packetstormsecurity.com/files/156743/OctoberCMS-Insecure-Dependencies.html",
+     "http://seclists.org/fulldisclosure/2019/May/10",
+     "http://seclists.org/fulldisclosure/2019/May/11",
+     "http://seclists.org/fulldisclosure/2019/May/13",
+     "https://www.tenable.com/security/tns-2021-14",
+     "https://web.archive.org/web/20200227083900/http://www.securityfocus.com/bid/107375",
+     "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/bootstrap/CVE-2019-8331.yml",
+     "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/twitter-bootstrap-rails/CVE-2019-8331.yml",
+     "https://github.com/seyhunak/twitter-bootstrap-rails/tree/master/app/assets/javascripts/twitter/bootstrap",
+     "https://lists.apache.org/thread.html/10f0f3aefd51444d1198c65f44ffdf2d78ca3359423dbc1c168c9731%40%3Cdev.flink.apache.org%3E",
+     "https://lists.apache.org/thread.html/17ff53f7999e74fbe3cc0ceb4e1c3b00b180b7c5afec8e978837bc49%40%3Cuser.flink.apache.org%3E",
+     "https://lists.apache.org/thread.html/519eb0fd45642dcecd9ff74cb3e71c20a4753f7d82e2f07864b5108f%40%3Cdev.drill.apache.org%3E",
+     "https://lists.apache.org/thread.html/52bafac05ad174000ea465fe275fd3cc7bd5c25535a7631c0bc9bfb2%40%3Cuser.flink.apache.org%3E",
+     "https://lists.apache.org/thread.html/52e0e6b5df827ee7f1e68f7cc3babe61af3b2160f5d74a85469b7b0e%40%3Cdev.superset.apache.org%3E",
+     "https://lists.apache.org/thread.html/54df3aeb4239b64b50b356f0ca6f986e3c4ca5b84c515dce077c7854%40%3Cuser.flink.apache.org%3E",
+     "https://lists.apache.org/thread.html/b0656d359c7d40ec9f39c8cc61bca66802ef9a2a12ee199f5b0c1442%40%3Cdev.drill.apache.org%3E",
+     "https://lists.apache.org/thread.html/f9bc3e55f4e28d1dcd1a69aae6d53e609a758e34d2869b4d798e13cc%40%3Cissues.drill.apache.org%3E",
+     "https://lists.apache.org/thread.html/r3dc0cac8d856bca02bd6997355d7ff83027dcfc82f8646a29b89b714%40%3Cissues.hbase.apache.org%3E",
+     "https://lists.apache.org/thread.html/rd0e44e8ef71eeaaa3cf3d1b8b41eb25894372e2995ec908ce7624d26%40%3Ccommits.pulsar.apache.org%3E",
+     "https://support.f5.com/csp/article/K24383845?utm_source=f5support&amp%3Butm_medium=RSS",
+     "https://blog.getbootstrap.com/2019/02/13/bootstrap-4-3-1-and-3-4-1"
+    ],
+    "epss": [
+     {
+      "cve": "CVE-2019-8331",
+      "epss": 0.16404,
+      "percentile": 0.96792,
+      "date": "2026-09-14"
+     }
+    ],
+    "cwes": [
+     {
+      "cve": "CVE-2019-8331",
+      "cwe": "CWE-79",
+      "source": "nvd@nist.gov",
+      "type": "Primary"
+     }
+    ],
+    "fix": {
+     "versions": [
+      "3.4.1"
+     ],
+     "state": "fixed",
+     "available": [
+      {
+       "version": "3.4.1",
+       "date": "2020-07-28",
+       "kind": "first-observed"
+      }
+     ]
+    },
+    "risk": 9.10422,
+    "description": "Bootstrap Vulnerable to Cross-Site Scripting",
+    "cvss": [
+     {
+      "version": "3.1",
+      "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+      "metrics": {
+       "baseScore": 6.1
+      }
+     }
+    ]
+   },
+   "relatedVulnerabilities": [
+    {
+     "id": "CVE-2019-8331",
+     "urls": [
+      "http://packetstormsecurity.com/files/156743/OctoberCMS-Insecure-Dependencies.html",
+      "http://seclists.org/fulldisclosure/2019/May/10",
+      "http://seclists.org/fulldisclosure/2019/May/11",
+      "http://seclists.org/fulldisclosure/2019/May/13",
+      "http://www.securityfocus.com/bid/107375",
+      "https://access.redhat.com/errata/RHSA-2019:1456",
+      "https://access.redhat.com/errata/RHSA-2019:3023",
+      "https://access.redhat.com/errata/RHSA-2019:3024",
+      "https://blog.getbootstrap.com/2019/02/13/bootstrap-4-3-1-and-3-4-1/",
+      "https://github.com/twbs/bootstrap/pull/28236",
+      "https://github.com/twbs/bootstrap/releases/tag/v3.4.1",
+      "https://github.com/twbs/bootstrap/releases/tag/v4.3.1",
+      "https://lists.apache.org/thread.html/10f0f3aefd51444d1198c65f44ffdf2d78ca3359423dbc1c168c9731%40%3Cdev.flink.apache.org%3E",
+      "https://lists.apache.org/thread.html/17ff53f7999e74fbe3cc0ceb4e1c3b00b180b7c5afec8e978837bc49%40%3Cuser.flink.apache.org%3E",
+      "https://lists.apache.org/thread.html/519eb0fd45642dcecd9ff74cb3e71c20a4753f7d82e2f07864b5108f%40%3Cdev.drill.apache.org%3E",
+      "https://lists.apache.org/thread.html/52bafac05ad174000ea465fe275fd3cc7bd5c25535a7631c0bc9bfb2%40%3Cuser.flink.apache.org%3E",
+      "https://lists.apache.org/thread.html/52e0e6b5df827ee7f1e68f7cc3babe61af3b2160f5d74a85469b7b0e%40%3Cdev.superset.apache.org%3E",
+      "https://lists.apache.org/thread.html/54df3aeb4239b64b50b356f0ca6f986e3c4ca5b84c515dce077c7854%40%3Cuser.flink.apache.org%3E",
+      "https://lists.apache.org/thread.html/b0656d359c7d40ec9f39c8cc61bca66802ef9a2a12ee199f5b0c1442%40%3Cdev.drill.apache.org%3E",
+      "https://lists.apache.org/thread.html/f9bc3e55f4e28d1dcd1a69aae6d53e609a758e34d2869b4d798e13cc%40%3Cissues.drill.apache.org%3E",
+      "https://lists.apache.org/thread.html/r3dc0cac8d856bca02bd6997355d7ff83027dcfc82f8646a29b89b714%40%3Cissues.hbase.apache.org%3E",
+      "https://lists.apache.org/thread.html/rd0e44e8ef71eeaaa3cf3d1b8b41eb25894372e2995ec908ce7624d26%40%3Ccommits.pulsar.apache.org%3E",
+      "https://seclists.org/bugtraq/2019/May/18",
+      "https://support.f5.com/csp/article/K24383845",
+      "https://support.f5.com/csp/article/K24383845?utm_source=f5support&amp%3Butm_medium=RSS",
+      "https://www.oracle.com/security-alerts/cpuApr2021.html",
+      "https://www.tenable.com/security/tns-2021-14"
+     ],
+     "cvss": [
+      {
+       "version": "3.1",
+       "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+       "metrics": {
+        "baseScore": 6.1
+       }
+      },
+      {
+       "version": "2.0",
+       "vector": "AV:N/AC:M/Au:N/C:N/I:P/A:N",
+       "metrics": {
+        "baseScore": 4.3
+       }
+      }
+     ]
+    }
+   ],
+   "artifact": {
+    "name": "bootstrap-sass",
+    "version": "3.2.0.3",
+    "type": "gem"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-2j55-pcw5-x4h2",
+    "namespace": "github:language:ruby",
+    "severity": "Critical",
+    "urls": [
+     "https://nvd.nist.gov/vuln/detail/CVE-2018-3779",
+     "https://hackerone.com/reports/392311"
+    ],
+    "epss": [
+     {
+      "cve": "CVE-2018-3779",
+      "epss": 0.06129,
+      "percentile": 0.93038,
+      "date": "2026-09-14"
+     }
+    ],
+    "cwes": [
+     {
+      "cve": "CVE-2018-3779",
+      "cwe": "CWE-77",
+      "source": "support@hackerone.com",
+      "type": "Secondary"
+     }
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 5.5161,
+    "description": "active-support impersonates 'activesupport' gem",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [
+    {
+     "id": "CVE-2018-3779",
+     "urls": [
+      "https://hackerone.com/reports/392311"
+     ],
+     "cvss": [
+      {
+       "version": "3.0",
+       "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+       "metrics": {
+        "baseScore": 9.8
+       }
+      },
+      {
+       "version": "2.0",
+       "vector": "AV:N/AC:L/Au:N/C:C/I:C/A:C",
+       "metrics": {
+        "baseScore": 10
+       }
+      }
+     ]
+    }
+   ],
+   "artifact": {
+    "name": "active-support",
+    "version": "5.2.0",
+    "type": "gem"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-vqqv-v9m2-48p2",
+    "namespace": "github:language:ruby",
+    "severity": "Critical",
+    "urls": [
+     "https://nvd.nist.gov/vuln/detail/CVE-2019-10842",
+     "https://github.com/twbs/bootstrap-sass/issues/1195",
+     "https://snyk.io/blog/malicious-remote-code-execution-backdoor-discovered-in-the-popular-bootstrap-sass-ruby-gem/",
+     "https://snyk.io/vuln/SNYK-RUBY-BOOTSTRAPSASS-174093",
+     "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/bootstrap-sass/CVE-2019-10842.yml"
+    ],
+    "epss": [
+     {
+      "cve": "CVE-2019-10842",
+      "epss": 0.04923,
+      "percentile": 0.91624,
+      "date": "2026-09-14"
+     }
+    ],
+    "cwes": [
+     {
+      "cve": "CVE-2019-10842",
+      "cwe": "CWE-94",
+      "source": "nvd@nist.gov",
+      "type": "Primary"
+     }
+    ],
+    "fix": {
+     "versions": [
+      "3.2.0.4"
+     ],
+     "state": "fixed",
+     "available": [
+      {
+       "version": "3.2.0.4",
+       "date": "2021-03-30",
+       "kind": "first-observed"
+      }
+     ]
+    },
+    "risk": 4.62762,
+    "description": "Bootstrap-sass contains code execution backdoor",
+    "cvss": [
+     {
+      "version": "3.0",
+      "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+      "metrics": {
+       "baseScore": 9.8
+      }
+     }
+    ]
+   },
+   "relatedVulnerabilities": [
+    {
+     "id": "CVE-2019-10842",
+     "urls": [
+      "http://dgb.github.io/2019/04/05/bootstrap-sass-backdoor.html",
+      "https://github.com/twbs/bootstrap-sass/issues/1195",
+      "https://snyk.io/blog/malicious-remote-code-execution-backdoor-discovered-in-the-popular-bootstrap-sass-ruby-gem/",
+      "https://snyk.io/vuln/SNYK-RUBY-BOOTSTRAPSASS-174093"
+     ],
+     "cvss": [
+      {
+       "version": "3.0",
+       "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+       "metrics": {
+        "baseScore": 9.8
+       }
+      },
+      {
+       "version": "2.0",
+       "vector": "AV:N/AC:L/Au:N/C:C/I:C/A:C",
+       "metrics": {
+        "baseScore": 10
+       }
+      }
+     ]
+    }
+   ],
+   "artifact": {
+    "name": "bootstrap-sass",
+    "version": "3.2.0.3",
+    "type": "gem"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-4g4c-8gqh-m4vm",
+    "namespace": "github:language:ruby",
+    "severity": "Critical",
+    "urls": [
+     "https://nvd.nist.gov/vuln/detail/CVE-2019-13589",
+     "https://github.com/rubygems/rubygems.org/issues/2051",
+     "https://rubygems.org/gems/paranoid2/versions",
+     "https://snyk.io/vuln/SNYK-RUBY-PARANOID2-451600",
+     "http://www.securityfocus.com/bid/109281",
+     "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/paranoid2/CVE-2019-13589.yml"
+    ],
+    "epss": [
+     {
+      "cve": "CVE-2019-13589",
+      "epss": 0.0435,
+      "percentile": 0.90676,
+      "date": "2026-09-14"
+     }
+    ],
+    "cwes": [
+     {
+      "cve": "CVE-2019-13589",
+      "cwe": "CWE-829",
+      "source": "nvd@nist.gov",
+      "type": "Primary"
+     }
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 4.089,
+    "description": "paranoid2 gem Code backdoor",
+    "cvss": [
+     {
+      "version": "3.0",
+      "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+      "metrics": {
+       "baseScore": 9.8
+      }
+     }
+    ]
+   },
+   "relatedVulnerabilities": [
+    {
+     "id": "CVE-2019-13589",
+     "urls": [
+      "http://www.securityfocus.com/bid/109281",
+      "https://github.com/rubygems/rubygems.org/issues/2051",
+      "https://rubygems.org/gems/paranoid2/versions",
+      "https://snyk.io/vuln/SNYK-RUBY-PARANOID2-451600"
+     ],
+     "cvss": [
+      {
+       "version": "3.0",
+       "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+       "metrics": {
+        "baseScore": 9.8
+       }
+      },
+      {
+       "version": "2.0",
+       "vector": "AV:N/AC:L/Au:N/C:P/I:P/A:P",
+       "metrics": {
+        "baseScore": 7.5
+       }
+      }
+     ]
+    }
+   ],
+   "artifact": {
+    "name": "paranoid2",
+    "version": "1.1.6",
+    "type": "gem"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-3fhf-6939-qg8p",
+    "namespace": "github:language:ruby",
+    "severity": "Critical",
+    "urls": [
+     "https://nvd.nist.gov/vuln/detail/CVE-2015-1820",
+     "https://github.com/rest-client/rest-client/issues/369",
+     "https://bugzilla.redhat.com/show_bug.cgi?id=1205291",
+     "http://www.openwall.com/lists/oss-security/2015/03/24/3",
+     "https://rubygems.org/gems/rest-client/versions/1.6.1.a",
+     "https://web.archive.org/web/20200228080106/http://www.securityfocus.com/bid/73295"
+    ],
+    "epss": [
+     {
+      "cve": "CVE-2015-1820",
+      "epss": 0.04345,
+      "percentile": 0.90665,
+      "date": "2026-09-14"
+     }
+    ],
+    "cwes": [
+     {
+      "cve": "CVE-2015-1820",
+      "cwe": "CWE-384",
+      "source": "nvd@nist.gov",
+      "type": "Primary"
+     }
+    ],
+    "fix": {
+     "versions": [
+      "1.8.0"
+     ],
+     "state": "fixed",
+     "available": [
+      {
+       "version": "1.8.0",
+       "date": "2020-07-28",
+       "kind": "first-observed"
+      }
+     ]
+    },
+    "risk": 4.084300000000001,
+    "description": "rest-client Gem Vulnerable to Session Fixation",
+    "cvss": [
+     {
+      "version": "3.0",
+      "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+      "metrics": {
+       "baseScore": 9.8
+      }
+     }
+    ]
+   },
+   "relatedVulnerabilities": [
+    {
+     "id": "CVE-2015-1820",
+     "urls": [
+      "http://www.openwall.com/lists/oss-security/2015/03/24/3",
+      "http://www.securityfocus.com/bid/73295",
+      "https://bugzilla.redhat.com/show_bug.cgi?id=1205291",
+      "https://github.com/rest-client/rest-client/issues/369"
+     ],
+     "cvss": [
+      {
+       "version": "3.0",
+       "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+       "metrics": {
+        "baseScore": 9.8
+       }
+      },
+      {
+       "version": "2.0",
+       "vector": "AV:N/AC:L/Au:N/C:P/I:P/A:P",
+       "metrics": {
+        "baseScore": 7.5
+       }
+      }
+     ]
+    }
+   ],
+   "artifact": {
+    "name": "rest-client",
+    "version": "1.6.13",
+    "type": "gem"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-333g-rpr4-7hxq",
+    "namespace": "github:language:ruby",
+    "severity": "Critical",
+    "urls": [
+     "https://nvd.nist.gov/vuln/detail/CVE-2019-15224",
+     "https://github.com/rest-client/rest-client/issues/713",
+     "https://github.com/rubygems/rubygems.org/issues/2097",
+     "https://github.com/rubygems/rubygems.org/wiki/Gems-yanked-and-accounts-locked#19-aug-2019",
+     "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/blockchain_wallet/CVE-2019-15224.yml",
+     "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/coin_base/CVE-2019-15224.yml",
+     "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/doge-coin/CVE-2019-15224.yml",
+     "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/lita_coin/CVE-2019-15224.yml",
+     "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/omniauth_amazon/CVE-2019-15224.yml",
+     "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/rest-client/CVE-2019-15224.yml"
+    ],
+    "epss": [
+     {
+      "cve": "CVE-2019-15224",
+      "epss": 0.0355,
+      "percentile": 0.88646,
+      "date": "2026-09-14"
+     }
+    ],
+    "cwes": [
+     {
+      "cve": "CVE-2019-15224",
+      "cwe": "CWE-94",
+      "source": "nvd@nist.gov",
+      "type": "Primary"
+     }
+    ],
+    "fix": {
+     "versions": [
+      "1.7.0"
+     ],
+     "state": "fixed",
+     "available": [
+      {
+       "version": "1.7.0",
+       "date": "2021-03-30",
+       "kind": "first-observed"
+      }
+     ]
+    },
+    "risk": 3.3369999999999997,
+    "description": "rest-client Gem Contains Malicious Code",
+    "cvss": [
+     {
+      "version": "3.0",
+      "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+      "metrics": {
+       "baseScore": 9.8
+      }
+     }
+    ]
+   },
+   "relatedVulnerabilities": [
+    {
+     "id": "CVE-2019-15224",
+     "urls": [
+      "https://github.com/rest-client/rest-client/issues/713",
+      "https://rubygems.org/gems/rest-client/versions/"
+     ],
+     "cvss": [
+      {
+       "version": "3.0",
+       "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+       "metrics": {
+        "baseScore": 9.8
+       }
+      },
+      {
+       "version": "2.0",
+       "vector": "AV:N/AC:L/Au:N/C:P/I:P/A:P",
+       "metrics": {
+        "baseScore": 7.5
+       }
+      }
+     ]
+    }
+   ],
+   "artifact": {
+    "name": "rest-client",
+    "version": "1.6.13",
+    "type": "gem"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-5h5r-ffc4-c455",
+    "namespace": "github:language:ruby",
+    "severity": "Critical",
+    "urls": [
+     "https://nvd.nist.gov/vuln/detail/CVE-2019-13354",
+     "https://rubygems.org/gems/strong_password/versions",
+     "https://withatwist.dev/strong-password-rubygem-hijacked.html",
+     "https://benjamin-bouchet.com/blog/vulnerabilite-dans-la-gem-strong_password-0-0-7/",
+     "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/strong_password/CVE-2019-13354.yml",
+     "https://github.com/bdmac/strong_password/releases"
+    ],
+    "epss": [
+     {
+      "cve": "CVE-2019-13354",
+      "epss": 0.03329,
+      "percentile": 0.87923,
+      "date": "2026-09-14"
+     }
+    ],
+    "cwes": [
+     {
+      "cve": "CVE-2019-13354",
+      "cwe": "CWE-94",
+      "source": "nvd@nist.gov",
+      "type": "Primary"
+     }
+    ],
+    "fix": {
+     "versions": [
+      "0.0.8"
+     ],
+     "state": "fixed",
+     "available": [
+      {
+       "version": "0.0.8",
+       "date": "2023-03-07",
+       "kind": "first-observed"
+      }
+     ]
+    },
+    "risk": 3.1292600000000004,
+    "description": "strong_password Ruby gem malicious version causing Remote Code Execution vulnerability",
+    "cvss": [
+     {
+      "version": "3.0",
+      "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+      "metrics": {
+       "baseScore": 9.8
+      }
+     }
+    ]
+   },
+   "relatedVulnerabilities": [
+    {
+     "id": "CVE-2019-13354",
+     "urls": [
+      "https://benjamin-bouchet.com/blog/vulnerabilite-dans-la-gem-strong_password-0-0-7/",
+      "https://github.com/bdmac/strong_password/releases",
+      "https://rubygems.org/gems/strong_password/versions",
+      "https://withatwist.dev/strong-password-rubygem-hijacked.html"
+     ],
+     "cvss": [
+      {
+       "version": "3.0",
+       "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+       "metrics": {
+        "baseScore": 9.8
+       }
+      },
+      {
+       "version": "2.0",
+       "vector": "AV:N/AC:L/Au:N/C:P/I:P/A:P",
+       "metrics": {
+        "baseScore": 7.5
+       }
+      }
+     ]
+    }
+   ],
+   "artifact": {
+    "name": "strong_password",
+    "version": "0.0.7",
+    "type": "gem"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-rqp5-pg7w-832p",
+    "namespace": "github:language:ruby",
+    "severity": "Critical",
+    "urls": [
+     "https://nvd.nist.gov/vuln/detail/CVE-2019-14281",
+     "https://github.com/rubygems/rubygems.org/issues/2072",
+     "https://rubygems.org/gems/datagrid/versions",
+     "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/datagrid/CVE-2019-14281.yml"
+    ],
+    "epss": [
+     {
+      "cve": "CVE-2019-14281",
+      "epss": 0.03115,
+      "percentile": 0.87074,
+      "date": "2026-09-14"
+     }
+    ],
+    "cwes": [
+     {
+      "cve": "CVE-2019-14281",
+      "cwe": "CWE-94",
+      "source": "nvd@nist.gov",
+      "type": "Primary"
+     }
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 2.9281,
+    "description": "datagrid contains code Injection backdoor",
+    "cvss": [
+     {
+      "version": "3.0",
+      "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+      "metrics": {
+       "baseScore": 9.8
+      }
+     }
+    ]
+   },
+   "relatedVulnerabilities": [
+    {
+     "id": "CVE-2019-14281",
+     "urls": [
+      "https://github.com/rubygems/rubygems.org/issues/2072",
+      "https://rubygems.org/gems/datagrid/versions",
+      "https://snyk.io/vuln/SNYK-RUBY-DATAGRID-455500"
+     ],
+     "cvss": [
+      {
+       "version": "3.0",
+       "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+       "metrics": {
+        "baseScore": 9.8
+       }
+      },
+      {
+       "version": "2.0",
+       "vector": "AV:N/AC:L/Au:N/C:P/I:P/A:P",
+       "metrics": {
+        "baseScore": 7.5
+       }
+      }
+     ]
+    }
+   ],
+   "artifact": {
+    "name": "datagrid",
+    "version": "1.0.6",
+    "type": "gem"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-wg6j-r28m-7293",
+    "namespace": "github:language:ruby",
+    "severity": "Critical",
+    "urls": [
+     "https://nvd.nist.gov/vuln/detail/CVE-2019-14282",
+     "https://github.com/rubygems/rubygems.org/issues/2073",
+     "https://rubygems.org/gems/simple_captcha2/versions/",
+     "https://security.snyk.io/vuln/SNYK-RUBY-SIMPLECAPTCHA2-455501",
+     "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/simple_captcha2/CVE-2019-14282.yml"
+    ],
+    "epss": [
+     {
+      "cve": "CVE-2019-14282",
+      "epss": 0.03115,
+      "percentile": 0.87074,
+      "date": "2026-09-14"
+     }
+    ],
+    "cwes": [
+     {
+      "cve": "CVE-2019-14282",
+      "cwe": "CWE-94",
+      "source": "nvd@nist.gov",
+      "type": "Primary"
+     }
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 2.9281,
+    "description": "Code backdoor in simple_captcha2",
+    "cvss": [
+     {
+      "version": "3.0",
+      "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+      "metrics": {
+       "baseScore": 9.8
+      }
+     }
+    ]
+   },
+   "relatedVulnerabilities": [
+    {
+     "id": "CVE-2019-14282",
+     "urls": [
+      "https://github.com/rubygems/rubygems.org/issues/2073",
+      "https://rubygems.org/gems/simple_captcha2/versions/",
+      "https://snyk.io/vuln/SNYK-RUBY-SIMPLECAPTCHA2-455501"
+     ],
+     "cvss": [
+      {
+       "version": "3.0",
+       "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+       "metrics": {
+        "baseScore": 9.8
+       }
+      },
+      {
+       "version": "2.0",
+       "vector": "AV:N/AC:L/Au:N/C:P/I:P/A:P",
+       "metrics": {
+        "baseScore": 7.5
+       }
+      }
+     ]
+    }
+   ],
+   "artifact": {
+    "name": "simple_captcha2",
+    "version": "0.2.3",
+    "type": "gem"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-3wqf-4x89-9g79",
+    "namespace": "github:language:ruby",
+    "severity": "Medium",
+    "urls": [
+     "https://nvd.nist.gov/vuln/detail/CVE-2018-14040",
+     "https://github.com/twbs/bootstrap/issues/26423",
+     "https://github.com/twbs/bootstrap/issues/26625",
+     "https://github.com/twbs/bootstrap/pull/26630",
+     "https://lists.apache.org/thread.html/519eb0fd45642dcecd9ff74cb3e71c20a4753f7d82e2f07864b5108f@%3Cdev.drill.apache.org%3E",
+     "https://lists.apache.org/thread.html/52e0e6b5df827ee7f1e68f7cc3babe61af3b2160f5d74a85469b7b0e@%3Cdev.superset.apache.org%3E",
+     "https://lists.apache.org/thread.html/b0656d359c7d40ec9f39c8cc61bca66802ef9a2a12ee199f5b0c1442@%3Cdev.drill.apache.org%3E",
+     "https://lists.apache.org/thread.html/f9bc3e55f4e28d1dcd1a69aae6d53e609a758e34d2869b4d798e13cc@%3Cissues.drill.apache.org%3E",
+     "https://lists.apache.org/thread.html/r3dc0cac8d856bca02bd6997355d7ff83027dcfc82f8646a29b89b714@%3Cissues.hbase.apache.org%3E",
+     "https://lists.apache.org/thread.html/rd0e44e8ef71eeaaa3cf3d1b8b41eb25894372e2995ec908ce7624d26@%3Ccommits.pulsar.apache.org%3E",
+     "https://lists.debian.org/debian-lts-announce/2018/08/msg00027.html",
+     "https://seclists.org/bugtraq/2019/May/18",
+     "https://www.oracle.com/security-alerts/cpuApr2021.html",
+     "https://www.tenable.com/security/tns-2021-14",
+     "http://packetstormsecurity.com/files/152787/dotCMS-5.1.1-Vulnerable-Dependencies.html",
+     "http://packetstormsecurity.com/files/156743/OctoberCMS-Insecure-Dependencies.html",
+     "http://seclists.org/fulldisclosure/2019/May/10",
+     "http://seclists.org/fulldisclosure/2019/May/11",
+     "http://seclists.org/fulldisclosure/2019/May/13",
+     "https://github.com/twbs/bootstrap/blob/v3.4.1/js/collapse.js#L140",
+     "https://github.com/twbs/bootstrap/blob/v3.4.1/js/scrollspy.js#L56",
+     "https://github.com/twbs/bootstrap/blob/v3.4.1/js/tooltip.js#L352",
+     "https://github.com/twbs/bootstrap-rubygem/commit/f34c43c936ac7d0ebb129289321d8c51cd56aed1#diff-4e736e880b7fc39eb5e85576b629f6e3cd08f02f45104a7b4581f82852e97a81R1306",
+     "https://github.com/twbs/bootstrap/commit/149096016f70fd815540d62c0989fd99cdc809e0",
+     "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/bootstrap/CVE-2018-14040.yml",
+     "https://github.com/twbs/bootstrap/commit/2a5ba23ce8f041f3548317acc992ed8a736b609d",
+     "https://blog.getbootstrap.com/2018/07/12/bootstrap-4-1-2",
+     "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/bootstrap-sass/CVE-2018-14040.yml"
+    ],
+    "epss": [
+     {
+      "cve": "CVE-2018-14040",
+      "epss": 0.04135,
+      "percentile": 0.90257,
+      "date": "2026-09-14"
+     }
+    ],
+    "cwes": [
+     {
+      "cve": "CVE-2018-14040",
+      "cwe": "CWE-79",
+      "source": "nvd@nist.gov",
+      "type": "Primary"
+     }
+    ],
+    "fix": {
+     "versions": [
+      "3.4.0"
+     ],
+     "state": "fixed",
+     "available": [
+      {
+       "version": "3.4.0",
+       "date": "2024-08-03",
+       "kind": "first-observed"
+      }
+     ]
+    },
+    "risk": 2.2949249999999997,
+    "description": "Bootstrap vulnerable to Cross-Site Scripting (XSS)",
+    "cvss": [
+     {
+      "version": "3.0",
+      "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+      "metrics": {
+       "baseScore": 6.1
+      }
+     }
+    ]
+   },
+   "relatedVulnerabilities": [
+    {
+     "id": "CVE-2018-14040",
+     "urls": [
+      "http://packetstormsecurity.com/files/152787/dotCMS-5.1.1-Vulnerable-Dependencies.html",
+      "http://packetstormsecurity.com/files/156743/OctoberCMS-Insecure-Dependencies.html",
+      "http://seclists.org/fulldisclosure/2019/May/10",
+      "http://seclists.org/fulldisclosure/2019/May/11",
+      "http://seclists.org/fulldisclosure/2019/May/13",
+      "https://blog.getbootstrap.com/2018/07/12/bootstrap-4-1-2/",
+      "https://github.com/twbs/bootstrap/issues/26423",
+      "https://github.com/twbs/bootstrap/issues/26625",
+      "https://github.com/twbs/bootstrap/pull/26630",
+      "https://lists.apache.org/thread.html/519eb0fd45642dcecd9ff74cb3e71c20a4753f7d82e2f07864b5108f%40%3Cdev.drill.apache.org%3E",
+      "https://lists.apache.org/thread.html/52e0e6b5df827ee7f1e68f7cc3babe61af3b2160f5d74a85469b7b0e%40%3Cdev.superset.apache.org%3E",
+      "https://lists.apache.org/thread.html/b0656d359c7d40ec9f39c8cc61bca66802ef9a2a12ee199f5b0c1442%40%3Cdev.drill.apache.org%3E",
+      "https://lists.apache.org/thread.html/f9bc3e55f4e28d1dcd1a69aae6d53e609a758e34d2869b4d798e13cc%40%3Cissues.drill.apache.org%3E",
+      "https://lists.apache.org/thread.html/r3dc0cac8d856bca02bd6997355d7ff83027dcfc82f8646a29b89b714%40%3Cissues.hbase.apache.org%3E",
+      "https://lists.apache.org/thread.html/rd0e44e8ef71eeaaa3cf3d1b8b41eb25894372e2995ec908ce7624d26%40%3Ccommits.pulsar.apache.org%3E",
+      "https://lists.debian.org/debian-lts-announce/2018/08/msg00027.html",
+      "https://seclists.org/bugtraq/2019/May/18",
+      "https://www.oracle.com/security-alerts/cpuApr2021.html",
+      "https://www.tenable.com/security/tns-2021-14"
+     ],
+     "cvss": [
+      {
+       "version": "3.0",
+       "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+       "metrics": {
+        "baseScore": 6.1
+       }
+      },
+      {
+       "version": "2.0",
+       "vector": "AV:N/AC:M/Au:N/C:N/I:P/A:N",
+       "metrics": {
+        "baseScore": 4.3
+       }
+      }
+     ]
+    }
+   ],
+   "artifact": {
+    "name": "bootstrap-sass",
+    "version": "3.2.0.3",
+    "type": "gem"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-vr22-43gj-rx3f",
+    "namespace": "github:language:ruby",
+    "severity": "Critical",
+    "urls": [
+     "https://nvd.nist.gov/vuln/detail/CVE-2019-17268",
+     "https://github.com/beenhero/omniauth-weibo-oauth2/issues/36",
+     "https://diff.coditsu.io/diffs/09a05c37-1b34-49e1-ac94-d4dda40d1ad1#d2h-971595",
+     "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/omniauth-weibo-oauth2/CVE-2019-17268.yml"
+    ],
+    "epss": [
+     {
+      "cve": "CVE-2019-17268",
+      "epss": 0.02437,
+      "percentile": 0.83372,
+      "date": "2026-09-14"
+     }
+    ],
+    "cwes": [
+     {
+      "cve": "CVE-2019-17268",
+      "cwe": "CWE-94",
+      "source": "nvd@nist.gov",
+      "type": "Primary"
+     }
+    ],
+    "fix": {
+     "versions": [
+      "0.5.1"
+     ],
+     "state": "fixed",
+     "available": [
+      {
+       "version": "0.5.1",
+       "date": "2023-01-28",
+       "kind": "first-observed"
+      }
+     ]
+    },
+    "risk": 2.2907800000000003,
+    "description": "omniauth-weibo-oauth2 included a code-execution backdoor inserted by a third party",
+    "cvss": [
+     {
+      "version": "3.1",
+      "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+      "metrics": {
+       "baseScore": 9.8
+      }
+     }
+    ]
+   },
+   "relatedVulnerabilities": [
+    {
+     "id": "CVE-2019-17268",
+     "urls": [
+      "https://diff.coditsu.io/diffs/09a05c37-1b34-49e1-ac94-d4dda40d1ad1#d2h-971595",
+      "https://github.com/beenhero/omniauth-weibo-oauth2/issues/36"
+     ],
+     "cvss": [
+      {
+       "version": "3.1",
+       "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+       "metrics": {
+        "baseScore": 9.8
+       }
+      },
+      {
+       "version": "2.0",
+       "vector": "AV:N/AC:L/Au:N/C:P/I:P/A:P",
+       "metrics": {
+        "baseScore": 7.5
+       }
+      }
+     ]
+    }
+   ],
+   "artifact": {
+    "name": "omniauth-weibo-oauth2",
+    "version": "0.4.6",
+    "type": "gem"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-4p24-vmcr-4gqj",
+    "namespace": "github:language:ruby",
+    "severity": "Medium",
+    "urls": [
+     "https://nvd.nist.gov/vuln/detail/CVE-2016-10735",
+     "https://github.com/twbs/bootstrap/issues/20184",
+     "https://github.com/twbs/bootstrap/issues/27915#issuecomment-452140906",
+     "https://github.com/twbs/bootstrap/pull/23679",
+     "https://github.com/twbs/bootstrap/pull/23687",
+     "https://github.com/twbs/bootstrap/pull/26460",
+     "https://access.redhat.com/errata/RHBA-2019:1076",
+     "https://access.redhat.com/errata/RHBA-2019:1570",
+     "https://access.redhat.com/errata/RHSA-2019:1456",
+     "https://access.redhat.com/errata/RHSA-2019:3023",
+     "https://access.redhat.com/errata/RHSA-2020:0132",
+     "https://access.redhat.com/errata/RHSA-2020:0133",
+     "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/bootstrap-sass/CVE-2016-10735.yml",
+     "https://github.com/github/advisory-database/pull/3281",
+     "https://blog.getbootstrap.com/2018/12/13/bootstrap-3-4-0",
+     "https://blog.getbootstrap.com/2018/07/12/bootstrap-4-1-2",
+     "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/bootstrap/CVE-2016-10735.yml"
+    ],
+    "epss": [
+     {
+      "cve": "CVE-2016-10735",
+      "epss": 0.0404,
+      "percentile": 0.90041,
+      "date": "2026-09-14"
+     }
+    ],
+    "cwes": [
+     {
+      "cve": "CVE-2016-10735",
+      "cwe": "CWE-79",
+      "source": "nvd@nist.gov",
+      "type": "Primary"
+     }
+    ],
+    "fix": {
+     "versions": [
+      "3.4.0"
+     ],
+     "state": "fixed",
+     "available": [
+      {
+       "version": "3.4.0",
+       "date": "2024-08-02",
+       "kind": "first-observed"
+      }
+     ]
+    },
+    "risk": 2.2421999999999995,
+    "description": "Bootstrap Cross-site Scripting vulnerability",
+    "cvss": [
+     {
+      "version": "3.0",
+      "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+      "metrics": {
+       "baseScore": 6.1
+      }
+     }
+    ]
+   },
+   "relatedVulnerabilities": [
+    {
+     "id": "CVE-2016-10735",
+     "urls": [
+      "https://access.redhat.com/errata/RHBA-2019:1076",
+      "https://access.redhat.com/errata/RHBA-2019:1570",
+      "https://access.redhat.com/errata/RHSA-2019:1456",
+      "https://access.redhat.com/errata/RHSA-2019:3023",
+      "https://access.redhat.com/errata/RHSA-2020:0132",
+      "https://access.redhat.com/errata/RHSA-2020:0133",
+      "https://blog.getbootstrap.com/2018/12/13/bootstrap-3-4-0/",
+      "https://github.com/twbs/bootstrap/issues/20184",
+      "https://github.com/twbs/bootstrap/issues/27915#issuecomment-452140906",
+      "https://github.com/twbs/bootstrap/pull/23679",
+      "https://github.com/twbs/bootstrap/pull/23687",
+      "https://github.com/twbs/bootstrap/pull/26460",
+      "https://www.tenable.com/security/tns-2021-14"
+     ],
+     "cvss": [
+      {
+       "version": "3.0",
+       "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+       "metrics": {
+        "baseScore": 6.1
+       }
+      },
+      {
+       "version": "2.0",
+       "vector": "AV:N/AC:M/Au:N/C:N/I:P/A:N",
+       "metrics": {
+        "baseScore": 4.3
+       }
+      }
+     ]
+    }
+   ],
+   "artifact": {
+    "name": "bootstrap-sass",
+    "version": "3.2.0.3",
+    "type": "gem"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-7mvr-5x2g-wfc8",
+    "namespace": "github:language:ruby",
+    "severity": "Medium",
+    "urls": [
+     "https://nvd.nist.gov/vuln/detail/CVE-2018-14042",
+     "https://github.com/twbs/bootstrap/issues/26423",
+     "https://github.com/twbs/bootstrap/issues/26628",
+     "https://github.com/twbs/bootstrap/pull/26630",
+     "https://lists.apache.org/thread.html/519eb0fd45642dcecd9ff74cb3e71c20a4753f7d82e2f07864b5108f@%3Cdev.drill.apache.org%3E",
+     "https://lists.apache.org/thread.html/52e0e6b5df827ee7f1e68f7cc3babe61af3b2160f5d74a85469b7b0e@%3Cdev.superset.apache.org%3E",
+     "https://lists.apache.org/thread.html/b0656d359c7d40ec9f39c8cc61bca66802ef9a2a12ee199f5b0c1442@%3Cdev.drill.apache.org%3E",
+     "https://lists.apache.org/thread.html/f9bc3e55f4e28d1dcd1a69aae6d53e609a758e34d2869b4d798e13cc@%3Cissues.drill.apache.org%3E",
+     "https://lists.apache.org/thread.html/r3dc0cac8d856bca02bd6997355d7ff83027dcfc82f8646a29b89b714@%3Cissues.hbase.apache.org%3E",
+     "https://lists.apache.org/thread.html/rd0e44e8ef71eeaaa3cf3d1b8b41eb25894372e2995ec908ce7624d26@%3Ccommits.pulsar.apache.org%3E",
+     "https://seclists.org/bugtraq/2019/May/18",
+     "https://www.oracle.com/security-alerts/cpuApr2021.html",
+     "http://packetstormsecurity.com/files/156743/OctoberCMS-Insecure-Dependencies.html",
+     "http://seclists.org/fulldisclosure/2019/May/10",
+     "http://seclists.org/fulldisclosure/2019/May/11",
+     "http://seclists.org/fulldisclosure/2019/May/13",
+     "https://github.com/twbs/bootstrap/issues/26428",
+     "https://github.com/twbs/bootstrap/commit/2d90d369bbc2bd2647620246c55cec8c4705e3d0",
+     "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/bootstrap/CVE-2018-14042.yml",
+     "https://www.tenable.com/security/tns-2021-14",
+     "https://github.com/twbs/bootstrap/commit/2a5ba23ce8f041f3548317acc992ed8a736b609d",
+     "https://blog.getbootstrap.com/2018/07/12/bootstrap-4-1-2",
+     "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/bootstrap-sass/CVE-2018-14042.yml"
+    ],
+    "epss": [
+     {
+      "cve": "CVE-2018-14042",
+      "epss": 0.04009,
+      "percentile": 0.89977,
+      "date": "2026-09-14"
+     }
+    ],
+    "cwes": [
+     {
+      "cve": "CVE-2018-14042",
+      "cwe": "CWE-79",
+      "source": "nvd@nist.gov",
+      "type": "Primary"
+     }
+    ],
+    "fix": {
+     "versions": [
+      "3.4.0"
+     ],
+     "state": "fixed",
+     "available": [
+      {
+       "version": "3.4.0",
+       "date": "2024-08-02",
+       "kind": "first-observed"
+      }
+     ]
+    },
+    "risk": 2.224995,
+    "description": "Bootstrap Cross-site Scripting vulnerability",
+    "cvss": [
+     {
+      "version": "3.0",
+      "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+      "metrics": {
+       "baseScore": 6.1
+      }
+     }
+    ]
+   },
+   "relatedVulnerabilities": [
+    {
+     "id": "CVE-2018-14042",
+     "urls": [
+      "http://packetstormsecurity.com/files/156743/OctoberCMS-Insecure-Dependencies.html",
+      "http://seclists.org/fulldisclosure/2019/May/10",
+      "http://seclists.org/fulldisclosure/2019/May/11",
+      "http://seclists.org/fulldisclosure/2019/May/13",
+      "https://blog.getbootstrap.com/2018/07/12/bootstrap-4-1-2/",
+      "https://github.com/twbs/bootstrap/issues/26423",
+      "https://github.com/twbs/bootstrap/issues/26628",
+      "https://github.com/twbs/bootstrap/pull/26630",
+      "https://lists.apache.org/thread.html/519eb0fd45642dcecd9ff74cb3e71c20a4753f7d82e2f07864b5108f%40%3Cdev.drill.apache.org%3E",
+      "https://lists.apache.org/thread.html/52e0e6b5df827ee7f1e68f7cc3babe61af3b2160f5d74a85469b7b0e%40%3Cdev.superset.apache.org%3E",
+      "https://lists.apache.org/thread.html/b0656d359c7d40ec9f39c8cc61bca66802ef9a2a12ee199f5b0c1442%40%3Cdev.drill.apache.org%3E",
+      "https://lists.apache.org/thread.html/f9bc3e55f4e28d1dcd1a69aae6d53e609a758e34d2869b4d798e13cc%40%3Cissues.drill.apache.org%3E",
+      "https://lists.apache.org/thread.html/r3dc0cac8d856bca02bd6997355d7ff83027dcfc82f8646a29b89b714%40%3Cissues.hbase.apache.org%3E",
+      "https://lists.apache.org/thread.html/rd0e44e8ef71eeaaa3cf3d1b8b41eb25894372e2995ec908ce7624d26%40%3Ccommits.pulsar.apache.org%3E",
+      "https://seclists.org/bugtraq/2019/May/18",
+      "https://www.oracle.com/security-alerts/cpuApr2021.html",
+      "https://www.tenable.com/security/tns-2021-14"
+     ],
+     "cvss": [
+      {
+       "version": "3.0",
+       "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+       "metrics": {
+        "baseScore": 6.1
+       }
+      },
+      {
+       "version": "2.0",
+       "vector": "AV:N/AC:M/Au:N/C:N/I:P/A:N",
+       "metrics": {
+        "baseScore": 4.3
+       }
+      }
+     ]
+    }
+   ],
+   "artifact": {
+    "name": "bootstrap-sass",
+    "version": "3.2.0.3",
+    "type": "gem"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-ph58-4vrj-w6hr",
+    "namespace": "github:language:ruby",
+    "severity": "Medium",
+    "urls": [
+     "https://nvd.nist.gov/vuln/detail/CVE-2018-20677",
+     "https://github.com/twbs/bootstrap/issues/27045",
+     "https://github.com/twbs/bootstrap/issues/27915#issuecomment-452140906",
+     "https://github.com/twbs/bootstrap/issues/27915#issuecomment-452196628",
+     "https://github.com/twbs/bootstrap/pull/27047",
+     "https://access.redhat.com/errata/RHBA-2019:1076",
+     "https://access.redhat.com/errata/RHBA-2019:1570",
+     "https://access.redhat.com/errata/RHSA-2019:1456",
+     "https://access.redhat.com/errata/RHSA-2019:3023",
+     "https://access.redhat.com/errata/RHSA-2020:0132",
+     "https://access.redhat.com/errata/RHSA-2020:0133",
+     "https://lists.apache.org/thread.html/52e0e6b5df827ee7f1e68f7cc3babe61af3b2160f5d74a85469b7b0e@%3Cdev.superset.apache.org%3E",
+     "https://lists.apache.org/thread.html/rd0e44e8ef71eeaaa3cf3d1b8b41eb25894372e2995ec908ce7624d26@%3Ccommits.pulsar.apache.org%3E",
+     "https://github.com/twbs/bootstrap/commit/2a5ba23ce8f041f3548317acc992ed8a736b609d",
+     "https://blog.getbootstrap.com/2018/12/13/bootstrap-3-4-0",
+     "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/bootstrap/CVE-2018-20677.yml",
+     "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/bootstrap-sass/CVE-2018-20677.yml"
+    ],
+    "epss": [
+     {
+      "cve": "CVE-2018-20677",
+      "epss": 0.03984,
+      "percentile": 0.89915,
+      "date": "2026-09-14"
+     }
+    ],
+    "cwes": [
+     {
+      "cve": "CVE-2018-20677",
+      "cwe": "CWE-79",
+      "source": "nvd@nist.gov",
+      "type": "Primary"
+     }
+    ],
+    "fix": {
+     "versions": [
+      "3.4.0"
+     ],
+     "state": "fixed",
+     "available": [
+      {
+       "version": "3.4.0",
+       "date": "2024-08-02",
+       "kind": "first-observed"
+      }
+     ]
+    },
+    "risk": 2.2111199999999998,
+    "description": "bootstrap Cross-site Scripting vulnerability",
+    "cvss": [
+     {
+      "version": "3.0",
+      "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+      "metrics": {
+       "baseScore": 6.1
+      }
+     }
+    ]
+   },
+   "relatedVulnerabilities": [
+    {
+     "id": "CVE-2018-20677",
+     "urls": [
+      "https://access.redhat.com/errata/RHBA-2019:1076",
+      "https://access.redhat.com/errata/RHBA-2019:1570",
+      "https://access.redhat.com/errata/RHSA-2019:1456",
+      "https://access.redhat.com/errata/RHSA-2019:3023",
+      "https://access.redhat.com/errata/RHSA-2020:0132",
+      "https://access.redhat.com/errata/RHSA-2020:0133",
+      "https://blog.getbootstrap.com/2018/12/13/bootstrap-3-4-0/",
+      "https://github.com/twbs/bootstrap/issues/27045",
+      "https://github.com/twbs/bootstrap/issues/27915#issuecomment-452140906",
+      "https://github.com/twbs/bootstrap/issues/27915#issuecomment-452196628",
+      "https://github.com/twbs/bootstrap/pull/27047",
+      "https://lists.apache.org/thread.html/52e0e6b5df827ee7f1e68f7cc3babe61af3b2160f5d74a85469b7b0e%40%3Cdev.superset.apache.org%3E",
+      "https://lists.apache.org/thread.html/rd0e44e8ef71eeaaa3cf3d1b8b41eb25894372e2995ec908ce7624d26%40%3Ccommits.pulsar.apache.org%3E",
+      "https://www.tenable.com/security/tns-2021-14"
+     ],
+     "cvss": [
+      {
+       "version": "3.0",
+       "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+       "metrics": {
+        "baseScore": 6.1
+       }
+      },
+      {
+       "version": "2.0",
+       "vector": "AV:N/AC:M/Au:N/C:N/I:P/A:N",
+       "metrics": {
+        "baseScore": 4.3
+       }
+      }
+     ]
+    }
+   ],
+   "artifact": {
+    "name": "bootstrap-sass",
+    "version": "3.2.0.3",
+    "type": "gem"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-3mgp-fx93-9xv5",
+    "namespace": "github:language:ruby",
+    "severity": "Medium",
+    "urls": [
+     "https://nvd.nist.gov/vuln/detail/CVE-2018-20676",
+     "https://github.com/twbs/bootstrap/issues/27044",
+     "https://github.com/twbs/bootstrap/issues/27915#issuecomment-452140906",
+     "https://github.com/twbs/bootstrap/issues/27915#issuecomment-452196628",
+     "https://github.com/twbs/bootstrap/pull/27047",
+     "https://access.redhat.com/errata/RHBA-2019:1076",
+     "https://access.redhat.com/errata/RHBA-2019:1570",
+     "https://access.redhat.com/errata/RHSA-2019:1456",
+     "https://access.redhat.com/errata/RHSA-2019:3023",
+     "https://access.redhat.com/errata/RHSA-2020:0132",
+     "https://access.redhat.com/errata/RHSA-2020:0133",
+     "https://lists.apache.org/thread.html/rd0e44e8ef71eeaaa3cf3d1b8b41eb25894372e2995ec908ce7624d26@%3Ccommits.pulsar.apache.org%3E",
+     "https://github.com/twbs/bootstrap/commit/2a5ba23ce8f041f3548317acc992ed8a736b609d",
+     "https://blog.getbootstrap.com/2018/12/13/bootstrap-3-4-0",
+     "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/bootstrap/CVE-2018-20676.yml",
+     "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/bootstrap-sass/CVE-2018-20676.yml"
+    ],
+    "epss": [
+     {
+      "cve": "CVE-2018-20676",
+      "epss": 0.03835,
+      "percentile": 0.89507,
+      "date": "2026-09-14"
+     }
+    ],
+    "cwes": [
+     {
+      "cve": "CVE-2018-20676",
+      "cwe": "CWE-79",
+      "source": "nvd@nist.gov",
+      "type": "Primary"
+     }
+    ],
+    "fix": {
+     "versions": [
+      "3.4.0"
+     ],
+     "state": "fixed",
+     "available": [
+      {
+       "version": "3.4.0",
+       "date": "2024-08-02",
+       "kind": "first-observed"
+      }
+     ]
+    },
+    "risk": 2.1284249999999996,
+    "description": "XSS vulnerability that affects bootstrap",
+    "cvss": [
+     {
+      "version": "3.0",
+      "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+      "metrics": {
+       "baseScore": 6.1
+      }
+     }
+    ]
+   },
+   "relatedVulnerabilities": [
+    {
+     "id": "CVE-2018-20676",
+     "urls": [
+      "https://access.redhat.com/errata/RHBA-2019:1076",
+      "https://access.redhat.com/errata/RHBA-2019:1570",
+      "https://access.redhat.com/errata/RHSA-2019:1456",
+      "https://access.redhat.com/errata/RHSA-2019:3023",
+      "https://access.redhat.com/errata/RHSA-2020:0132",
+      "https://access.redhat.com/errata/RHSA-2020:0133",
+      "https://blog.getbootstrap.com/2018/12/13/bootstrap-3-4-0/",
+      "https://github.com/twbs/bootstrap/issues/27044",
+      "https://github.com/twbs/bootstrap/issues/27915#issuecomment-452140906",
+      "https://github.com/twbs/bootstrap/issues/27915#issuecomment-452196628",
+      "https://github.com/twbs/bootstrap/pull/27047",
+      "https://lists.apache.org/thread.html/rd0e44e8ef71eeaaa3cf3d1b8b41eb25894372e2995ec908ce7624d26%40%3Ccommits.pulsar.apache.org%3E",
+      "https://www.tenable.com/security/tns-2021-14"
+     ],
+     "cvss": [
+      {
+       "version": "3.0",
+       "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+       "metrics": {
+        "baseScore": 6.1
+       }
+      },
+      {
+       "version": "2.0",
+       "vector": "AV:N/AC:M/Au:N/C:N/I:P/A:N",
+       "metrics": {
+        "baseScore": 4.3
+       }
+      }
+     ]
+    }
+   ],
+   "artifact": {
+    "name": "bootstrap-sass",
+    "version": "3.2.0.3",
+    "type": "gem"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-57qv-h9m7-jxfg",
+    "namespace": "github:language:python",
+    "severity": "Critical",
+    "urls": [
+     "https://nvd.nist.gov/vuln/detail/CVE-2022-28470",
+     "https://github.com/joajfreitas/marcador/issues/5",
+     "https://github.com/pypa/advisory-database/tree/main/vulns/marcador/PYSEC-2022-185.yaml",
+     "https://github.com/joajfreitas/marcador/commit/84d84549c6c6d765abc9243ac7e85d810f32d6e7",
+     "http://pypi.doubanio.com/simple/request",
+     "https://pypi.org/project/marcador"
+    ],
+    "epss": [
+     {
+      "cve": "CVE-2022-28470",
+      "epss": 0.02123,
+      "percentile": 0.80863,
+      "date": "2026-09-14"
+     }
+    ],
+    "fix": {
+     "versions": [
+      "0.14"
+     ],
+     "state": "fixed",
+     "available": [
+      {
+       "version": "0.14",
+       "date": "2022-05-25",
+       "kind": "first-observed"
+      }
+     ]
+    },
+    "risk": 1.9690824999999998,
+    "description": "Code-execution backdoor in marcador",
+    "cvss": [
+     {
+      "version": "3.1",
+      "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+      "metrics": {
+       "baseScore": 9.8
+      }
+     },
+     {
+      "version": "4.0",
+      "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N",
+      "metrics": {
+       "baseScore": 9.3
+      }
+     }
+    ]
+   },
+   "relatedVulnerabilities": [
+    {
+     "id": "CVE-2022-28470",
+     "urls": [
+      "http://pypi.doubanio.com/simple/request",
+      "https://github.com/joajfreitas/marcador/issues/5",
+      "https://pypi.org/project/marcador/"
+     ],
+     "cvss": [
+      {
+       "version": "3.1",
+       "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+       "metrics": {
+        "baseScore": 9.8
+       }
+      },
+      {
+       "version": "2.0",
+       "vector": "AV:N/AC:L/Au:N/C:P/I:P/A:P",
+       "metrics": {
+        "baseScore": 7.5
+       }
+      }
+     ]
+    }
+   ],
+   "artifact": {
+    "name": "marcador",
+    "version": "0.13",
+    "type": "python"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-75w2-qv55-x7fv",
+    "namespace": "github:language:javascript",
+    "severity": "Critical",
+    "urls": [
+     "https://nvd.nist.gov/vuln/detail/CVE-2023-49210",
+     "https://gist.github.com/mcoimbra/b05a55a5760172dccaa0a827647ad63e",
+     "https://github.com/ossf/malicious-packages/tree/main/malicious/npm",
+     "https://www.npmjs.com/package/openssl"
+    ],
+    "epss": [
+     {
+      "cve": "CVE-2023-49210",
+      "epss": 0.01909,
+      "percentile": 0.78623,
+      "date": "2026-09-14"
+     }
+    ],
+    "cwes": [
+     {
+      "cve": "CVE-2023-49210",
+      "cwe": "CWE-77",
+      "source": "nvd@nist.gov",
+      "type": "Primary"
+     }
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 1.7944600000000002,
+    "description": "openssl npm package vulnerable to command execution",
+    "cvss": [
+     {
+      "version": "3.1",
+      "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+      "metrics": {
+       "baseScore": 9.8
+      }
+     }
+    ]
+   },
+   "relatedVulnerabilities": [
+    {
+     "id": "CVE-2023-49210",
+     "urls": [
+      "https://gist.github.com/mcoimbra/b05a55a5760172dccaa0a827647ad63e",
+      "https://github.com/ossf/malicious-packages/tree/main/malicious/npm",
+      "https://www.npmjs.com/package/openssl"
+     ],
+     "cvss": [
+      {
+       "version": "3.1",
+       "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+       "metrics": {
+        "baseScore": 9.8
+       }
+      }
+     ]
+    }
+   ],
+   "artifact": {
+    "name": "openssl",
+    "version": "2.0.0",
+    "type": "npm"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-6978-4w92-428p",
+    "namespace": "github:language:python",
+    "severity": "Critical",
+    "urls": [
+     "https://nvd.nist.gov/vuln/detail/CVE-2022-31313",
+     "https://github.com/rakeshrkz7/as_api_res/issues/1",
+     "http://pypi.doubanio.com/simple/request",
+     "https://github.com/pypa/advisory-database/tree/main/vulns/api-res-py/PYSEC-2022-43071.yaml",
+     "https://pypi.org/project/api-res-py"
+    ],
+    "epss": [
+     {
+      "cve": "CVE-2022-31313",
+      "epss": 0.01825,
+      "percentile": 0.77599,
+      "date": "2026-09-14"
+     }
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 1.7155,
+    "description": "Backdoor in api-res-py",
+    "cvss": [
+     {
+      "version": "3.1",
+      "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+      "metrics": {
+       "baseScore": 9.8
+      }
+     }
+    ]
+   },
+   "relatedVulnerabilities": [
+    {
+     "id": "CVE-2022-31313",
+     "urls": [
+      "http://pypi.doubanio.com/simple/request",
+      "https://github.com/rakeshrkz7/as_api_res/issues/1",
+      "https://pypi.org/project/api-res-py/"
+     ],
+     "cvss": [
+      {
+       "version": "3.1",
+       "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+       "metrics": {
+        "baseScore": 9.8
+       }
+      },
+      {
+       "version": "2.0",
+       "vector": "AV:N/AC:L/Au:N/C:P/I:P/A:P",
+       "metrics": {
+        "baseScore": 7.5
+       }
+      }
+     ]
+    }
+   ],
+   "artifact": {
+    "name": "api-res-py",
+    "version": "0.1",
+    "type": "python"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-cv6j-9835-p7fh",
+    "namespace": "github:language:python",
+    "severity": "Critical",
+    "urls": [
+     "https://nvd.nist.gov/vuln/detail/CVE-2022-38792",
+     "https://github.com/sarathsp06/exotel-py/issues/10",
+     "https://github.com/jertel/elastalert2/pull/931",
+     "https://inspector.pypi.io/project/exotel/0.1.6/packages/8b/ed/9ebeb34d4adb9b01151d73ccfde9c1cb2d629c3b146953c8727559a65446/exotel-0.1.6.tar.gz/exotel-0.1.6/setup.py",
+     "https://github.com/pypa/advisory-database/tree/main/vulns/exotel/PYSEC-2022-43134.yaml",
+     "https://pypi.org/project/exotel"
+    ],
+    "epss": [
+     {
+      "cve": "CVE-2022-38792",
+      "epss": 0.01531,
+      "percentile": 0.73336,
+      "date": "2026-09-14"
+     }
+    ],
+    "cwes": [
+     {
+      "cve": "CVE-2022-38792",
+      "cwe": "NVD-CWE-Other",
+      "source": "nvd@nist.gov",
+      "type": "Primary"
+     }
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 1.4200025,
+    "description": "exotel-py includes code execution backdoor inserted by a third party",
+    "cvss": [
+     {
+      "version": "3.1",
+      "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+      "metrics": {
+       "baseScore": 9.8
+      }
+     },
+     {
+      "version": "4.0",
+      "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N",
+      "metrics": {
+       "baseScore": 9.3
+      }
+     }
+    ]
+   },
+   "relatedVulnerabilities": [
+    {
+     "id": "CVE-2022-38792",
+     "urls": [
+      "https://github.com/jertel/elastalert2/pull/931",
+      "https://github.com/sarathsp06/exotel-py/issues/10",
+      "https://inspector.pypi.io/project/exotel/0.1.6/packages/8b/ed/9ebeb34d4adb9b01151d73ccfde9c1cb2d629c3b146953c8727559a65446/exotel-0.1.6.tar.gz/exotel-0.1.6/setup.py",
+      "https://pypi.org/project/exotel/"
+     ],
+     "cvss": [
+      {
+       "version": "3.1",
+       "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+       "metrics": {
+        "baseScore": 9.8
+       }
+      }
+     ]
+    }
+   ],
+   "artifact": {
+    "name": "exotel",
+    "version": "0.1.6",
+    "type": "python"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-428f-mh7w-6w2x",
+    "namespace": "github:language:javascript",
+    "severity": "Critical",
+    "urls": [
+     "https://www.npmjs.com/advisories/482",
+     "https://nvd.nist.gov/vuln/detail/CVE-2017-16127"
+    ],
+    "epss": [
+     {
+      "cve": "CVE-2017-16127",
+      "epss": 0.01455,
+      "percentile": 0.71989,
+      "date": "2026-09-14"
+     }
+    ],
+    "cwes": [
+     {
+      "cve": "CVE-2017-16127",
+      "cwe": "CWE-509",
+      "source": "support@hackerone.com",
+      "type": "Secondary"
+     },
+     {
+      "cve": "CVE-2017-16127",
+      "cwe": "CWE-276",
+      "source": "nvd@nist.gov",
+      "type": "Primary"
+     }
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 1.3677000000000001,
+    "description": "pandora-doomsday is malware",
+    "cvss": [
+     {
+      "version": "3.0",
+      "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+      "metrics": {
+       "baseScore": 9.8
+      }
+     }
+    ]
+   },
+   "relatedVulnerabilities": [
+    {
+     "id": "CVE-2017-16127",
+     "urls": [
+      "https://nodesecurity.io/advisories/482"
+     ],
+     "cvss": [
+      {
+       "version": "3.0",
+       "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+       "metrics": {
+        "baseScore": 9.8
+       }
+      },
+      {
+       "version": "2.0",
+       "vector": "AV:N/AC:L/Au:N/C:C/I:C/A:C",
+       "metrics": {
+        "baseScore": 10
+       }
+      }
+     ]
+    }
+   ],
+   "artifact": {
+    "name": "pandora-doomsday",
+    "version": "1.0.0",
+    "type": "npm"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-q5h6-49gg-2wfg",
+    "namespace": "github:language:python",
+    "severity": "High",
+    "urls": [
+     "https://nvd.nist.gov/vuln/detail/CVE-2020-36245",
+     "https://github.com/GramAddict/bot/issues/134",
+     "https://github.com/GramAddict/bot/pull/183",
+     "https://github.com/GramAddict/bot/commit/b9d11691b2fb13749c3cd0f75c70ee31242053ce",
+     "https://github.com/pypa/advisory-database/tree/main/vulns/gramaddict/PYSEC-2021-65.yaml"
+    ],
+    "epss": [
+     {
+      "cve": "CVE-2020-36245",
+      "epss": 0.0152,
+      "percentile": 0.73152,
+      "date": "2026-09-14"
+     }
+    ],
+    "cwes": [
+     {
+      "cve": "CVE-2020-36245",
+      "cwe": "CWE-306",
+      "source": "nvd@nist.gov",
+      "type": "Primary"
+     }
+    ],
+    "fix": {
+     "versions": [
+      "1.2.5"
+     ],
+     "state": "fixed",
+     "available": [
+      {
+       "version": "1.2.5",
+       "date": "2024-04-23",
+       "kind": "first-observed"
+      }
+     ]
+    },
+    "risk": 1.2349999999999999,
+    "description": "GramAddict bot uses dependency with reverse tcp backdoor",
+    "cvss": [
+     {
+      "version": "3.1",
+      "vector": "CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+      "metrics": {
+       "baseScore": 8.8
+      }
+     },
+     {
+      "version": "4.0",
+      "vector": "CVSS:4.0/AV:A/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N",
+      "metrics": {
+       "baseScore": 8.7
+      }
+     }
+    ]
+   },
+   "relatedVulnerabilities": [
+    {
+     "id": "CVE-2020-36245",
+     "urls": [
+      "https://github.com/GramAddict/bot/issues/134"
+     ],
+     "cvss": [
+      {
+       "version": "3.1",
+       "vector": "CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+       "metrics": {
+        "baseScore": 8.8
+       }
+      },
+      {
+       "version": "2.0",
+       "vector": "AV:A/AC:L/Au:N/C:P/I:P/A:P",
+       "metrics": {
+        "baseScore": 5.8
+       }
+      }
+     ]
+    }
+   ],
+   "artifact": {
+    "name": "gramaddict",
+    "version": "1.2.3",
+    "type": "python"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-pjwm-rvh2-c87w",
+    "namespace": "github:language:javascript",
+    "severity": "High",
+    "urls": [
+     "https://github.com/faisalman/ua-parser-js/issues/536",
+     "https://www.npmjs.com/package/ua-parser-js",
+     "https://github.com/faisalman/ua-parser-js/issues/536#issuecomment-949772496"
+    ],
+    "epss": [
+     {
+      "cve": "CVE-2021-4229",
+      "epss": 0.01419,
+      "percentile": 0.71323,
+      "date": "2026-09-14"
+     }
+    ],
+    "cwes": [
+     {
+      "cve": "CVE-2021-4229",
+      "cwe": "CWE-912",
+      "source": "cna@vuldb.com",
+      "type": "Secondary"
+     },
+     {
+      "cve": "CVE-2021-4229",
+      "cwe": "CWE-829",
+      "source": "nvd@nist.gov",
+      "type": "Primary"
+     }
+    ],
+    "fix": {
+     "versions": [
+      "0.7.30"
+     ],
+     "state": "fixed",
+     "available": [
+      {
+       "version": "0.7.30",
+       "date": "2021-10-25",
+       "kind": "first-observed"
+      }
+     ]
+    },
+    "risk": 1.156485,
+    "description": "Embedded malware in ua-parser-js",
+    "cvss": [
+     {
+      "version": "3.1",
+      "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+      "metrics": {
+       "baseScore": 8.8
+      }
+     }
+    ]
+   },
+   "relatedVulnerabilities": [
+    {
+     "id": "CVE-2021-4229",
+     "urls": [
+      "https://github.com/advisories/GHSA-pjwm-rvh2-c87w",
+      "https://github.com/faisalman/ua-parser-js/issues/536",
+      "https://vuldb.com/?id.185453"
+     ],
+     "cvss": [
+      {
+       "version": "3.1",
+       "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+       "metrics": {
+        "baseScore": 8.8
+       }
+      },
+      {
+       "version": "2.0",
+       "vector": "AV:N/AC:H/Au:N/C:C/I:C/A:C",
+       "metrics": {
+        "baseScore": 7.6
+       }
+      },
+      {
+       "version": "3.1",
+       "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:L/A:L",
+       "metrics": {
+        "baseScore": 5
+       }
+      }
+     ]
+    }
+   ],
+   "artifact": {
+    "name": "ua-parser-js",
+    "version": "0.7.29",
+    "type": "npm"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-hm6q-r2jc-cpqh",
+    "namespace": "github:language:javascript",
+    "severity": "High",
+    "urls": [
+     "https://nvd.nist.gov/vuln/detail/CVE-2019-19771",
+     "https://www.npmjs.com/advisories/1417",
+     "https://www.npmjs.com/package/lodahs"
+    ],
+    "epss": [
+     {
+      "cve": "CVE-2019-19771",
+      "epss": 0.01257,
+      "percentile": 0.67886,
+      "date": "2026-09-14"
+     }
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 1.024455,
+    "description": "lodahs is malware",
+    "cvss": [
+     {
+      "version": "3.1",
+      "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+      "metrics": {
+       "baseScore": 8.8
+      }
+     }
+    ]
+   },
+   "relatedVulnerabilities": [
+    {
+     "id": "CVE-2019-19771",
+     "urls": [
+      "https://www.npmjs.com/advisories/1417",
+      "https://www.npmjs.com/package/lodahs"
+     ],
+     "cvss": [
+      {
+       "version": "3.1",
+       "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+       "metrics": {
+        "baseScore": 8.8
+       }
+      },
+      {
+       "version": "2.0",
+       "vector": "AV:N/AC:M/Au:N/C:C/I:C/A:C",
+       "metrics": {
+        "baseScore": 9.3
+       }
+      }
+     ]
+    }
+   ],
+   "artifact": {
+    "name": "lodahs",
+    "version": "0.0.1",
+    "type": "npm"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-c9rj-pgxv-84jc",
+    "namespace": "github:language:javascript",
+    "severity": "High",
+    "urls": [
+     "https://nvd.nist.gov/vuln/detail/CVE-2017-16206",
+     "https://www.npmjs.com/advisories/540"
+    ],
+    "epss": [
+     {
+      "cve": "CVE-2017-16206",
+      "epss": 0.01177,
+      "percentile": 0.6583,
+      "date": "2026-09-14"
+     }
+    ],
+    "cwes": [
+     {
+      "cve": "CVE-2017-16206",
+      "cwe": "CWE-200",
+      "source": "nvd@nist.gov",
+      "type": "Primary"
+     }
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 0.8827499999999998,
+    "description": "cofee-script is malware",
+    "cvss": [
+     {
+      "version": "3.0",
+      "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+      "metrics": {
+       "baseScore": 7.5
+      }
+     }
+    ]
+   },
+   "relatedVulnerabilities": [
+    {
+     "id": "CVE-2017-16206",
+     "urls": [
+      "https://nodesecurity.io/advisories/540"
+     ],
+     "cvss": [
+      {
+       "version": "3.0",
+       "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+       "metrics": {
+        "baseScore": 7.5
+       }
+      },
+      {
+       "version": "2.0",
+       "vector": "AV:N/AC:L/Au:N/C:P/I:N/A:N",
+       "metrics": {
+        "baseScore": 5
+       }
+      }
+     ]
+    }
+   ],
+   "artifact": {
+    "name": "cofee-script",
+    "version": "1.0.1",
+    "type": "npm"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-qrc4-49gv-mv9m",
+    "namespace": "github:language:python",
+    "severity": "High",
+    "urls": [
+     "https://nvd.nist.gov/vuln/detail/CVE-2026-47101",
+     "https://github.com/BerriAI/litellm/commit/2220f3076ac89bd2a2e3439acf57dcfbec2434c9",
+     "https://github.com/BerriAI/litellm/commit/5190bd07eb23a037745d86328096f54378f1614a",
+     "https://github.com/BerriAI/litellm/commit/d910a95661fce3cdd36f3b06c03ecf9c46c6457c",
+     "https://gist.github.com/13ph03nix/9ec616e1fdc77b3673509c60206e827f",
+     "https://github.com/BerriAI/litellm/releases/tag/v1.83.14-stable",
+     "https://huntr.com/bounties/8e75edfb-ff05-4e63-bfca-2d93d03fb3b9",
+     "https://www.vulncheck.com/advisories/litellm-privilege-escalation-via-api-key-generation",
+     "https://www.obsidiansecurity.com/blog/litellm-privilege-escalation-rce"
+    ],
+    "epss": [
+     {
+      "cve": "CVE-2026-47101",
+      "epss": 0.00739,
+      "percentile": 0.52599,
+      "date": "2026-09-14"
+     }
+    ],
+    "cwes": [
+     {
+      "cve": "CVE-2026-47101",
+      "cwe": "CWE-863",
+      "source": "disclosure@vulncheck.com",
+      "type": "Secondary"
+     },
+     {
+      "cve": "CVE-2026-47101",
+      "cwe": "CWE-639",
+      "source": "0b0ca135-0b70-47e7-9f44-1890c2a1c46c",
+      "type": "Secondary"
+     }
+    ],
+    "fix": {
+     "versions": [
+      "1.83.14"
+     ],
+     "state": "fixed",
+     "available": [
+      {
+       "version": "1.83.14",
+       "date": "2026-06-24",
+       "kind": "first-observed"
+      }
+     ]
+    },
+    "risk": 0.6004375000000001,
+    "description": "LiteLLM allows an authenticated internal_user to create API keys with access to routes that their role does not permit",
+    "cvss": [
+     {
+      "version": "3.1",
+      "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+      "metrics": {
+       "baseScore": 8.8
+      }
+     },
+     {
+      "version": "4.0",
+      "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:L/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N",
+      "metrics": {
+       "baseScore": 8.7
+      }
+     }
+    ]
+   },
+   "relatedVulnerabilities": [
+    {
+     "id": "CVE-2026-47101",
+     "urls": [
+      "https://gist.github.com/13ph03nix/9ec616e1fdc77b3673509c60206e827f",
+      "https://github.com/BerriAI/litellm/commit/2220f3076ac89bd2a2e3439acf57dcfbec2434c9",
+      "https://github.com/BerriAI/litellm/commit/5190bd07eb23a037745d86328096f54378f1614a",
+      "https://github.com/BerriAI/litellm/commit/d910a95661fce3cdd36f3b06c03ecf9c46c6457c",
+      "https://github.com/BerriAI/litellm/releases/tag/v1.83.14-stable",
+      "https://huntr.com/bounties/8e75edfb-ff05-4e63-bfca-2d93d03fb3b9",
+      "https://www.obsidiansecurity.com/blog/litellm-privilege-escalation-rce",
+      "https://www.vulncheck.com/advisories/litellm-privilege-escalation-via-api-key-generation",
+      "https://access.redhat.com/security/cve/CVE-2026-47101",
+      "https://bugzilla.redhat.com/show_bug.cgi?id=2480635",
+      "https://security.access.redhat.com/data/csaf/v2/vex/2026/cve-2026-47101.json"
+     ],
+     "cvss": [
+      {
+       "version": "3.1",
+       "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+       "metrics": {
+        "baseScore": 8.8
+       }
+      },
+      {
+       "version": "4.0",
+       "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:L/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
+       "metrics": {
+        "baseScore": 8.7
+       }
+      },
+      {
+       "version": "3.1",
+       "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+       "metrics": {
+        "baseScore": 8.8
+       }
+      }
+     ]
+    }
+   ],
+   "artifact": {
+    "name": "litellm",
+    "version": "1.82.7",
+    "type": "python"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-4jcj-7x88-m979",
+    "namespace": "github:language:python",
+    "severity": "Medium",
+    "urls": [
+     "https://nvd.nist.gov/vuln/detail/CVE-2026-12773",
+     "https://gist.github.com/YLChen-007/3cfaad10a69d7a15e4d4d458cb53309e",
+     "https://vuldb.com/cve/CVE-2026-12773",
+     "https://vuldb.com/submit/811282",
+     "https://vuldb.com/vuln/372515",
+     "https://vuldb.com/vuln/372515/cti",
+     "https://access.redhat.com/security/cve/CVE-2026-12773",
+     "https://bugzilla.redhat.com/show_bug.cgi?id=2491112",
+     "https://security.access.redhat.com/data/csaf/v2/vex/2026/cve-2026-12773.json",
+     "https://github.com/BerriAI/litellm/commit/73869f0faf7d11ee21adcb5f91b8c33a340b6c2c"
+    ],
+    "epss": [
+     {
+      "cve": "CVE-2026-12773",
+      "epss": 0.01017,
+      "percentile": 0.6138,
+      "date": "2026-09-14"
+     }
+    ],
+    "cwes": [
+     {
+      "cve": "CVE-2026-12773",
+      "cwe": "CWE-287",
+      "source": "cna@vuldb.com",
+      "type": "Secondary"
+     },
+     {
+      "cve": "CVE-2026-12773",
+      "cwe": "CWE-303",
+      "source": "0b0ca135-0b70-47e7-9f44-1890c2a1c46c",
+      "type": "Secondary"
+     }
+    ],
+    "fix": {
+     "versions": [
+      "1.84.0"
+     ],
+     "state": "fixed",
+     "available": [
+      {
+       "version": "1.84.0",
+       "date": "2026-09-11",
+       "kind": "first-observed"
+      }
+     ]
+    },
+    "risk": 0.57969,
+    "description": "LiteLLM: MCP Proxy Has Improper Authentication",
+    "cvss": [
+     {
+      "version": "3.1",
+      "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+      "metrics": {
+       "baseScore": 7.3
+      }
+     },
+     {
+      "version": "4.0",
+      "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:L/VI:L/VA:L/SC:N/SI:N/SA:N/E:P",
+      "metrics": {
+       "baseScore": 5.5
+      }
+     }
+    ]
+   },
+   "relatedVulnerabilities": [
+    {
+     "id": "CVE-2026-12773",
+     "urls": [
+      "https://gist.github.com/YLChen-007/3cfaad10a69d7a15e4d4d458cb53309e",
+      "https://vuldb.com/cve/CVE-2026-12773",
+      "https://vuldb.com/submit/811282",
+      "https://vuldb.com/vuln/372515",
+      "https://vuldb.com/vuln/372515/cti",
+      "https://access.redhat.com/security/cve/CVE-2026-12773",
+      "https://bugzilla.redhat.com/show_bug.cgi?id=2491112",
+      "https://security.access.redhat.com/data/csaf/v2/vex/2026/cve-2026-12773.json"
+     ],
+     "cvss": [
+      {
+       "version": "3.1",
+       "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+       "metrics": {
+        "baseScore": 9.8
+       }
+      },
+      {
+       "version": "3.1",
+       "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+       "metrics": {
+        "baseScore": 7.3
+       }
+      },
+      {
+       "version": "4.0",
+       "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:L/VI:L/VA:L/SC:N/SI:N/SA:N/E:P/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
+       "metrics": {
+        "baseScore": 5.5
+       }
+      },
+      {
+       "version": "3.1",
+       "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+       "metrics": {
+        "baseScore": 7.3
+       }
+      },
+      {
+       "version": "2.0",
+       "vector": "AV:N/AC:L/Au:N/C:P/I:P/A:P",
+       "metrics": {
+        "baseScore": 7.5
+       }
+      }
+     ]
+    }
+   ],
+   "artifact": {
+    "name": "litellm",
+    "version": "1.82.7",
+    "type": "python"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-4xpc-pv4p-pm3w",
+    "namespace": "github:language:python",
+    "severity": "Critical",
+    "urls": [
+     "https://github.com/BerriAI/litellm/security/advisories/GHSA-4xpc-pv4p-pm3w",
+     "https://github.com/BerriAI/litellm/releases/tag/v1.84.0",
+     "https://nvd.nist.gov/vuln/detail/CVE-2026-49468",
+     "https://access.redhat.com/security/cve/CVE-2026-49468",
+     "https://bugzilla.redhat.com/show_bug.cgi?id=2491520",
+     "https://github.com/BerriAI/litellm",
+     "https://github.com/pypa/advisory-database/tree/main/vulns/litellm/PYSEC-2026-388.yaml",
+     "https://pypi.org/project/litellm",
+     "https://security.access.redhat.com/data/csaf/v2/vex/2026/cve-2026-49468.json"
+    ],
+    "epss": [
+     {
+      "cve": "CVE-2026-49468",
+      "epss": 0.00592,
+      "percentile": 0.46477,
+      "date": "2026-09-14"
+     }
+    ],
+    "cwes": [
+     {
+      "cve": "CVE-2026-49468",
+      "cwe": "CWE-290",
+      "source": "security-advisories@github.com",
+      "type": "Secondary"
+     },
+     {
+      "cve": "CVE-2026-49468",
+      "cwe": "CWE-290",
+      "source": "0b0ca135-0b70-47e7-9f44-1890c2a1c46c",
+      "type": "Secondary"
+     }
+    ],
+    "fix": {
+     "versions": [
+      "1.84.0"
+     ],
+     "state": "fixed",
+     "available": [
+      {
+       "version": "1.84.0",
+       "date": "2026-06-17",
+       "kind": "first-observed"
+      }
+     ]
+    },
+    "risk": 0.5520400000000001,
+    "description": "LiteLLM: Authentication Bypass via Host Header Injection",
+    "cvss": [
+     {
+      "version": "3.1",
+      "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+      "metrics": {
+       "baseScore": 9.8
+      }
+     },
+     {
+      "version": "4.0",
+      "vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:H/VI:H/VA:H/SC:H/SI:H/SA:H",
+      "metrics": {
+       "baseScore": 9.5
+      }
+     }
+    ]
+   },
+   "relatedVulnerabilities": [
+    {
+     "id": "CVE-2026-49468",
+     "urls": [
+      "https://github.com/BerriAI/litellm/releases/tag/v1.84.0",
+      "https://github.com/BerriAI/litellm/security/advisories/GHSA-4xpc-pv4p-pm3w",
+      "https://access.redhat.com/security/cve/CVE-2026-49468",
+      "https://bugzilla.redhat.com/show_bug.cgi?id=2491520",
+      "https://security.access.redhat.com/data/csaf/v2/vex/2026/cve-2026-49468.json"
+     ],
+     "cvss": [
+      {
+       "version": "3.1",
+       "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+       "metrics": {
+        "baseScore": 9.8
+       }
+      },
+      {
+       "version": "3.1",
+       "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+       "metrics": {
+        "baseScore": 8.1
+       }
+      },
+      {
+       "version": "4.0",
+       "vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:H/VI:H/VA:H/SC:H/SI:H/SA:H/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
+       "metrics": {
+        "baseScore": 9.5
+       }
+      }
+     ]
+    }
+   ],
+   "artifact": {
+    "name": "litellm",
+    "version": "1.82.7",
+    "type": "python"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-wpfp-gwwc-vwq6",
+    "namespace": "github:language:python",
+    "severity": "High",
+    "urls": [
+     "https://nvd.nist.gov/vuln/detail/CVE-2026-47102",
+     "https://github.com/BerriAI/litellm/pull/25541",
+     "https://github.com/BerriAI/litellm/commit/128d32d2494b759c5d15da3452452af4c6a34c01",
+     "https://github.com/BerriAI/litellm/commit/e6f18ce75b111c9b93dc15c72894cbdeb53177ce",
+     "https://gist.github.com/13ph03nix/9ec616e1fdc77b3673509c60206e827f",
+     "https://github.com/BerriAI/litellm/releases/tag/v1.83.10-stable",
+     "https://huntr.com/bounties/8e75edfb-ff05-4e63-bfca-2d93d03fb3b9",
+     "https://www.vulncheck.com/advisories/litellm-privilege-escalation-via-user-update",
+     "https://www.obsidiansecurity.com/blog/litellm-privilege-escalation-rce"
+    ],
+    "epss": [
+     {
+      "cve": "CVE-2026-47102",
+      "epss": 0.00654,
+      "percentile": 0.49374,
+      "date": "2026-09-14"
+     }
+    ],
+    "cwes": [
+     {
+      "cve": "CVE-2026-47102",
+      "cwe": "CWE-863",
+      "source": "disclosure@vulncheck.com",
+      "type": "Secondary"
+     },
+     {
+      "cve": "CVE-2026-47102",
+      "cwe": "CWE-915",
+      "source": "0b0ca135-0b70-47e7-9f44-1890c2a1c46c",
+      "type": "Secondary"
+     }
+    ],
+    "fix": {
+     "versions": [
+      "1.83.10"
+     ],
+     "state": "fixed",
+     "available": [
+      {
+       "version": "1.83.10",
+       "date": "2026-06-24",
+       "kind": "first-observed"
+      }
+     ]
+    },
+    "risk": 0.531375,
+    "description": "LiteLLM allows a user to modify their own user_role via the /user/update endpoint",
+    "cvss": [
+     {
+      "version": "3.1",
+      "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+      "metrics": {
+       "baseScore": 8.8
+      }
+     },
+     {
+      "version": "4.0",
+      "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:L/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N",
+      "metrics": {
+       "baseScore": 8.7
+      }
+     }
+    ]
+   },
+   "relatedVulnerabilities": [
+    {
+     "id": "CVE-2026-47102",
+     "urls": [
+      "https://gist.github.com/13ph03nix/9ec616e1fdc77b3673509c60206e827f",
+      "https://github.com/BerriAI/litellm/commit/128d32d2494b759c5d15da3452452af4c6a34c01",
+      "https://github.com/BerriAI/litellm/commit/e6f18ce75b111c9b93dc15c72894cbdeb53177ce",
+      "https://github.com/BerriAI/litellm/pull/25541",
+      "https://github.com/BerriAI/litellm/releases/tag/v1.83.10-stable",
+      "https://huntr.com/bounties/8e75edfb-ff05-4e63-bfca-2d93d03fb3b9",
+      "https://www.obsidiansecurity.com/blog/litellm-privilege-escalation-rce",
+      "https://www.vulncheck.com/advisories/litellm-privilege-escalation-via-user-update",
+      "https://access.redhat.com/security/cve/CVE-2026-47102",
+      "https://bugzilla.redhat.com/show_bug.cgi?id=2480634",
+      "https://security.access.redhat.com/data/csaf/v2/vex/2026/cve-2026-47102.json"
+     ],
+     "cvss": [
+      {
+       "version": "3.1",
+       "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+       "metrics": {
+        "baseScore": 8.8
+       }
+      },
+      {
+       "version": "4.0",
+       "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:L/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
+       "metrics": {
+        "baseScore": 8.7
+       }
+      },
+      {
+       "version": "3.1",
+       "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+       "metrics": {
+        "baseScore": 8.8
+       }
+      }
+     ]
+    }
+   ],
+   "artifact": {
+    "name": "litellm",
+    "version": "1.82.7",
+    "type": "python"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-6wvf-77m9-58rm",
+    "namespace": "github:language:python",
+    "severity": "Critical",
+    "urls": [
+     "https://nvd.nist.gov/vuln/detail/CVE-2026-37004",
+     "https://github.com/BerriAI/litellm/blob/244bdffd1bfe7bebdfdef516e1ebe426a898e2f0/litellm/proxy/prompts/prompt_endpoints.py#L1073",
+     "https://yerangamage.com/cves/detail/?slug=litellm-ssti-rce",
+     "https://github.com/BerriAI/litellm/commit/d910a95661fce3cdd36f3b06c03ecf9c46c6457c",
+     "https://github.com/BerriAI/litellm/releases/tag/v1.83.7-stable"
+    ],
+    "epss": [
+     {
+      "cve": "CVE-2026-37004",
+      "epss": 0.00548,
+      "percentile": 0.44245,
+      "date": "2026-09-14"
+     }
+    ],
+    "cwes": [
+     {
+      "cve": "CVE-2026-37004",
+      "cwe": "CWE-1336",
+      "source": "134c704f-9b21-4f2e-91b3-4a467353bcc0",
+      "type": "Secondary"
+     }
+    ],
+    "fix": {
+     "versions": [
+      "1.83.7"
+     ],
+     "state": "fixed",
+     "available": [
+      {
+       "version": "1.83.7",
+       "date": "2026-09-09",
+       "kind": "first-observed"
+      }
+     ]
+    },
+    "risk": 0.51512,
+    "description": "LiteLLM vulnerable to server-side template injection in the /prompts/test endpoint",
+    "cvss": [
+     {
+      "version": "3.1",
+      "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+      "metrics": {
+       "baseScore": 9.8
+      }
+     }
+    ]
+   },
+   "relatedVulnerabilities": [
+    {
+     "id": "CVE-2026-37004",
+     "urls": [
+      "https://github.com/BerriAI/litellm/blob/244bdffd1bfe7bebdfdef516e1ebe426a898e2f0/litellm/proxy/prompts/prompt_endpoints.py#L1073",
+      "https://yerangamage.com/cves/detail/?slug=litellm-ssti-rce"
+     ],
+     "cvss": [
+      {
+       "version": "3.1",
+       "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+       "metrics": {
+        "baseScore": 9.8
+       }
+      }
+     ]
+    }
+   ],
+   "artifact": {
+    "name": "litellm",
+    "version": "1.82.7",
+    "type": "python"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-rfj2-4g26-7jw5",
+    "namespace": "github:language:java",
+    "severity": "High",
+    "urls": [
+     "https://nvd.nist.gov/vuln/detail/CVE-2019-10249",
+     "https://github.com/eclipse/xtext-xtend/issues/759",
+     "https://bugs.eclipse.org/bugs/show_bug.cgi?id=546996",
+     "https://github.com/eclipse/xtext-xtend/commit/169de2cecc50ed9bf81c3cdc496ad8a799bdf17b"
+    ],
+    "epss": [
+     {
+      "cve": "CVE-2019-10249",
+      "epss": 0.00651,
+      "percentile": 0.4925,
+      "date": "2026-09-14"
+     }
+    ],
+    "cwes": [
+     {
+      "cve": "CVE-2019-10249",
+      "cwe": "CWE-494",
+      "source": "emo@eclipse.org",
+      "type": "Secondary"
+     },
+     {
+      "cve": "CVE-2019-10249",
+      "cwe": "CWE-829",
+      "source": "emo@eclipse.org",
+      "type": "Secondary"
+     },
+     {
+      "cve": "CVE-2019-10249",
+      "cwe": "CWE-116",
+      "source": "nvd@nist.gov",
+      "type": "Primary"
+     }
+    ],
+    "fix": {
+     "versions": [
+      "2.18.0"
+     ],
+     "state": "fixed",
+     "available": [
+      {
+       "version": "2.18.0",
+       "date": "2022-11-06",
+       "kind": "first-observed"
+      }
+     ]
+    },
+    "risk": 0.50778,
+    "description": "Potentially compromised builds",
+    "cvss": [
+     {
+      "version": "3.1",
+      "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+      "metrics": {
+       "baseScore": 8.1
+      }
+     }
+    ]
+   },
+   "relatedVulnerabilities": [
+    {
+     "id": "CVE-2019-10249",
+     "urls": [
+      "https://bugs.eclipse.org/bugs/show_bug.cgi?id=546996",
+      "https://github.com/eclipse/xtext-xtend/issues/759"
+     ],
+     "cvss": [
+      {
+       "version": "3.1",
+       "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+       "metrics": {
+        "baseScore": 8.1
+       }
+      },
+      {
+       "version": "2.0",
+       "vector": "AV:N/AC:M/Au:N/C:P/I:P/A:P",
+       "metrics": {
+        "baseScore": 6.8
+       }
+      }
+     ]
+    }
+   ],
+   "artifact": {
+    "name": "org.eclipse.xtext",
+    "version": "2.17.0",
+    "type": "java-archive"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-jjhc-v7c2-5hh6",
+    "namespace": "github:language:python",
+    "severity": "Critical",
+    "urls": [
+     "https://github.com/BerriAI/litellm/security/advisories/GHSA-jjhc-v7c2-5hh6",
+     "https://nvd.nist.gov/vuln/detail/CVE-2026-35030"
+    ],
+    "epss": [
+     {
+      "cve": "CVE-2026-35030",
+      "epss": 0.0049,
+      "percentile": 0.40722,
+      "date": "2026-09-14"
+     }
+    ],
+    "cwes": [
+     {
+      "cve": "CVE-2026-35030",
+      "cwe": "CWE-287",
+      "source": "security-advisories@github.com",
+      "type": "Secondary"
+     },
+     {
+      "cve": "CVE-2026-35030",
+      "cwe": "CWE-222",
+      "source": "0b0ca135-0b70-47e7-9f44-1890c2a1c46c",
+      "type": "Secondary"
+     }
+    ],
+    "fix": {
+     "versions": [
+      "1.83.0"
+     ],
+     "state": "fixed",
+     "available": [
+      {
+       "version": "1.83.0",
+       "date": "2026-04-04",
+       "kind": "first-observed"
+      }
+     ]
+    },
+    "risk": 0.4508,
+    "description": "LiteLLM: Authentication bypass via OIDC userinfo cache key collision",
+    "cvss": [
+     {
+      "version": "4.0",
+      "vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:H/VI:H/VA:N/SC:H/SI:H/SA:N",
+      "metrics": {
+       "baseScore": 9.4
+      }
+     }
+    ]
+   },
+   "relatedVulnerabilities": [
+    {
+     "id": "CVE-2026-35030",
+     "urls": [
+      "https://github.com/BerriAI/litellm/security/advisories/GHSA-jjhc-v7c2-5hh6",
+      "https://access.redhat.com/errata/RHSA-2026:13545",
+      "https://access.redhat.com/errata/RHSA-2026:28960",
+      "https://access.redhat.com/errata/RHSA-2026:30056",
+      "https://access.redhat.com/security/cve/CVE-2026-35030",
+      "https://bugzilla.redhat.com/show_bug.cgi?id=2455509",
+      "https://security.access.redhat.com/data/csaf/v2/vex/2026/cve-2026-35030.json"
+     ],
+     "cvss": [
+      {
+       "version": "3.1",
+       "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N",
+       "metrics": {
+        "baseScore": 9.1
+       }
+      },
+      {
+       "version": "3.1",
+       "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N",
+       "metrics": {
+        "baseScore": 9.1
+       }
+      },
+      {
+       "version": "4.0",
+       "vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:H/VI:H/VA:N/SC:H/SI:H/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
+       "metrics": {
+        "baseScore": 9.4
+       }
+      }
+     ]
+    }
+   ],
+   "artifact": {
+    "name": "litellm",
+    "version": "1.82.7",
+    "type": "python"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-c6p9-24rc-jr5h",
+    "namespace": "github:language:java",
+    "severity": "Medium",
+    "urls": [
+     "https://nvd.nist.gov/vuln/detail/CVE-2020-7744",
+     "https://snyk.io/blog/remote-code-execution-rce-sourmint/",
+     "https://snyk.io/research/sour-mint-malicious-sdk/",
+     "https://snyk.io/vuln/SNYK-JAVA-COMMINTEGRALMSDK-1018714"
+    ],
+    "epss": [
+     {
+      "cve": "CVE-2020-7744",
+      "epss": 0.00857,
+      "percentile": 0.56399,
+      "date": "2026-09-14"
+     }
+    ],
+    "cwes": [
+     {
+      "cve": "CVE-2020-7744",
+      "cwe": "CWE-319",
+      "source": "nvd@nist.gov",
+      "type": "Primary"
+     }
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 0.415645,
+    "description": "Remote Code Execution and download tracking in Mintegral SDK",
+    "cvss": [
+     {
+      "version": "3.1",
+      "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:N/A:N",
+      "metrics": {
+       "baseScore": 4.7
+      }
+     }
+    ]
+   },
+   "relatedVulnerabilities": [
+    {
+     "id": "CVE-2020-7744",
+     "urls": [
+      "https://snyk.io/blog/remote-code-execution-rce-sourmint/",
+      "https://snyk.io/research/sour-mint-malicious-sdk/",
+      "https://snyk.io/vuln/SNYK-JAVA-COMMINTEGRALMSDK-1018714"
+     ],
+     "cvss": [
+      {
+       "version": "2.0",
+       "vector": "AV:N/AC:M/Au:N/C:P/I:N/A:N",
+       "metrics": {
+        "baseScore": 4.3
+       }
+      },
+      {
+       "version": "3.1",
+       "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:N/A:N",
+       "metrics": {
+        "baseScore": 4.7
+       }
+      }
+     ]
+    }
+   ],
+   "artifact": {
+    "name": "alphab",
+    "version": "14.6.01",
+    "type": "java-archive"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-jcxm-7wvp-g6p5",
+    "namespace": "github:language:javascript",
+    "severity": "High",
+    "urls": [
+     "https://github.com/solana-labs/solana-web3.js/security/advisories/GHSA-jcxm-7wvp-g6p5",
+     "https://github.com/advisories/GHSA-2mhj-xmf4-pr8m",
+     "https://nvd.nist.gov/vuln/detail/CVE-2024-54134"
+    ],
+    "epss": [
+     {
+      "cve": "CVE-2024-54134",
+      "epss": 0.00475,
+      "percentile": 0.39712,
+      "date": "2026-09-14"
+     }
+    ],
+    "cwes": [
+     {
+      "cve": "CVE-2024-54134",
+      "cwe": "CWE-200",
+      "source": "security-advisories@github.com",
+      "type": "Secondary"
+     }
+    ],
+    "fix": {
+     "versions": [
+      "1.95.8"
+     ],
+     "state": "fixed",
+     "available": [
+      {
+       "version": "1.95.8",
+       "date": "2024-12-05",
+       "kind": "first-observed"
+      }
+     ]
+    },
+    "risk": 0.37525000000000003,
+    "description": "Modified package published to npm, containing malware that exfiltrates private key material",
+    "cvss": [
+     {
+      "version": "4.0",
+      "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:P/VC:H/VI:N/VA:N/SC:H/SI:N/SA:N",
+      "metrics": {
+       "baseScore": 8.3
+      }
+     }
+    ]
+   },
+   "relatedVulnerabilities": [
+    {
+     "id": "CVE-2024-54134",
+     "urls": [
+      "https://github.com/solana-labs/solana-web3.js/security/advisories/GHSA-jcxm-7wvp-g6p5"
+     ],
+     "cvss": [
+      {
+       "version": "4.0",
+       "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:P/VC:H/VI:N/VA:N/SC:H/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
+       "metrics": {
+        "baseScore": 8.3
+       }
+      }
+     ]
+    }
+   ],
+   "artifact": {
+    "name": "@solana/web3.js",
+    "version": "1.95.6",
+    "type": "npm"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-xqmj-j6mv-4862",
+    "namespace": "github:language:python",
+    "severity": "High",
+    "urls": [
+     "https://github.com/BerriAI/litellm/security/advisories/GHSA-xqmj-j6mv-4862",
+     "https://github.com/BerriAI/litellm/releases/tag/v1.83.7-stable",
+     "https://nvd.nist.gov/vuln/detail/CVE-2026-42203"
+    ],
+    "epss": [
+     {
+      "cve": "CVE-2026-42203",
+      "epss": 0.00373,
+      "percentile": 0.30787,
+      "date": "2026-09-14"
+     }
+    ],
+    "cwes": [
+     {
+      "cve": "CVE-2026-42203",
+      "cwe": "CWE-1336",
+      "source": "security-advisories@github.com",
+      "type": "Secondary"
+     },
+     {
+      "cve": "CVE-2026-42203",
+      "cwe": "CWE-94",
+      "source": "0b0ca135-0b70-47e7-9f44-1890c2a1c46c",
+      "type": "Secondary"
+     }
+    ],
+    "fix": {
+     "versions": [
+      "1.83.7"
+     ],
+     "state": "fixed",
+     "available": [
+      {
+       "version": "1.83.7",
+       "date": "2026-04-24",
+       "kind": "first-observed"
+      }
+     ]
+    },
+    "risk": 0.30026499999999995,
+    "description": "LiteLLM: Server-Side Template Injection in /prompts/test endpoint",
+    "cvss": [
+     {
+      "version": "4.0",
+      "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:L/UI:N/VC:H/VI:H/VA:N/SC:N/SI:N/SA:N",
+      "metrics": {
+       "baseScore": 8.6
+      }
+     }
+    ]
+   },
+   "relatedVulnerabilities": [
+    {
+     "id": "CVE-2026-42203",
+     "urls": [
+      "https://github.com/BerriAI/litellm/releases/tag/v1.83.7-stable",
+      "https://github.com/BerriAI/litellm/security/advisories/GHSA-xqmj-j6mv-4862",
+      "https://access.redhat.com/security/cve/CVE-2026-42203",
+      "https://bugzilla.redhat.com/show_bug.cgi?id=2467917",
+      "https://security.access.redhat.com/data/csaf/v2/vex/2026/cve-2026-42203.json"
+     ],
+     "cvss": [
+      {
+       "version": "3.1",
+       "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+       "metrics": {
+        "baseScore": 8.8
+       }
+      },
+      {
+       "version": "3.1",
+       "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+       "metrics": {
+        "baseScore": 8.8
+       }
+      },
+      {
+       "version": "4.0",
+       "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:L/UI:N/VC:H/VI:H/VA:N/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
+       "metrics": {
+        "baseScore": 8.6
+       }
+      }
+     ]
+    }
+   ],
+   "artifact": {
+    "name": "litellm",
+    "version": "1.82.7",
+    "type": "python"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-5jmr-gcrj-2c9q",
+    "namespace": "github:language:python",
+    "severity": "Medium",
+    "urls": [
+     "https://github.com/BerriAI/litellm/security/advisories/GHSA-5jmr-gcrj-2c9q",
+     "https://nvd.nist.gov/vuln/detail/CVE-2026-59820",
+     "https://github.com/BerriAI/litellm/pull/25475",
+     "https://github.com/BerriAI/litellm/commit/6a15adcd64137d37f73dee76dfe7481f8c2d9196",
+     "https://github.com/BerriAI/litellm/releases/tag/v1.83.7-stable"
+    ],
+    "epss": [
+     {
+      "cve": "CVE-2026-59820",
+      "epss": 0.00465,
+      "percentile": 0.3901,
+      "date": "2026-09-14"
+     }
+    ],
+    "cwes": [
+     {
+      "cve": "CVE-2026-59820",
+      "cwe": "CWE-22",
+      "source": "security-advisories@github.com",
+      "type": "Secondary"
+     }
+    ],
+    "fix": {
+     "versions": [
+      "1.83.7"
+     ],
+     "state": "fixed",
+     "available": [
+      {
+       "version": "1.83.7",
+       "date": "2026-07-23",
+       "kind": "first-observed"
+      }
+     ]
+    },
+    "risk": 0.25807499999999994,
+    "description": "LiteLLM: Arbitrary file write via path traversal in Skills archive extraction",
+    "cvss": [
+     {
+      "version": "4.0",
+      "vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:L/UI:N/VC:N/VI:H/VA:H/SC:N/SI:N/SA:N",
+      "metrics": {
+       "baseScore": 6.1
+      }
+     }
+    ]
+   },
+   "relatedVulnerabilities": [
+    {
+     "id": "CVE-2026-59820",
+     "urls": [
+      "https://github.com/BerriAI/litellm/commit/6a15adcd64137d37f73dee76dfe7481f8c2d9196",
+      "https://github.com/BerriAI/litellm/pull/25475",
+      "https://github.com/BerriAI/litellm/releases/tag/v1.83.7-stable",
+      "https://github.com/BerriAI/litellm/security/advisories/GHSA-5jmr-gcrj-2c9q"
+     ],
+     "cvss": [
+      {
+       "version": "3.1",
+       "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:H/A:N",
+       "metrics": {
+        "baseScore": 6.5
+       }
+      },
+      {
+       "version": "4.0",
+       "vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:L/UI:N/VC:N/VI:H/VA:H/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
+       "metrics": {
+        "baseScore": 6.1
+       }
+      }
+     ]
+    }
+   ],
+   "artifact": {
+    "name": "litellm",
+    "version": "1.82.7",
+    "type": "python"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-5c57-rqjx-35g2",
+    "namespace": "github:language:javascript",
+    "severity": "Critical",
+    "urls": [
+     "https://github.com/cline/cline/security/advisories/GHSA-5c57-rqjx-35g2",
+     "https://nvd.nist.gov/vuln/detail/CVE-2026-44211"
+    ],
+    "epss": [
+     {
+      "cve": "CVE-2026-44211",
+      "epss": 0.0018,
+      "percentile": 0.07771,
+      "date": "2026-09-14"
+     }
+    ],
+    "cwes": [
+     {
+      "cve": "CVE-2026-44211",
+      "cwe": "CWE-306",
+      "source": "security-advisories@github.com",
+      "type": "Secondary"
+     },
+     {
+      "cve": "CVE-2026-44211",
+      "cwe": "CWE-1385",
+      "source": "security-advisories@github.com",
+      "type": "Secondary"
+     }
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 0.1674,
+    "description": "Cline Kanban Server has a Cross-Origin WebSocket Hijacking Vulnerability",
+    "cvss": [
+     {
+      "version": "3.1",
+      "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:H/I:H/A:H",
+      "metrics": {
+       "baseScore": 9.6
+      }
+     }
+    ]
+   },
+   "relatedVulnerabilities": [
+    {
+     "id": "CVE-2026-44211",
+     "urls": [
+      "https://github.com/cline/cline/security/advisories/GHSA-5c57-rqjx-35g2"
+     ],
+     "cvss": [
+      {
+       "version": "3.1",
+       "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:H/I:H/A:H",
+       "metrics": {
+        "baseScore": 9.6
+       }
+      }
+     ]
+    }
+   ],
+   "artifact": {
+    "name": "cline",
+    "version": "2.3.0",
+    "type": "npm"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-4g5m-c9r5-49xf",
+    "namespace": "github:language:python",
+    "severity": "Low",
+    "urls": [
+     "https://github.com/BerriAI/litellm/security/advisories/GHSA-4g5m-c9r5-49xf",
+     "https://nvd.nist.gov/vuln/detail/CVE-2026-59819",
+     "https://github.com/BerriAI/litellm/pull/25592",
+     "https://github.com/BerriAI/litellm/releases/tag/v1.83.10-stable"
+    ],
+    "epss": [
+     {
+      "cve": "CVE-2026-59819",
+      "epss": 0.00449,
+      "percentile": 0.37907,
+      "date": "2026-09-14"
+     }
+    ],
+    "cwes": [
+     {
+      "cve": "CVE-2026-59819",
+      "cwe": "CWE-73",
+      "source": "security-advisories@github.com",
+      "type": "Secondary"
+     }
+    ],
+    "fix": {
+     "versions": [
+      "1.83.10"
+     ],
+     "state": "fixed",
+     "available": [
+      {
+       "version": "1.83.10",
+       "date": "2026-07-23",
+       "kind": "first-observed"
+      }
+     ]
+    },
+    "risk": 0.114495,
+    "description": "LiteLLM: Local file read via request-supplied OIDC file references",
+    "cvss": [
+     {
+      "version": "4.0",
+      "vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:H/UI:N/VC:L/VI:N/VA:N/SC:N/SI:N/SA:N",
+      "metrics": {
+       "baseScore": 2.1
+      }
+     }
+    ]
+   },
+   "relatedVulnerabilities": [
+    {
+     "id": "CVE-2026-59819",
+     "urls": [
+      "https://github.com/BerriAI/litellm/pull/25592",
+      "https://github.com/BerriAI/litellm/releases/tag/v1.83.10-stable",
+      "https://github.com/BerriAI/litellm/security/advisories/GHSA-4g5m-c9r5-49xf"
+     ],
+     "cvss": [
+      {
+       "version": "3.1",
+       "vector": "CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:N/A:N",
+       "metrics": {
+        "baseScore": 4.9
+       }
+      },
+      {
+       "version": "4.0",
+       "vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:H/UI:N/VC:L/VI:N/VA:N/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
+       "metrics": {
+        "baseScore": 2.1
+       }
+      }
+     ]
+    }
+   ],
+   "artifact": {
+    "name": "litellm",
+    "version": "1.82.7",
+    "type": "python"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-mx9f-w8qq-q5jf",
+    "namespace": "github:language:ruby",
+    "severity": "Low",
+    "urls": [
+     "https://nvd.nist.gov/vuln/detail/CVE-2015-3448",
+     "https://github.com/rest-client/rest-client/issues/349",
+     "http://lists.opensuse.org/opensuse-updates/2015-04/msg00026.html",
+     "https://web.archive.org/web/20200228154247/http://www.securityfocus.com/bid/74415"
+    ],
+    "epss": [
+     {
+      "cve": "CVE-2015-3448",
+      "epss": 0.00373,
+      "percentile": 0.30694,
+      "date": "2026-09-14"
+     }
+    ],
+    "cwes": [
+     {
+      "cve": "CVE-2015-3448",
+      "cwe": "CWE-200",
+      "source": "nvd@nist.gov",
+      "type": "Primary"
+     }
+    ],
+    "fix": {
+     "versions": [
+      "1.7.3"
+     ],
+     "state": "fixed",
+     "available": [
+      {
+       "version": "1.7.3",
+       "date": "2020-07-28",
+       "kind": "first-observed"
+      }
+     ]
+    },
+    "risk": 0.1119,
+    "description": "rest-client allows local users to obtain sensitive information by reading the log",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [
+    {
+     "id": "CVE-2015-3448",
+     "urls": [
+      "http://lists.opensuse.org/opensuse-updates/2015-04/msg00026.html",
+      "http://www.osvdb.org/117461",
+      "http://www.securityfocus.com/bid/74415",
+      "https://github.com/rest-client/rest-client/issues/349"
+     ],
+     "cvss": [
+      {
+       "version": "2.0",
+       "vector": "AV:L/AC:L/Au:N/C:P/I:N/A:N",
+       "metrics": {
+        "baseScore": 2.1
+       }
+      }
+     ]
+    }
+   ],
+   "artifact": {
+    "name": "rest-client",
+    "version": "1.6.13",
+    "type": "gem"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-jpvj-wpmj-h7rv",
+    "namespace": "github:language:javascript",
+    "severity": "Critical",
+    "urls": [
+     "https://github.com/cap-js/openapi/security/advisories/GHSA-jpvj-wpmj-h7rv",
+     "https://me.sap.com/notes/3747787",
+     "https://www.sap.com/documents/2026/05/8203a8b9-4d7f-0010-bca6-c68f7e60039b.html"
+    ],
+    "fix": {
+     "versions": [
+      "1.4.2"
+     ],
+     "state": "fixed",
+     "available": [
+      {
+       "version": "1.4.2",
+       "date": "2026-06-05",
+       "kind": "first-observed"
+      }
+     ]
+    },
+    "risk": 0,
+    "description": "Supply chain compromise via malicious @cap-js/openapi",
+    "cvss": [
+     {
+      "version": "3.1",
+      "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:H/I:H/A:H",
+      "metrics": {
+       "baseScore": 9.6
+      }
+     }
+    ]
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "@cap-js/openapi",
+    "version": "1.4.1",
+    "type": "npm"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-qj5h-p6mj-66pf",
+    "namespace": "github:language:javascript",
+    "severity": "Critical",
+    "urls": [
+     "https://github.com/ossf/malicious-packages/blob/f2ec98fd01307d7a32018f82e6784efa98aef451/osv/malicious/npm/@cap-js/openapi/MAL-2026-4161.json",
+     "https://opensourcemalware.com/blog/teampcp-compromises-npm-maintainer-with-over-540-packages",
+     "https://safedep.io/mini-shai-hulud-strikes-again-314-npm-packages-compromised",
+     "https://socket.dev/blog/antv-packages-compromised"
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 0,
+    "description": "Malicious code in @cap-js/openapi (npm)",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "@cap-js/openapi",
+    "version": "1.4.1",
+    "type": "npm"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-3hfp-gqgh-xc5g",
+    "namespace": "github:language:javascript",
+    "severity": "Critical",
+    "urls": [
+     "https://github.com/lightdash/lightdash/security/advisories/GHSA-3hfp-gqgh-xc5g",
+     "https://github.com/axios/axios/issues/10604",
+     "https://github.com/advisories/GHSA-fw8c-xr5c-95f9",
+     "https://security.snyk.io/vuln/SNYK-JS-AXIOS-15850650",
+     "https://security.snyk.io/vuln/SNYK-JS-PLAINCRYPTOJS-15850652",
+     "https://socket.dev/blog/axios-npm-package-compromised",
+     "https://thehackernews.com/2026/03/axios-supply-chain-attack-pushes-cross.html",
+     "https://www.stepsecurity.io/blog/axios-compromised-on-npm-malicious-versions-drop-remote-access-trojan"
+    ],
+    "fix": {
+     "versions": [
+      "0.2695.1"
+     ],
+     "state": "fixed",
+     "available": [
+      {
+       "version": "0.2695.1",
+       "date": "2026-04-03",
+       "kind": "first-observed"
+      }
+     ]
+    },
+    "risk": 0,
+    "description": "Axios supply chain attack - dependency in @lightdash/cli may resolve to compromised axios versions",
+    "cvss": [
+     {
+      "version": "3.1",
+      "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:H/I:H/A:H",
+      "metrics": {
+       "baseScore": 9.6
+      }
+     }
+    ]
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "@lightdash/cli",
+    "version": "0.1800.0",
+    "type": "npm"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-3q49-cfcf-g5fm",
+    "namespace": "github:language:javascript",
+    "severity": "Critical",
+    "urls": [
+     "https://github.com/TanStack/router/security/advisories/GHSA-g7cv-rxg3-hmpx",
+     "https://github.com/TanStack/router/issues/7383"
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 0,
+    "description": "Malware in @mistralai/mistralai",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "@mistralai/mistralai",
+    "version": "2.2.2",
+    "type": "npm"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-6338-p8w5-9wgw",
+    "namespace": "github:language:javascript",
+    "severity": "Critical",
+    "urls": [
+     "https://github.com/ossf/malicious-packages/blob/ca35a319f3c5255ac2d7f28cf58023d75de17a35/osv/malicious/npm/an0n-chat-lib/MAL-2025-14468.json"
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 0,
+    "description": "Malicious code in an0n-chat-lib (npm)",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "an0n-chat-lib",
+    "version": "1.0.0",
+    "type": "npm"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-7xcv-wvr7-4h6p",
+    "namespace": "github:language:javascript",
+    "severity": "Critical",
+    "urls": [
+     "https://blog.sonatype.com/sonatype-spots-more-discord-malware-in-npm?hs_preview=BbDPGbfh-40737456755",
+     "https://www.npmjs.com/advisories/1598"
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 0,
+    "description": "Malicious npm package: an0n-chat-lib",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "an0n-chat-lib",
+    "version": "1.0.0",
+    "type": "npm"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-73qr-pfmq-6rp8",
+    "namespace": "github:language:javascript",
+    "severity": "Critical",
+    "urls": [
+     "https://github.com/veged/coa/issues/99",
+     "https://www.virustotal.com/gui/file/26451f7f6fe297adf6738295b1dcc70f7678434ef21d8b6aad5ec00beb8a72cf?nocache=1",
+     "https://therecord.media/malware-found-in-coa-and-rc-two-npm-packages-with-23m-weekly-downloads/"
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 0,
+    "description": "Embedded malware in coa",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "coa",
+    "version": "2.0.3",
+    "type": "npm"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-5hm3-fqrh-hp9f",
+    "namespace": "github:language:javascript",
+    "severity": "Critical",
+    "urls": [
+     "https://github.com/ossf/malicious-packages/blob/4012598c9b06e58935bd8883f7a0cd37c3130664/osv/malicious/npm/cofee-script/MAL-2025-17261.json"
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 0,
+    "description": "Malicious code in cofee-script (npm)",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "cofee-script",
+    "version": "1.0.1",
+    "type": "npm"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-998c-j3xh-jvfp",
+    "namespace": "github:language:javascript",
+    "severity": "Critical",
+    "urls": [
+     "https://github.com/ossf/malicious-packages/blob/78792aee23e5c759f309a3d2e9397caf2439773e/osv/malicious/npm/discord-fix/MAL-2025-18473.json"
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 0,
+    "description": "Malicious code in discord-fix (npm)",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "discord-fix",
+    "version": "1.0.0",
+    "type": "npm"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-qv2g-99x4-45x6",
+    "namespace": "github:language:javascript",
+    "severity": "Critical",
+    "urls": [
+     "https://blog.sonatype.com/sonatype-spots-more-discord-malware-in-npm?hs_preview=BbDPGbfh-40737456755",
+     "https://www.npmjs.com/advisories/1597"
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 0,
+    "description": "Malicious npm package: discord-fix",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "discord-fix",
+    "version": "1.0.0",
+    "type": "npm"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-xhw7-jhmp-j62j",
+    "namespace": "github:language:rust",
+    "severity": "Critical",
+    "urls": [
+     "https://rustsec.org/advisories/RUSTSEC-2026-0032.html"
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 0,
+    "description": "`dnp3times` was removed from crates.io due to malicious code",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "dnp3times",
+    "version": "0.1.0",
+    "type": "rust-crate"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-mh6f-8j2x-4483",
+    "namespace": "github:language:javascript",
+    "severity": "Critical",
+    "urls": [
+     "https://github.com/dominictarr/event-stream/issues/116"
+    ],
+    "fix": {
+     "versions": [
+      "4.0.0"
+     ],
+     "state": "fixed",
+     "available": [
+      {
+       "version": "4.0.0",
+       "date": "2021-03-30",
+       "kind": "first-observed"
+      }
+     ]
+    },
+    "risk": 0,
+    "description": "Critical severity vulnerability that affects event-stream and flatmap-stream",
+    "cvss": [
+     {
+      "version": "3.1",
+      "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+      "metrics": {
+       "baseScore": 9.8
+      }
+     }
+    ]
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "event-stream",
+    "version": "3.3.6",
+    "type": "npm"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-6662-54xr-8423",
+    "namespace": "github:language:rust",
+    "severity": "Critical",
+    "urls": [
+     "https://blog.rust-lang.org/2025/12/03/crates.io-malicious-crates-evm-units-and-uniswap-utils",
+     "https://rustsec.org/advisories/RUSTSEC-2025-0147.html"
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 0,
+    "description": "`evm-units` was removed from crates.io for malicious code",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "evm-units",
+    "version": "0.1.0",
+    "type": "rust-crate"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-99j7-fhr2-xfj4",
+    "namespace": "github:language:rust",
+    "severity": "Critical",
+    "urls": [
+     "https://rustsec.org/advisories/RUSTSEC-2026-0155.html"
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 0,
+    "description": "`exploration` was removed from crates.io for malicious code",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "exploration",
+    "version": "0.1.0",
+    "type": "rust-crate"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-xp79-9mxw-878j",
+    "namespace": "github:language:rust",
+    "severity": "Critical",
+    "urls": [
+     "https://rustsec.org/advisories/RUSTSEC-2025-0150.html"
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 0,
+    "description": "`finch-rst` was removed from crates.io for malicious code",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "finch-rst",
+    "version": "0.1.0",
+    "type": "rust-crate"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-f8h5-x737-x4xr",
+    "namespace": "github:language:rust",
+    "severity": "Critical",
+    "urls": [
+     "https://blog.rust-lang.org/2025/12/05/crates.io-malicious-crates-finch-rust-and-sha-rust",
+     "https://rustsec.org/advisories/RUSTSEC-2025-0148.html"
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 0,
+    "description": "`finch-rust` was removed from crates.io for malicious code",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "finch-rust",
+    "version": "0.1.0",
+    "type": "rust-crate"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-6v2j-vr4h-f632",
+    "namespace": "github:language:rust",
+    "severity": "Critical",
+    "urls": [
+     "https://rustsec.org/advisories/RUSTSEC-2025-0152.html"
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 0,
+    "description": "`finch_cli_rust` was removed from crates.io for malicious code",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "finch_cli_rust",
+    "version": "0.1.0",
+    "type": "rust-crate"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-4594-wxqv-j3pm",
+    "namespace": "github:language:javascript",
+    "severity": "Critical",
+    "urls": [],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 0,
+    "description": "Malware in intercom-client",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "intercom-client",
+    "version": "7.0.4",
+    "type": "npm"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-54pg-9963-v8vg",
+    "namespace": "github:language:javascript",
+    "severity": "Critical",
+    "urls": [
+     "https://github.com/intercom/intercom-node/security/advisories/GHSA-54pg-9963-v8vg",
+     "https://github.com/advisories/GHSA-4594-wxqv-j3pm",
+     "https://socket.dev/blog/intercom-s-npm-package-compromised-in-supply-chain-attack",
+     "https://www.intercomstatus.com/us-hosting/incidents/01KQFN6VS6ARP1XBR1K1SBYY59",
+     "https://www.wiz.io/blog/mini-shai-hulud-supply-chain-sap-npm"
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 0,
+    "description": "Compromised version of intercom-client published to npm",
+    "cvss": [
+     {
+      "version": "3.1",
+      "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:H/I:H/A:N",
+      "metrics": {
+       "baseScore": 9.3
+      }
+     }
+    ]
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "intercom-client",
+    "version": "7.0.4",
+    "type": "npm"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-45gr-fjmv-r4rw",
+    "namespace": "github:language:php",
+    "severity": "Critical",
+    "urls": [
+     "https://github.com/advisories/GHSA-gr3r-crp5-qrrm",
+     "https://github.com/ossf/malicious-packages/blob/c682899011b969f7ad656417289b14e5c06f2c2a/osv/malicious/packagist/intercom/intercom-php/MAL-2026-3637.json",
+     "https://semgrep.dev/blog/2026/malicious-intercom-php-package-spreads-mini-shai-hulud-attack-to-packagist-via-composer-plugin",
+     "https://socket.dev/blog/mini-shai-hulud-packagist-malicious-intercom-php-package-compromise"
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 0,
+    "description": "Malicious code in intercom-php (Packagist)",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "intercom/intercom-php",
+    "version": "5.0.2",
+    "type": "php-composer"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-gr3r-crp5-qrrm",
+    "namespace": "github:language:php",
+    "severity": "Critical",
+    "urls": [
+     "https://github.com/intercom/intercom-php/security/advisories/GHSA-gr3r-crp5-qrrm",
+     "https://www.intercomstatus.com/us-hosting/incidents/01KQFN6VS6ARP1XBR1K1SBYY59",
+     "https://www.wiz.io/blog/mini-shai-hulud-supply-chain-sap-npm"
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 0,
+    "description": "Compromised tag of intercom-php published via GitHub",
+    "cvss": [
+     {
+      "version": "3.1",
+      "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:H/I:H/A:N",
+      "metrics": {
+       "baseScore": 9.3
+      }
+     }
+    ]
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "intercom/intercom-php",
+    "version": "5.0.2",
+    "type": "php-composer"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-5mg7-485q-xm76",
+    "namespace": "github:language:python",
+    "severity": "Critical",
+    "urls": [
+     "https://github.com/BerriAI/litellm/issues/24518",
+     "https://futuresearch.ai/blog/litellm-pypi-supply-chain-attack",
+     "https://github.com/pypa/advisory-database/tree/main/vulns/litellm/PYSEC-2026-2.yaml",
+     "https://inspector.pypi.io/project/litellm/1.82.7/packages/79/5f/b6998d42c6ccd32d36e12661f2734602e72a576d52a51f4245aef0b20b4d/litellm-1.82.7-py3-none-any.whl/litellm/proxy/proxy_server.py#line.130",
+     "https://inspector.pypi.io/project/litellm/1.82.8/packages/f6/2c/731b614e6cee0bca1e010a36fd381fba69ee836fe3cb6753ba23ef2b9601/litellm-1.82.8.tar.gz/litellm-1.82.8/litellm_init.pth#line.1",
+     "https://www.wiz.io/blog/teampcp-attack-kics-github-action",
+     "https://docs.litellm.ai/blog/security-update-march-2026"
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 0,
+    "description": "Two LiteLLM versions published containing credential harvesting malware",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "litellm",
+    "version": "1.82.7",
+    "type": "python"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-92x9-889m-jgmw",
+    "namespace": "github:language:python",
+    "severity": "Critical",
+    "urls": [
+     "https://github.com/BerriAI/litellm/issues/24512",
+     "https://github.com/BerriAI/litellm/issues/24518",
+     "https://futuresearch.ai/blog/litellm-pypi-supply-chain-attack",
+     "https://github.com/ossf/malicious-packages/blob/49d0cfba3689ed9b195d101d3a2a964c6a77f767/osv/malicious/pypi/litellm/MAL-2026-2144.json",
+     "https://news.ycombinator.com/item?id=47501729",
+     "https://www.wiz.io/blog/threes-a-crowd-teampcp-trojanizes-litellm-in-continuation-of-campaign"
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 0,
+    "description": "Malicious code in litellm (PyPI)",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "litellm",
+    "version": "1.82.7",
+    "type": "python"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-fvmm-mrc7-2mjh",
+    "namespace": "github:language:python",
+    "severity": "Critical",
+    "urls": [
+     "https://github.com/ossf/malicious-packages/blob/49d0cfba3689ed9b195d101d3a2a964c6a77f767/osv/malicious/pypi/mistralai/MAL-2026-3608.json",
+     "https://snyk.io/blog/tanstack-npm-packages-compromised",
+     "https://socket.dev/blog/tanstack-npm-packages-compromised-mini-shai-hulud-supply-chain-attack",
+     "https://tanstack.com/blog/npm-supply-chain-compromise-postmortem",
+     "https://www.aikido.dev/blog/mini-shai-hulud-is-back-tanstack-compromised",
+     "https://www.stepsecurity.io/blog/mini-shai-hulud-is-back-a-self-spreading-supply-chain-attack-hits-the-npm-ecosystem"
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 0,
+    "description": "Malicious code in mistralai (PyPI)",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "mistralai",
+    "version": "2.4.6",
+    "type": "python"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-wx9m-wx4f-4cmg",
+    "namespace": "github:language:python",
+    "severity": "Critical",
+    "urls": [
+     "https://github.com/mistralai/client-python/security/advisories/GHSA-wx9m-wx4f-4cmg",
+     "https://github.com/mistralai/client-python/issues/523",
+     "https://safedep.io/mass-npm-supply-chain-attack-tanstack-mistral",
+     "https://socket.dev/blog/tanstack-npm-packages-compromised-mini-shai-hulud-supply-chain-attack",
+     "https://www.stepsecurity.io/blog/mini-shai-hulud-is-back-a-self-spreading-supply-chain-attack-hits-the-npm-ecosystem"
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 0,
+    "description": "Malicious dropper in mistralai 2.4.6 PyPI package",
+    "cvss": [
+     {
+      "version": "3.1",
+      "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:H/I:H/A:H",
+      "metrics": {
+       "baseScore": 9.6
+      }
+     }
+    ]
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "mistralai",
+    "version": "2.4.6",
+    "type": "python"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-g38r-8gmr-ghrf",
+    "namespace": "github:language:rust",
+    "severity": "Critical",
+    "urls": [
+     "https://rustsec.org/advisories/RUSTSEC-2026-0107.html"
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 0,
+    "description": "`mysten-metrics` was removed from crates.io for malicious code",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "mysten-metrics",
+    "version": "0.1.0",
+    "type": "rust-crate"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-jxr6-qrxx-2ph2",
+    "namespace": "github:language:python",
+    "severity": "Critical",
+    "urls": [
+     "https://github.com/pypa/advisory-database/tree/main/vulns/num2words/PYSEC-2025-72.yaml",
+     "https://nitter.tiekoetter.com/SFLinux/status/1949906299308953827",
+     "https://www.stepsecurity.io/blog/supply-chain-security-alert-num2words-pypi-package-shows-signs-of-compromise",
+     "https://github.com/ossf/malicious-packages/blob/49d0cfba3689ed9b195d101d3a2a964c6a77f767/osv/malicious/pypi/num2words/MAL-2025-6794.json"
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 0,
+    "description": "num2words subjected to phishing attack, two versions published containing malware",
+    "cvss": [
+     {
+      "version": "4.0",
+      "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N",
+      "metrics": {
+       "baseScore": 9.3
+      }
+     }
+    ]
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "num2words",
+    "version": "0.5.15",
+    "type": "python"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-93qj-5q5v-3c2h",
+    "namespace": "github:language:python",
+    "severity": "Critical",
+    "urls": [
+     "https://github.com/aristoteleo/PantheonOS/security/advisories/GHSA-93qj-5q5v-3c2h"
+    ],
+    "fix": {
+     "versions": [
+      "0.6.4"
+     ],
+     "state": "fixed",
+     "available": [
+      {
+       "version": "0.6.4",
+       "date": "2026-08-26",
+       "kind": "first-observed"
+      }
+     ]
+    },
+    "risk": 0,
+    "description": "Trojanized pantheon-agents 0.6.1 and 0.6.2 on PyPI ship a credential stealer (supply-chain account compromise)",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "pantheon-agents",
+    "version": "0.6.1",
+    "type": "python"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-pg8g-5p4j-q7fj",
+    "namespace": "github:language:python",
+    "severity": "Critical",
+    "urls": [
+     "https://bad-packages.kam193.eu/pypi/campaign/2026-06-compr-woodpecker",
+     "https://github.com/ossf/malicious-packages/blob/49d0cfba3689ed9b195d101d3a2a964c6a77f767/osv/malicious/pypi/pantheon-agents/MAL-2026-5299.json",
+     "https://o3.security/blog/pypi-supply-chain-attack-pth-file-miasma",
+     "https://pypi.org/project/pantheon-agents/0.6.1",
+     "https://socket.dev/blog/mini-shai-hulud-campaign-hits-red-hat-cloud-services-npm-packages",
+     "https://socket.dev/blog/mini-shai-hulud-miasma-and-hades-worms-target-bioinformatics-and-mcp-developers-via-malicious",
+     "https://socket.dev/blog/shai-hulud-descends-to-hades-miasma-pypi-wave"
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 0,
+    "description": "Malicious code in pantheon-agents (PyPI)",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "pantheon-agents",
+    "version": "0.6.1",
+    "type": "python"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-p5vf-5754-x7p3",
+    "namespace": "github:language:rust",
+    "severity": "Critical",
+    "urls": [
+     "https://rustsec.org/advisories/RUSTSEC-2026-0011.html"
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 0,
+    "description": "`polymarket-client-sdks` was removed from crates.io for malicious code",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "polymarket-client-sdks",
+    "version": "0.1.0",
+    "type": "rust-crate"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-382q-fpqh-29f7",
+    "namespace": "github:language:rust",
+    "severity": "Critical",
+    "urls": [
+     "https://rustsec.org/advisories/RUSTSEC-2026-0010.html"
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 0,
+    "description": "`polymarket-clients-sdk` was removed from crates.io for malicious code",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "polymarket-clients-sdk",
+    "version": "0.1.0",
+    "type": "rust-crate"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-g2q5-5433-rhrf",
+    "namespace": "github:language:javascript",
+    "severity": "Critical",
+    "urls": [
+     "https://github.com/dominictarr/rc",
+     "https://www.npmjs.com/package/rc",
+     "https://www.virustotal.com/gui/file/26451f7f6fe297adf6738295b1dcc70f7678434ef21d8b6aad5ec00beb8a72cf?nocache=1",
+     "https://therecord.media/malware-found-in-coa-and-rc-two-npm-packages-with-23m-weekly-downloads/"
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 0,
+    "description": "Embedded malware in rc",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "rc",
+    "version": "1.2.9",
+    "type": "npm"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-98x5-vq43-vc5p",
+    "namespace": "github:language:python",
+    "severity": "Critical",
+    "urls": [
+     "https://github.com/aurelio-labs/semantic-router/security/advisories/GHSA-98x5-vq43-vc5p"
+    ],
+    "fix": {
+     "versions": [
+      "0.1.15"
+     ],
+     "state": "fixed",
+     "available": [
+      {
+       "version": "0.1.15",
+       "date": "2026-06-27",
+       "kind": "first-observed"
+      }
+     ]
+    },
+    "risk": 0,
+    "description": "semantic-router exposed to compromised litellm wheel (CVE-2026-42208) via unbounded transitive pin",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "semantic-router",
+    "version": "0.1.8",
+    "type": "python"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-rww4-rcrj-644x",
+    "namespace": "github:language:python",
+    "severity": "Critical",
+    "urls": [
+     "https://github.com/DataDog/malicious-software-packages-dataset",
+     "https://github.com/ossf/malicious-packages/blob/49d0cfba3689ed9b195d101d3a2a964c6a77f767/osv/malicious/pypi/sentinelone/MAL-2024-5987.json"
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 0,
+    "description": "Malicious code in sentinelone (PyPI)",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "sentinelone",
+    "version": "1.0.0",
+    "type": "python"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-vgr2-r5hm-f6gf",
+    "namespace": "github:language:rust",
+    "severity": "Critical",
+    "urls": [
+     "https://rustsec.org/advisories/RUSTSEC-2025-0151.html"
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 0,
+    "description": "`sha-rst` was removed from crates.io for malicious code",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "sha-rst",
+    "version": "0.1.0",
+    "type": "rust-crate"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-3mmg-7c2q-8938",
+    "namespace": "github:language:rust",
+    "severity": "Critical",
+    "urls": [
+     "https://blog.rust-lang.org/2025/12/05/crates.io-malicious-crates-finch-rust-and-sha-rust",
+     "https://rustsec.org/advisories/RUSTSEC-2025-0146.html"
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 0,
+    "description": "`sha-rust` was removed from crates.io for malicious code",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "sha-rust",
+    "version": "0.1.0",
+    "type": "rust-crate"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-w8fh-pvq2-x8c4",
+    "namespace": "github:language:javascript",
+    "severity": "Critical",
+    "urls": [
+     "https://blog.sonatype.com/sonatype-spots-more-discord-malware-in-npm?hs_preview=BbDPGbfh-40737456755",
+     "https://www.npmjs.com/advisories/1596"
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 0,
+    "description": "Malicious npm package: sonatype",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "sonatype",
+    "version": "1.0.0",
+    "type": "npm"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-qprh-m6p3-hwxc",
+    "namespace": "github:language:rust",
+    "severity": "Critical",
+    "urls": [
+     "https://rustsec.org/advisories/RUSTSEC-2026-0108.html"
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 0,
+    "description": "`sui-execution-cut` was removed from crates.io for malicious code",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "sui-execution-cut",
+    "version": "0.1.0",
+    "type": "rust-crate"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-955r-262c-33jc",
+    "namespace": "github:language:python",
+    "severity": "Critical",
+    "urls": [
+     "https://github.com/team-telnyx/telnyx-python/security/advisories/GHSA-955r-262c-33jc",
+     "https://github.com/team-telnyx/telnyx-python/issues/235",
+     "https://ramimac.me/teampcp",
+     "https://www.endorlabs.com/learn/teampcp-strikes-again-telnyx-compromised-three-days-after-litellm"
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 0,
+    "description": "Telnyx has malicious code in PyPI versions 4.87.1 and 4.87.2",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "telnyx",
+    "version": "4.87.1",
+    "type": "python"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-crmv-hqwr-fqfv",
+    "namespace": "github:language:python",
+    "severity": "Critical",
+    "urls": [
+     "https://github.com/ossf/malicious-packages/blob/49d0cfba3689ed9b195d101d3a2a964c6a77f767/osv/malicious/pypi/telnyx/MAL-2026-2254.json"
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 0,
+    "description": "Malicious code in telnyx (PyPI)",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "telnyx",
+    "version": "4.87.1",
+    "type": "python"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-mh23-rw7f-v5pq",
+    "namespace": "github:language:rust",
+    "severity": "Critical",
+    "urls": [
+     "https://rustsec.org/advisories/RUSTSEC-2026-0036.html"
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 0,
+    "description": "`time-sync` was removed from crates.io due to malicious code",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "time-sync",
+    "version": "0.1.0",
+    "type": "rust-crate"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-77xj-rrh3-wx3v",
+    "namespace": "github:language:rust",
+    "severity": "Critical",
+    "urls": [
+     "https://rustsec.org/advisories/RUSTSEC-2026-0030.html"
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 0,
+    "description": "`time_calibrator` was removed from crates.io due to malicious code",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "time_calibrator",
+    "version": "0.1.0",
+    "type": "rust-crate"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-wf45-3gpw-vrqv",
+    "namespace": "github:language:rust",
+    "severity": "Critical",
+    "urls": [
+     "https://rustsec.org/advisories/RUSTSEC-2026-0031.html"
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 0,
+    "description": "`time_calibrators` was removed from crates.io due to malicious code",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "time_calibrators",
+    "version": "0.1.0",
+    "type": "rust-crate"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-5pmp-jpcf-pwx6",
+    "namespace": "github:language:rust",
+    "severity": "Critical",
+    "urls": [
+     "https://rustsec.org/advisories/RUSTSEC-2026-0019.html"
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 0,
+    "description": "`tracing-check` was removed from crates.io for malicious code",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "tracing-check",
+    "version": "0.1.0",
+    "type": "rust-crate"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-x468-phr8-h3p3",
+    "namespace": "github:language:rust",
+    "severity": "Critical",
+    "urls": [
+     "https://blog.rust-lang.org/2025/12/03/crates.io-malicious-crates-evm-units-and-uniswap-utils",
+     "https://rustsec.org/advisories/RUSTSEC-2025-0145.html"
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 0,
+    "description": "`uniswap-utils` was removed from crates.io for malicious code",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "uniswap-utils",
+    "version": "0.1.0",
+    "type": "rust-crate"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-hqmv-64pp-q4xw",
+    "namespace": "github:language:python",
+    "severity": "High",
+    "urls": [
+     "https://pypi.org/project/ascii2text/",
+     "https://research.checkpoint.com/2022/cloudguard-spectral-detects-several-malicious-packages-on-pypi-the-official-software-repository-for-python-developers/"
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 0,
+    "description": "ascii2text malicious PyPI package",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "ascii2text",
+    "version": "1.0.0",
+    "type": "python"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-2wg3-9fjw-vjvj",
+    "namespace": "github:language:python",
+    "severity": "High",
+    "urls": [
+     "https://pypi.org/project/browserdiv",
+     "https://research.checkpoint.com/2022/cloudguard-spectral-detects-several-malicious-packages-on-pypi-the-official-software-repository-for-python-developers/"
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 0,
+    "description": "browserdiv malicious PyPI package",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "browserdiv",
+    "version": "1.0.0",
+    "type": "python"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-5grr-72f9-678v",
+    "namespace": "github:language:python",
+    "severity": "High",
+    "urls": [
+     "https://github.com/pypa/advisory-database/commit/f8df7b7d0444991716fb449d55adf50067d0ba38",
+     "https://github.com/pypa/advisory-database/tree/main/vulns/cipherbcrypt/PYSEC-2024-55.yaml"
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 0,
+    "description": "Malware package cipherbcrypt",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "cipherbcrypt",
+    "version": "1.0.0",
+    "type": "python"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-x6xg-3fj2-4pq3",
+    "namespace": "github:language:python",
+    "severity": "High",
+    "urls": [
+     "https://github.com/pypa/advisory-database/tree/main/vulns/exotel/PYSEC-2022-250.yaml",
+     "https://twitter.com/pypi/status/1562442207079976966"
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 0,
+    "description": "`exotel` project on PyPI compromised, malicious release made",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "exotel",
+    "version": "0.1.6",
+    "type": "python"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-jgw6-3fjm-w5f6",
+    "namespace": "github:language:python",
+    "severity": "High",
+    "urls": [
+     "https://pypi.org/project/free-net-vpn",
+     "https://research.checkpoint.com/2022/cloudguard-spectral-detects-several-malicious-packages-on-pypi-the-official-software-repository-for-python-developers/"
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 0,
+    "description": "free-net-vpn malicious PyPI package",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "free-net-vpn",
+    "version": "1.0.0",
+    "type": "python"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-rqcv-3wp9-w2r3",
+    "namespace": "github:language:python",
+    "severity": "High",
+    "urls": [
+     "https://pypi.org/project/free-net-vpn2",
+     "https://research.checkpoint.com/2022/cloudguard-spectral-detects-several-malicious-packages-on-pypi-the-official-software-repository-for-python-developers/"
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 0,
+    "description": "free-net-vpn2 malicious PyPI package",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "free-net-vpn2",
+    "version": "1.0.0",
+    "type": "python"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-69x8-hrgq-fjj8",
+    "namespace": "github:language:python",
+    "severity": "High",
+    "urls": [
+     "https://github.com/BerriAI/litellm/security/advisories/GHSA-69x8-hrgq-fjj8"
+    ],
+    "fix": {
+     "versions": [
+      "1.83.0"
+     ],
+     "state": "fixed",
+     "available": [
+      {
+       "version": "1.83.0",
+       "date": "2026-04-08",
+       "kind": "first-observed"
+      }
+     ]
+    },
+    "risk": 0,
+    "description": "LiteLLM: Password hash exposure and pass-the-hash authentication bypass",
+    "cvss": [
+     {
+      "version": "4.0",
+      "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:L/UI:N/VC:H/VI:H/VA:N/SC:N/SI:N/SA:N",
+      "metrics": {
+       "baseScore": 8.6
+      }
+     }
+    ]
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "litellm",
+    "version": "1.82.7",
+    "type": "python"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-p8ph-q2m4-p5wv",
+    "namespace": "github:language:python",
+    "severity": "High",
+    "urls": [
+     "https://pypi.org/project/pyg-utils/",
+     "https://research.checkpoint.com/2022/cloudguard-spectral-detects-several-malicious-packages-on-pypi-the-official-software-repository-for-python-developers/"
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 0,
+    "description": "pyg-utils malicious PyPI package",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "pyg-utils",
+    "version": "1.0.0",
+    "type": "python"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-8rgr-xgx4-q7jq",
+    "namespace": "github:language:python",
+    "severity": "High",
+    "urls": [
+     "https://pypi.org/project/pymocks/",
+     "https://research.checkpoint.com/2022/cloudguard-spectral-detects-several-malicious-packages-on-pypi-the-official-software-repository-for-python-developers/"
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 0,
+    "description": "pymocks malicious PyPI package",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "pymocks",
+    "version": "1.0.0",
+    "type": "python"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-gw4j-fhj8-497m",
+    "namespace": "github:language:python",
+    "severity": "High",
+    "urls": [
+     "https://pypi.org/project/PyProto2/",
+     "https://research.checkpoint.com/2022/cloudguard-spectral-detects-several-malicious-packages-on-pypi-the-official-software-repository-for-python-developers/"
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 0,
+    "description": "PyProto2 malicious PyPI package",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "pyproto2",
+    "version": "1.0.0",
+    "type": "python"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-7pwq-f4pq-78gm",
+    "namespace": "github:language:rust",
+    "severity": "High",
+    "urls": [
+     "https://github.com/paupino/rust-decimal/issues/514#issuecomment-1115408888",
+     "https://groups.google.com/g/rustlang-security-announcements/c/5DVtC8pgJLw?pli=1",
+     "https://raw.globalsecuritydatabase.org/GSD-2022-1002520",
+     "https://rustsec.org/advisories/RUSTSEC-2022-0042.html"
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 0,
+    "description": "`rustdecimal` is a malicious crate",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "rustdecimal",
+    "version": "0.1.0",
+    "type": "rust-crate"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-g86j-hwg9-77q5",
+    "namespace": "github:language:python",
+    "severity": "High",
+    "urls": [
+     "https://pypi.org/project/SentinelOne/",
+     "https://www.reversinglabs.com/blog/sentinelsneak-malicious-pypi-module-poses-as-security-sdk"
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 0,
+    "description": "SentinelOne impersonated via PyPI packages",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "sentinelone",
+    "version": "1.0.0",
+    "type": "python"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-2r6g-7r83-jg72",
+    "namespace": "github:language:python",
+    "severity": "High",
+    "urls": [
+     "https://github.com/pypa/advisory-database/tree/main/vulns/spam/PYSEC-2022-251.yaml",
+     "https://twitter.com/pypi/status/1562442207079976966"
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 0,
+    "description": "`spam` project on PyPI compromised, malicious releases made",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "spam",
+    "version": "2.0.2",
+    "type": "python"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-g3j5-mpp2-2fqm",
+    "namespace": "github:language:php",
+    "severity": "High",
+    "urls": [
+     "https://github.com/FriendsOfPHP/security-advisories/blob/master/symfont/process/2021-09-10.yaml",
+     "https://www.kernelmode.blog/typosquatting-malware-found-in-composer-repository/"
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 0,
+    "description": "symfont/process typosquatting malware spoofs symfony/process",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "symfont/process",
+    "version": "1.0.0",
+    "type": "php-composer"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-cg89-rrrm-gf58",
+    "namespace": "github:language:python",
+    "severity": "High",
+    "urls": [
+     "https://pypi.org/project/test-async",
+     "https://research.checkpoint.com/2022/cloudguard-spectral-detects-several-malicious-packages-on-pypi-the-official-software-repository-for-python-developers/"
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 0,
+    "description": "test-async malicious PyPI package",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "test-async",
+    "version": "1.0.0",
+    "type": "python"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-h5vj-f7r9-w564",
+    "namespace": "github:language:javascript",
+    "severity": "High",
+    "urls": [
+     "https://www.npmjs.com/advisories/738"
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 0,
+    "description": "Entropy Backdoor in text-qrcode",
+    "cvss": [
+     {
+      "version": "3.1",
+      "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+      "metrics": {
+       "baseScore": 9.8
+      }
+     }
+    ]
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "text-qrcode",
+    "version": "1.0.0",
+    "type": "npm"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-58g2-rgrr-6q9r",
+    "namespace": "github:language:python",
+    "severity": "High",
+    "urls": [
+     "https://pypi.org/project/WINRPCexploit/",
+     "https://research.checkpoint.com/2022/cloudguard-spectral-detects-several-malicious-packages-on-pypi-the-official-software-repository-for-python-developers/"
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 0,
+    "description": "WINRPCexploit malicious PyPI package",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "winrpcexploit",
+    "version": "1.0.0",
+    "type": "python"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-h82j-8jxm-68qp",
+    "namespace": "github:language:python",
+    "severity": "High",
+    "urls": [
+     "https://pypi.org/project/zlibsrc",
+     "https://research.checkpoint.com/2022/cloudguard-spectral-detects-several-malicious-packages-on-pypi-the-official-software-repository-for-python-developers/"
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 0,
+    "description": "zlibsrc malicious PyPI package",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "zlibsrc",
+    "version": "1.0.0",
+    "type": "python"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-jgg6-4rpr-wfh7",
+    "namespace": "github:language:javascript",
+    "severity": "Low",
+    "urls": [
+     "https://github.com/mistralai/client-ts/security/advisories/GHSA-jgg6-4rpr-wfh7"
+    ],
+    "fix": {
+     "versions": [],
+     "state": "not-fixed"
+    },
+    "risk": 0,
+    "description": "Broken dropper in @mistralai/mistralai, @mistralai/mistralai-azure, @mistralai/mistralai-gcp",
+    "cvss": [
+     {
+      "version": "3.1",
+      "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:N",
+      "metrics": {
+       "baseScore": 0
+      }
+     }
+    ]
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "@mistralai/mistralai",
+    "version": "2.2.2",
+    "type": "npm"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-9ppg-jx86-fqw7",
+    "namespace": "github:language:javascript",
+    "severity": "Low",
+    "urls": [
+     "https://github.com/cline/cline/security/advisories/GHSA-9ppg-jx86-fqw7",
+     "https://github.com/ossf/malicious-packages/blob/4012598c9b06e58935bd8883f7a0cd37c3130664/osv/malicious/npm/cline/MAL-2026-1380.json"
+    ],
+    "fix": {
+     "versions": [
+      "2.4.0"
+     ],
+     "state": "fixed",
+     "available": [
+      {
+       "version": "2.4.0",
+       "date": "2026-03-04",
+       "kind": "first-observed"
+      }
+     ]
+    },
+    "risk": 0,
+    "description": "Unauthorized npm publish of cline@2.3.0 with modified postinstall script",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "cline",
+    "version": "2.3.0",
+    "type": "npm"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-457r-cqc8-9vj9",
+    "namespace": "github:language:javascript",
+    "severity": "Low",
+    "urls": [
+     "https://github.com/sweetalert2/sweetalert2/releases/tag/v11.4.9",
+     "https://www.npmjs.com/package/sweetalert2"
+    ],
+    "fix": {
+     "versions": [
+      "11.22.4"
+     ],
+     "state": "fixed",
+     "available": [
+      {
+       "version": "11.22.4",
+       "date": "2025-08-26",
+       "kind": "first-observed"
+      }
+     ]
+    },
+    "risk": 0,
+    "description": "sweetalert2 v10.16.10 and above contains hidden functionality",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "sweetalert2",
+    "version": "10.16.10",
+    "type": "npm"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-qq6h-5g6j-q3cm",
+    "namespace": "github:language:javascript",
+    "severity": "Low",
+    "urls": [
+     "https://github.com/sweetalert2/sweetalert2/releases/tag/v11.4.9",
+     "https://www.npmjs.com/package/sweetalert2"
+    ],
+    "fix": {
+     "versions": [
+      "11.22.4"
+     ],
+     "state": "fixed",
+     "available": [
+      {
+       "version": "11.22.4",
+       "date": "2025-08-26",
+       "kind": "first-observed"
+      }
+     ]
+    },
+    "risk": 0,
+    "description": "sweetalert2 v11.4.9 and above contains hidden functionality",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "sweetalert2",
+    "version": "11.4.9",
+    "type": "npm"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-8jh9-wqpf-q52c",
+    "namespace": "github:language:javascript",
+    "severity": "Low",
+    "urls": [
+     "https://github.com/sweetalert2/sweetalert2/releases/tag/v11.4.9",
+     "https://www.npmjs.com/package/sweetalert2",
+     "https://github.com/sweetalert2/sweetalert2/releases/tag/v11.22.4"
+    ],
+    "fix": {
+     "versions": [
+      "11.22.4"
+     ],
+     "state": "fixed",
+     "available": [
+      {
+       "version": "11.22.4",
+       "date": "2025-09-25",
+       "kind": "first-observed"
+      }
+     ]
+    },
+    "risk": 0,
+    "description": "sweetalert2 v8.19.1 and above contains hidden functionality",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "sweetalert2",
+    "version": "8.19.1",
+    "type": "npm"
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-pg98-6v7f-2xfv",
+    "namespace": "github:language:javascript",
+    "severity": "Low",
+    "urls": [
+     "https://github.com/sweetalert2/sweetalert2/releases/tag/v11.4.9",
+     "https://www.npmjs.com/package/sweetalert2"
+    ],
+    "fix": {
+     "versions": [
+      "11.22.4"
+     ],
+     "state": "fixed",
+     "available": [
+      {
+       "version": "11.22.4",
+       "date": "2025-09-25",
+       "kind": "first-observed"
+      }
+     ]
+    },
+    "risk": 0,
+    "description": "sweetalert2 v9.17.4 and above contains hidden functionality",
+    "cvss": []
+   },
+   "relatedVulnerabilities": [],
+   "artifact": {
+    "name": "sweetalert2",
+    "version": "9.17.4",
+    "type": "npm"
+   }
+  }
+ ]
+}

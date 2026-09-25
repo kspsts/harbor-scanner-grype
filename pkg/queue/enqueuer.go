@@ -3,8 +3,8 @@ package queue
 import (
 	"context"
 	"encoding/json"
-	"fmt"
 	"log/slog"
+	"time"
 
 	"github.com/google/uuid"
 	"github.com/redis/go-redis/v9"
@@ -21,30 +21,19 @@ type Enqueuer interface {
 	Enqueue(ctx context.Context, request harbor.ScanRequest) (string, error)
 }
 
-type Job struct {
-	Key  job.ScanJobKey
-	Args Args
-}
-
-type Args struct {
-	ScanRequest *harbor.ScanRequest
-}
-
-func (j Job) ID() string {
-	return j.Key.ID
-}
-
 type enqueuer struct {
-	namespace string
-	rdb       *redis.Client
-	store     persistence.Store
+	namespace   string
+	rdb         *redis.Client
+	store       persistence.Store
+	pollTimeout time.Duration
 }
 
-func NewEnqueuer(config etc.JobQueue, rdb *redis.Client, store persistence.Store) Enqueuer {
+func NewEnqueuer(config etc.JobQueue, rdb *redis.Client, store persistence.Store, pollTimeout time.Duration) Enqueuer {
 	return &enqueuer{
-		namespace: config.Namespace,
-		rdb:       rdb,
-		store:     store,
+		namespace:   config.Namespace,
+		rdb:         rdb,
+		store:       store,
+		pollTimeout: pollTimeout,
 	}
 }
 
@@ -54,7 +43,6 @@ func (e *enqueuer) Enqueue(ctx context.Context, request harbor.ScanRequest) (str
 	// Determine media type and MIME type from capabilities
 	var mediaType api.MediaType
 	var mimeType api.MIMEType = api.MimeTypeSecurityVulnerabilityReport // default
-
 	for _, capability := range request.Capabilities {
 		if capability.Type == harbor.CapabilityTypeSBOM && capability.Parameters != nil {
 			if len(capability.Parameters.SBOMMediaTypes) > 0 {
@@ -64,45 +52,29 @@ func (e *enqueuer) Enqueue(ctx context.Context, request harbor.ScanRequest) (str
 			}
 		}
 	}
+	scanJobKey := job.ScanJobKey{ID: scanJobID, MIMEType: mimeType, MediaType: mediaType}
 
-	scanJobKey := job.ScanJobKey{
-		ID:        scanJobID,
-		MIMEType:  mimeType,
-		MediaType: mediaType,
-	}
-
-	scanJob := &job.ScanJob{
-		Key: scanJobKey,
-	}
-
-	if err := e.store.Create(ctx, scanJob); err != nil {
+	if err := e.store.Create(ctx, &job.ScanJob{Key: scanJobKey}); err != nil {
 		return "", xerrors.Errorf("creating scan job: %w", err)
 	}
-
-	job := Job{
-		Key: scanJobKey,
-		Args: Args{
-			ScanRequest: &request,
-		},
+	// Harbor starts polling for the report right away; until then the job counts as awaited.
+	if err := e.store.MarkAwaited(ctx, scanJobKey, e.pollTimeout); err != nil {
+		return "", err
 	}
 
-	jobData, err := json.Marshal(job)
+	queued := Job{Key: scanJobKey, Args: Args{ScanRequest: &request}, EnqueuedAt: time.Now().UTC()}
+	payload, err := json.Marshal(queued)
 	if err != nil {
 		return "", xerrors.Errorf("marshalling job: %w", err)
 	}
-
-	channel := redisJobChannel(e.namespace)
-	if err := e.rdb.Publish(ctx, channel, jobData).Err(); err != nil {
-		return "", xerrors.Errorf("publishing job: %w", err)
+	length, err := e.rdb.LPush(ctx, queueKey(e.namespace), payload).Result()
+	if err != nil {
+		return "", xerrors.Errorf("queueing job: %w", err)
 	}
 
-	slog.Info("Enqueued scan job",
+	slog.Info("Scan queued",
 		slog.String("scan_job_id", scanJobID),
-		slog.String("channel", channel))
-
+		slog.String("image", imageName(queued)),
+		slog.Int64("queued", length))
 	return scanJobID, nil
-}
-
-func redisJobChannel(namespace string) string {
-	return fmt.Sprintf("%s:jobs", namespace)
 }

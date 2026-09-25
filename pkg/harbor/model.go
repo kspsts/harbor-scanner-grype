@@ -4,10 +4,12 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
+	"net"
 	"net/url"
 	"os"
 	"time"
 
+	"github.com/aquasecurity/harbor-scanner-grype/pkg/etc"
 	"github.com/aquasecurity/harbor-scanner-grype/pkg/http/api"
 )
 
@@ -97,62 +99,40 @@ type ScanRequest struct {
 	Capabilities []Capability `json:"enabled_capabilities"`
 }
 
-// GetImageRef returns Docker image reference for this ScanRequest.
-// Example: core.harbor.domain/scanners/mysql@sha256:3b00a364fb74246ca119d16111eb62f7302b2ff66d51e373c2bb209f8a1f3b9e
-func (c ScanRequest) GetImageRef() (imageRef string, nonSSL bool, err error) {
+// GetImageRef returns the reference grype and syft pull, host:port/repository@digest, and whether the
+// registry speaks plain HTTP. hostMap (SCANNER_REGISTRY_HOST_MAP) replaces the registry host from
+// Harbor's request with a host[:port] the scanner can reach; a target without a port keeps the port.
+func (c ScanRequest) GetImageRef(hostMap etc.HostMap) (imageRef string, nonSSL bool, err error) {
 	registryURL, err := url.Parse(c.Registry.URL)
 	if err != nil {
-		err = fmt.Errorf("parsing registry URL: %w", err)
-		return
+		return "", false, fmt.Errorf("parsing registry URL: %w", err)
 	}
 
-	port := registryURL.Port()
-	if port == "" && registryURL.Scheme == "http" {
-		port = "80"
+	host, port := registryURL.Hostname(), registryURL.Port()
+	if port == "" {
+		switch registryURL.Scheme {
+		case "http":
+			port = "80"
+		case "https":
+			port = "443"
+		}
 	}
-	if port == "" && registryURL.Scheme == "https" {
-		port = "443"
-	}
-
-	// Use the hostname that Harbor provides in the request
-	hostname := registryURL.Hostname()
-
-	fmt.Printf("DEBUG: Original URL: %s, hostname: %s, port: %s\n", c.Registry.URL, hostname, port)
-
-	// Fix hostname to use internal Docker network names
-	// Note: For SBOM scanning, we should use the original hostname that Harbor provides
-	// because Harbor needs to access the registry using the external address
-	if hostname == "localhost" {
-		hostname = "nginx"
-		port = "8080"
-		fmt.Printf("DEBUG: Mapped localhost to nginx:8080\n")
-	} else if hostname == "harbor.corp.local" {
-		// Keep original hostname for SBOM scanning - Harbor needs external access
-		// Harbor is configured to force HTTPS, so use port 443
-		port = "443"
-		fmt.Printf("DEBUG: Keeping original hostname harbor.corp.local for SBOM scanning, using HTTPS port 443\n")
+	if target, ok := hostMap.Lookup(host); ok {
+		if targetHost, targetPort, splitErr := net.SplitHostPort(target); splitErr == nil {
+			host, port = targetHost, targetPort
+		} else {
+			host = target
+		}
 	}
 
-	// If no port specified, use default ports
-	if port == "" && registryURL.Scheme == "http" {
-		port = "80"
-	}
-	if port == "" && registryURL.Scheme == "https" {
-		port = "443"
-	}
-
-	// Format for Grype registry: hostname:port/repository
-	imageRef = fmt.Sprintf("%s:%s/%s@%s", hostname, port, c.Artifact.Repository, c.Artifact.Digest)
-
-	// Set nonSSL flag - use HTTPS for harbor.corp.local, HTTP for others
-	if hostname == "harbor.corp.local" {
-		nonSSL = false // Use HTTPS for harbor.corp.local
+	repo := fmt.Sprintf("%s@%s", c.Artifact.Repository, c.Artifact.Digest)
+	if port == "" {
+		imageRef = fmt.Sprintf("%s/%s", host, repo)
 	} else {
-		nonSSL = "http" == registryURL.Scheme
+		// net.JoinHostPort brackets host when it is an IPv6 literal, e.g. "[::1]:5000".
+		imageRef = fmt.Sprintf("%s/%s", net.JoinHostPort(host, port), repo)
 	}
-
-	fmt.Printf("DEBUG: Final imageRef: %s\n", imageRef)
-	return
+	return imageRef, registryURL.Scheme == "http", nil
 }
 
 type ScanResponse struct {

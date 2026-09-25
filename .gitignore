@@ -67,9 +67,6 @@ node_modules/
 # dotenv environment variables file
 .env
 
-# Docker
-.dockerignore
-
 # Kubernetes
 *.yaml.bak
 *.yml.bak
@@ -80,3 +77,7 @@ charts/*.tgz
 # Temporary files
 tmp/
 temp/
+
+# vulnerability DB placed next to the Dockerfile for an offline build
+grype-db.tar.zst
+.env
